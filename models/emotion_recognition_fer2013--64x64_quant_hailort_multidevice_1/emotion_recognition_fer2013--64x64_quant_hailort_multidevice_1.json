@@ -1,0 +1,35 @@
+{
+    "ConfigVersion": 6,
+    "Checksum": "d7268ac757bcd59bac4eb08a51f0911fb1c8259faacb64db6677f27e86e8d975",
+    "DEVICE": [
+        {
+            "DeviceType": "HAILO8L",
+            "RuntimeAgent": "HAILORT",
+            "ThreadPackSize": 6,
+            "SupportedDeviceTypes": "HAILORT/HAILO8L, HAILORT/HAILO8"
+        }
+    ],
+    "PRE_PROCESS": [
+        {
+            "InputN": 1,
+            "InputPadMethod": "crop-last",
+            "InputH": 64,
+            "InputW": 64,
+            "InputC": 3,
+            "InputQuantEn": true
+        }
+    ],
+    "MODEL_PARAMETERS": [
+        {
+            "ModelPath": "emotion_recognition_fer2013--64x64_quant_hailort_multidevice_1.hef"
+        }
+    ],
+    "POST_PROCESS": [
+        {
+            "OutputPostprocessType": "Classification",
+            "OutputNumClasses": 8,
+            "LabelsPath": "labels_emotion_recognition_fer2013.json",
+            "OutputTopK": 5
+        }
+    ]
+}

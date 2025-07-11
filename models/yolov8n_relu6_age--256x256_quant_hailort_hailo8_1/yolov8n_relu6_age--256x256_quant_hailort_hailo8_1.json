@@ -1,0 +1,36 @@
+{
+    "ConfigVersion": 6,
+    "Checksum": "30292c3665dd953843489ef5de2545e53a359385240cacab3399adc2a8a125cc",
+    "DEVICE": [
+        {
+            "DeviceType": "HAILO8",
+            "RuntimeAgent": "HAILORT",
+            "SupportedDeviceTypes": "HAILORT/HAILO8"
+        }
+    ],
+    "PRE_PROCESS": [
+        {
+            "InputN": 1,
+            "InputPadMethod": "crop-last",
+            "InputH": 256,
+            "InputW": 256,
+            "InputC": 3,
+            "InputQuantEn": true
+        }
+    ],
+    "MODEL_PARAMETERS": [
+        {
+            "ModelPath": "yolov8n_relu6_age--256x256_quant_hailort_hailo8_1.hef"
+        }
+    ],
+    "POST_PROCESS": [
+        {
+            "OutputPostprocessType": "Classification",
+            "OutputNumClasses": 1,
+            "LabelsPath": "labels_yolov8n_reg_relu6_age.json",
+            "RegScale": 15.666666666666666,
+            "RegOffset": 1,
+            "PythonFile": "regression.py"
+        }
+    ]
+}

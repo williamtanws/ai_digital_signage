@@ -49,3 +49,10 @@ Troubleshooting
 ===========================================
 // Command to see all the connected devices
 sudo i2cdetect -y 1
+
+
+Useful commands
+===========================================
+git add .
+git commit -m "Init"
+git push origin main

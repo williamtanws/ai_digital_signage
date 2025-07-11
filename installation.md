@@ -20,3 +20,32 @@ Running Jupyter
 ===========================================
 source ai_digital_signage_env/bin/activate
 jupyter notebook
+
+
+UPS Installation
+===========================================
+chmod +x /home/william/ai_digital_signage/ups/ups_shutdown.py
+sudo nano /etc/systemd/system/ups-shutdown.service
+
+[Unit]
+Description=Auto Shutdown on Low Battery (X1200 UPS)
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /home/william/ai_digital_signage/ups/ups_shutdown.py
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
+
+sudo systemctl daemon-reexec
+sudo systemctl daemon-reload
+sudo systemctl enable ups-shutdown.service
+sudo systemctl start ups-shutdown.service
+
+Troubleshooting
+===========================================
+// Command to see all the connected devices
+sudo i2cdetect -y 1

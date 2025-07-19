@@ -1,0 +1,32 @@
+{
+    "ConfigVersion": 6,
+    "Checksum": "",
+    "DEVICE": [
+        {
+            "DeviceType": "HAILO8",
+            "RuntimeAgent": "HAILORT",
+            "ThreadPackSize": 1,
+            "SupportedDeviceTypes": "HAILORT/HAILO8"
+        }
+    ],
+    "PRE_PROCESS": [
+        {
+            "InputN": 1,
+            "InputPadMethod": "crop-last",
+            "InputH": 120,
+            "InputW": 120,
+            "InputC": 3,
+            "InputQuantEn": true
+        }
+    ],
+    "MODEL_PARAMETERS": [
+        {
+            "ModelPath": "tddfa_mobilenet_v1--120x120_quant_hailort_hailo8_1.hef"
+        }
+    ],
+    "POST_PROCESS": [
+        {
+            "OutputPostprocessType": "Raw"
+        }
+    ]
+}

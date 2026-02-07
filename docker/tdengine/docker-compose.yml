@@ -1,0 +1,19 @@
+services:
+  tdengine:
+    image: tdengine/tsdb
+    container_name: tdengine-tsdb
+    environment:
+      - ADMINER_DEFAULT_SERVER=db
+      - ADMINER_DEFAULT_HOST=db
+      - ADMINER_DEFAULT_USER=root
+      - ADMINER_DEFAULT_PASSWORD=123456
+    volumes:
+      - ./data:/var/lib/taos
+      - ./log:/var/log/taos
+    ports:
+      - 6030:6030
+      - 6041:6041
+      - 6043:6043
+      - 6044-6049:6044-6049
+      - 6044-6045:6044-6045/udp
+      - 6060:6060

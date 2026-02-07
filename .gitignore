@@ -210,3 +210,4 @@ __marimo__/
 logs/
 *.log
 ai_digital_signage_env/
+data/

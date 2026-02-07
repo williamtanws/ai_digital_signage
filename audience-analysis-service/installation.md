@@ -30,8 +30,8 @@ sudo apt install -y \
 Create and activate the project virtual environment using system site packages to ensure compatibility with Raspberry Pi camera drivers.
 
 ```bash
-python3 -m venv ai_digital_signage_env --system-site-packages
-source ai_digital_signage_env/bin/activate
+python3 -m venv audience-analysis_env --system-site-packages
+source audience-analysis_env/bin/activate
 ```
 
 Upgrade core Python tooling:
@@ -64,14 +64,14 @@ Register the virtual environment as a Jupyter kernel:
 
 ```bash
 python -m ipykernel install --user \
-  --name=ai_digital_signage_env \
-  --display-name "Python (ai_digital_signage_env)"
+  --name=audience-analysis_env \
+  --display-name "Python (analysis_env)"
 ```
 
 Launch Jupyter Notebook:
 
 ```bash
-source ai_digital_signage_env/bin/activate
+source audience-analysis_env/bin/activate
 jupyter notebook
 ```
 

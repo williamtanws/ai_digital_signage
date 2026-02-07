@@ -1,0 +1,82 @@
+2025-08-08 10:27:02,142 [INFO] Resources released. Exiting.
+2025-08-08 10:37:10,866 [ERROR] Error occurred during the inference loop
+degirum.exceptions.DegirumException: [ERROR]Timeout detected
+Timeout waiting for inference completion
+dg_core_runtime.cpp: 89 [DG::CoreRuntimeAsync::wait]
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/tmp/ipykernel_135730/2223847623.py", line 479, in <module>
+    for results in run_inference(video_source):
+  File "/tmp/ipykernel_135730/2223847623.py", line 262, in run_inference
+    "age":     face_age_model.predict(frame),
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/william/ai_digital_signage/ai_digital_signage_env/lib/python3.11/site-packages/degirum_tools/compound_models.py", line 212, in predict
+    for result in self.predict_batch([data]):
+  File "/home/william/ai_digital_signage/ai_digital_signage_env/lib/python3.11/site-packages/degirum_tools/compound_models.py", line 712, in predict_batch
+    for result in super().predict_batch(data):
+  File "/home/william/ai_digital_signage/ai_digital_signage_env/lib/python3.11/site-packages/degirum_tools/compound_models.py", line 365, in predict_batch
+    for result1 in self.model1.predict_batch(data):
+  File "/home/william/ai_digital_signage/ai_digital_signage_env/lib/python3.11/site-packages/degirum/model.py", line 291, in predict_batch
+    for res in self._predict_impl(source):
+  File "/home/william/ai_digital_signage/ai_digital_signage_env/lib/python3.11/site-packages/degirum/model.py", line 1231, in _predict_impl
+    raise DegirumException(msg) from saved_exception
+degirum.exceptions.DegirumException: Failed to perform model 'retinaface_mobilenet--736x1280_quant_hailort_hailo8_1' inference: [ERROR]Timeout detected
+Timeout waiting for inference completion
+dg_core_runtime.cpp: 89 [DG::CoreRuntimeAsync::wait]
+
+2025-08-08 10:37:10,875 [INFO] Resources released. Exiting.
+2025-08-08 10:41:14,177 [ERROR] Failed to load model
+Traceback (most recent call last):
+  File "/tmp/ipykernel_135730/3064132839.py", line 448, in <module>
+    tddfa_model = dg.load_model(
+                  ^^^^^^^^^^^^^^
+  File "/home/william/ai_digital_signage/ai_digital_signage_env/lib/python3.11/site-packages/degirum/__init__.py", line 222, in load_model
+    return zoo.load_model(model_name, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/william/ai_digital_signage/ai_digital_signage_env/lib/python3.11/site-packages/degirum/log.py", line 84, in wrap
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/william/ai_digital_signage/ai_digital_signage_env/lib/python3.11/site-packages/degirum/zoo_manager.py", line 319, in load_model
+    model = self._zoo.load_model(model_name)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/william/ai_digital_signage/ai_digital_signage_env/lib/python3.11/site-packages/degirum/log.py", line 84, in wrap
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/william/ai_digital_signage/ai_digital_signage_env/lib/python3.11/site-packages/degirum/_zoo_accessor.py", line 314, in load_model
+    model_params = self.model_info(model)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/william/ai_digital_signage/ai_digital_signage_env/lib/python3.11/site-packages/degirum/log.py", line 84, in wrap
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/william/ai_digital_signage/ai_digital_signage_env/lib/python3.11/site-packages/degirum/_zoo_accessor.py", line 132, in model_info
+    raise DegirumException(
+degirum.exceptions.DegirumException: Model 'tddfa_mobilenet_v1--120x120_quant_hailort_hailo8_1' is not found in model zoo '../models'
+2025-08-08 11:19:48,663 [ERROR] Failed to load model
+Traceback (most recent call last):
+  File "/tmp/ipykernel_135730/1919502386.py", line 316, in <module>
+    widerface_model = dg.load_model(widerface_model_name, inference_host_address, zoo_url, token, device_type)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: load_model() takes from 2 to 4 positional arguments but 5 were given
+2025-08-08 11:23:40,882 [ERROR] Failed to load model
+Traceback (most recent call last):
+  File "/tmp/ipykernel_144003/1098302063.py", line 316, in <module>
+    widerface_model = dg.load_model(
+                      ^^^^^^^^^^^^^^
+  File "/home/william/ai_digital_signage/ai_digital_signage_env/lib/python3.11/site-packages/degirum/__init__.py", line 222, in load_model
+    return zoo.load_model(model_name, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/william/ai_digital_signage/ai_digital_signage_env/lib/python3.11/site-packages/degirum/log.py", line 84, in wrap
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/william/ai_digital_signage/ai_digital_signage_env/lib/python3.11/site-packages/degirum/zoo_manager.py", line 319, in load_model
+    model = self._zoo.load_model(model_name)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/william/ai_digital_signage/ai_digital_signage_env/lib/python3.11/site-packages/degirum/log.py", line 84, in wrap
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/william/ai_digital_signage/ai_digital_signage_env/lib/python3.11/site-packages/degirum/_zoo_accessor.py", line 319, in load_model
+    raise DegirumException(
+degirum.exceptions.DegirumException: Model 'yolov8n_relu6_widerface_kpts--640x640_quant_hailort_hailo8_1' does not have any supported runtime/device combinations that will work on this system.

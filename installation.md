@@ -1,40 +1,74 @@
-# AI Digital Signage Installation Guide (Raspberry Pi 5 + X1200 UPS)
+# AI Digital Signage Installation Guide  
+(Raspberry Pi 5 + Hailo-8 + X1200 UPS)
 
-This guide covers the setup of Python libraries, project environment, Jupyter, and UPS auto-shutdown service for the AI Digital Signage system.
+This guide covers operating system dependencies, Python environment setup, AI project installation, Jupyter integration, environmental sensors (BME688), USB microphone support for ambient noise measurement, and UPS auto-shutdown configuration for the AI Digital Signage system.
 
 ---
 
-## 1. Python and Picamera2 Libraries Installation
+## 1. System Dependencies Installation
+
+Update the system and install required native libraries for camera access, AI inference, audio input, and numerical computation.
 
 ```bash
 sudo apt update
-sudo apt install -y libcamera-dev python3-pyqt5 libatlas-base-dev libcap-dev
-pip install --upgrade pip setuptools
-pip install picamera2
+sudo apt install -y \
+  libcamera-dev \
+  python3-pyqt5 \
+  libatlas-base-dev \
+  libcap-dev \
+  portaudio19-dev \
+  libportaudio2
 ```
+
+**Note**  
+`portaudio19-dev` and `libportaudio2` are required to enable USB microphone access via Python for ambient noise (dB) measurement.
 
 ---
 
-## 2. Project Installation
+## 2. Python Environment Setup
+
+Create and activate the project virtual environment using system site packages to ensure compatibility with Raspberry Pi camera drivers.
 
 ```bash
 python3 -m venv ai_digital_signage_env --system-site-packages
 source ai_digital_signage_env/bin/activate
+```
+
+Upgrade core Python tooling:
+
+```bash
+pip install --upgrade pip setuptools
+```
+
+---
+
+## 3. Project Dependency Installation
+
+Install all project-specific Python dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
 
----
-
-## 3. Enable Virtual Environment in Jupyter
+Install additional camera, sensor, and audio libraries:
 
 ```bash
-python -m ipykernel install --user --name=ai_digital_signage_env --display-name "Python (ai_digital_signage_env)"
-pip install bme680
+pip install picamera2 bme680 sounddevice
 ```
 
 ---
 
-## 4. Running Jupyter Notebook
+## 4. Jupyter Notebook Integration
+
+Register the virtual environment as a Jupyter kernel:
+
+```bash
+python -m ipykernel install --user \
+  --name=ai_digital_signage_env \
+  --display-name "Python (ai_digital_signage_env)"
+```
+
+Launch Jupyter Notebook:
 
 ```bash
 source ai_digital_signage_env/bin/activate
@@ -43,15 +77,44 @@ jupyter notebook
 
 ---
 
-## 5. EEPROM Configuration for UPS Compatibility
+## 5. USB Microphone Verification (Ambient Noise Measurement)
 
-Edit the EEPROM settings for power stability and safe shutdown with X1200 UPS:
+Verify that the USB microphone is detected by the operating system:
+
+```bash
+arecord -l
+```
+
+Expected output example:
+
+```
+card 0: Device [USB PnP Sound Device], device 0: USB Audio
+```
+
+Verify microphone availability in Python:
+
+```bash
+python - <<EOF
+import sounddevice as sd
+print(sd.query_devices())
+EOF
+```
+
+**Note**  
+The USB microphone is used **only** to measure ambient noise level (dB) as an environmental context indicator.  
+No audio recording, speech recognition, or audio content analysis is performed.
+
+---
+
+## 6. EEPROM Configuration for UPS Compatibility
+
+Edit EEPROM settings to ensure power stability and safe shutdown with the X1200 UPS:
 
 ```bash
 sudo rpi-eeprom-config -e
 ```
 
-Append or update the following in the config file:
+Append or update the following parameters:
 
 ```ini
 BOOT_UART=1
@@ -60,7 +123,7 @@ BOOT_ORDER=0xf41
 PSU_MAX_CURRENT=5000
 ```
 
-Then apply the changes:
+Apply the changes:
 
 ```bash
 sudo reboot
@@ -68,7 +131,7 @@ sudo reboot
 
 ---
 
-## 6. UPS Auto Shutdown Setup (X1200 Series)
+## 7. UPS Auto-Shutdown Setup (X1200 Series)
 
 ### Make the Shutdown Script Executable
 
@@ -82,7 +145,7 @@ chmod +x /home/william/ai_digital_signage/ups/ups_shutdown.py
 sudo nano /etc/systemd/system/ups-shutdown.service
 ```
 
-Paste the following content:
+Paste the following configuration:
 
 ```ini
 [Unit]
@@ -110,9 +173,9 @@ sudo systemctl start ups-shutdown.service
 
 ---
 
-## 7. Troubleshooting
+## 8. Sensor & Hardware Troubleshooting
 
-### Detect Connected I2C Devices
+Detect connected I2C devices (BME688, UPS):
 
 ```bash
 sudo i2cdetect -y 1
@@ -120,10 +183,20 @@ sudo i2cdetect -y 1
 
 ---
 
-## 8. Useful Git Commands
+## 9. Useful Git Commands
 
 ```bash
 git add .
-git commit -m "Init"
+git commit -m "Initial setup and environment configuration"
 git push origin main
 ```
+
+---
+
+## Dissertation and Privacy Notes
+
+- Ambient noise level is captured using a USB microphone and expressed as approximate sound pressure level (dB).
+- Audio signals are processed transiently in memory without storage or content analysis.
+- The system adheres to **edge-only processing** and **privacy-by-design** principles suitable for Malaysian SME F&B environments.
+
+---

@@ -1,0 +1,252 @@
+# Production Environment Configuration
+# AWS RDS Aurora PostgreSQL (Multi-AZ), ElastiCache Redis Cluster, Confluent Kafka (SCC+)
+# Multi-Availability Zone (2 AZs) with Disaster Recovery
+# Dynatrace Monitoring, Customer Managed Keys (KMS)
+
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://sat-agent-prod.cluster-xxxxxx.eu-central-1.rds.amazonaws.com:5432/sat_agent}
+    driver-class-name: org.postgresql.Driver
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 50
+      minimum-idle: 10
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      leak-detection-threshold: 60000
+      connection-test-query: SELECT 1
+      pool-name: SatAgentHikariCP
+      auto-commit: false
+      read-only: false
+  
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: public
+        jdbc:
+          batch_size: 50
+        order_inserts: true
+        order_updates: true
+        connection:
+          provider_disables_autocommit: true
+  
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:pkc-xxxxx.eu-central-1.aws.confluent.cloud:9092}
+    consumer:
+      group-id: sat-agent-service-prod
+      enable-auto-commit: false
+      max-poll-records: 500
+    producer:
+      compression-type: lz4
+      batch-size: 32768
+      linger-ms: 20
+      buffer-memory: 67108864
+    properties:
+      security.protocol: SASL_SSL
+      sasl.mechanism: PLAIN
+      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username="${KAFKA_API_KEY}" password="${KAFKA_API_SECRET}";
+      ssl.endpoint.identification.algorithm: https
+  
+  data:
+    redis:
+      host: ${REDIS_HOST:sat-agent-prod.xxxxxx.cache.amazonaws.com}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD}
+      ssl:
+        enabled: true
+      timeout: 3000ms
+      lettuce:
+        pool:
+          max-active: 20
+          max-idle: 10
+          min-idle: 5
+          max-wait: 2000ms
+        shutdown-timeout: 200ms
+      cluster:
+        nodes: ${REDIS_CLUSTER_NODES}
+        max-redirects: 3
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+  shutdown: graceful
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
+    min-response-size: 1024
+  forward-headers-strategy: native
+  tomcat:
+    threads:
+      max: 200
+      min-spare: 10
+    connection-timeout: 20000
+    max-connections: 10000
+    accept-count: 100
+
+spring.lifecycle:
+  timeout-per-shutdown-phase: 30s
+
+logging:
+  level:
+    root: WARN
+    io.jeecloud.aidigitalsignage: INFO
+    org.springframework.web: WARN
+    org.springframework.kafka: WARN
+    org.hibernate.SQL: WARN
+  file:
+    name: /var/log/sat-agent-service/application.log
+    max-size: 100MB
+    max-history: 30
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{traceId}/%X{spanId}] [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{traceId}/%X{spanId}] [%thread] %-5level %logger{36} - %msg%n"
+
+management:
+  endpoint:
+    health:
+      show-details: never
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: health,info,metrics,prometheus
+  health:
+    db:
+      enabled: true
+    redis:
+      enabled: true
+    diskspace:
+      enabled: true
+      threshold: 10GB
+  metrics:
+    tags:
+      application: ${spring.application.name}
+      environment: production
+      region: ${AWS_REGION:eu-central-1}
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+
+# Application-specific properties
+sat:
+  agent:
+    cache:
+      ttl: 7200  # 2 hours
+      prefix: "prod:agent:"
+    event:
+      topic-name: "prod.agent-events"
+      enabled: true
+  user:
+    cache:
+      ttl: 7200  # 2 hours
+      prefix: "prod:user:"
+    event:
+      topic-name: "prod.user-events"
+      enabled: true
+
+# AWS Configuration
+aws:
+  region: ${AWS_REGION:eu-central-1}
+  enabled: true
+  
+  secrets:
+    enabled: true
+    secret-name: sat-agent-service-prod
+    refresh-interval: 3600
+  
+  kms:
+    key-id: ${KMS_KEY_ID}
+    enabled: true
+  
+  cloudwatch:
+    enabled: false  # Dynatrace is primary monitoring
+
+# Dynatrace Configuration
+dynatrace:
+  enabled: true
+  environment-id: ${DYNATRACE_ENV_ID}
+  api-token: ${DYNATRACE_API_TOKEN}
+  connection-point: ${DYNATRACE_CONNECTION_POINT}
+  tags:
+    - environment:production
+    - application:sat-agent-service
+    - team:allianz-sat
+
+# Security Configuration
+security:
+  oauth2:
+    resource-server:
+      jwt:
+        issuer-uri: ${JWT_ISSUER_URI}
+        jwk-set-uri: ${JWT_JWK_SET_URI}
+  
+  # Rate Limiting
+  rate-limit:
+    enabled: true
+    requests-per-minute: 1000
+  
+  # TLS 1.3
+  ssl:
+    enabled: true
+    protocol: TLSv1.3
+    ciphers:
+      - TLS_AES_128_GCM_SHA256
+      - TLS_AES_256_GCM_SHA384
+      - TLS_CHACHA20_POLY1305_SHA256
+
+# Istio Service Mesh
+istio:
+  enabled: true
+  mtls:
+    mode: STRICT
+  
+# API Gateway
+api-gateway:
+  enabled: true
+  base-url: ${API_GATEWAY_URL}
+
+# Circuit Breaker
+resilience4j:
+  circuitbreaker:
+    instances:
+      agentService:
+        sliding-window-size: 100
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 60000
+        permitted-number-of-calls-in-half-open-state: 10
+        automatic-transition-from-open-to-half-open-enabled: true
+  
+  retry:
+    instances:
+      agentService:
+        max-attempts: 3
+        wait-duration: 1000
+  
+  timelimiter:
+    instances:
+      agentService:
+        timeout-duration: 3s
+
+# Kubernetes Health Probes
+kubernetes:
+  liveness-probe:
+    path: /actuator/health/liveness
+    initial-delay-seconds: 30
+    period-seconds: 10
+    timeout-seconds: 5
+    failure-threshold: 3
+  
+  readiness-probe:
+    path: /actuator/health/readiness
+    initial-delay-seconds: 20
+    period-seconds: 5
+    timeout-seconds: 3
+    failure-threshold: 3

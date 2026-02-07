@@ -1,0 +1,135 @@
+{
+  "totalAudience": 1247,
+  "totalViews": 3856,
+  "totalAds": 12,
+  "avgViewSeconds": 24.5,
+  "ageDistribution": {
+    "children": 150,
+    "teenagers": 225,
+    "youngAdults": 437,
+    "midAged": 312,
+    "seniors": 123
+  },
+  "genderDistribution": {
+    "male": 648,
+    "female": 599
+  },
+  "emotionDistribution": {
+    "neutral": 561,
+    "serious": 312,
+    "happy": 274,
+    "surprised": 100
+  },
+  "adsPerformance": [
+    {
+      "adName": "Summer Sale 2026",
+      "totalViewers": 485
+    },
+    {
+      "adName": "New Product Launch",
+      "totalViewers": 432
+    },
+    {
+      "adName": "Tech Gadgets",
+      "totalViewers": 356
+    },
+    {
+      "adName": "Fashion Collection",
+      "totalViewers": 328
+    },
+    {
+      "adName": "Food & Dining",
+      "totalViewers": 295
+    },
+    {
+      "adName": "Travel Packages",
+      "totalViewers": 267
+    },
+    {
+      "adName": "Home Appliances",
+      "totalViewers": 234
+    },
+    {
+      "adName": "Sports Equipment",
+      "totalViewers": 212
+    },
+    {
+      "adName": "Beauty Products",
+      "totalViewers": 198
+    },
+    {
+      "adName": "Books & Media",
+      "totalViewers": 187
+    },
+    {
+      "adName": "Pet Supplies",
+      "totalViewers": 156
+    },
+    {
+      "adName": "Health Supplements",
+      "totalViewers": 143
+    }
+  ],
+  "adsAttention": [
+    {
+      "adName": "Summer Sale 2026",
+      "lookYes": 388,
+      "lookNo": 97
+    },
+    {
+      "adName": "New Product Launch",
+      "lookYes": 346,
+      "lookNo": 86
+    },
+    {
+      "adName": "Tech Gadgets",
+      "lookYes": 227,
+      "lookNo": 129
+    },
+    {
+      "adName": "Fashion Collection",
+      "lookYes": 197,
+      "lookNo": 131
+    },
+    {
+      "adName": "Food & Dining",
+      "lookYes": 177,
+      "lookNo": 118
+    },
+    {
+      "adName": "Travel Packages",
+      "lookYes": 160,
+      "lookNo": 107
+    },
+    {
+      "adName": "Home Appliances",
+      "lookYes": 117,
+      "lookNo": 117
+    },
+    {
+      "adName": "Sports Equipment",
+      "lookYes": 106,
+      "lookNo": 106
+    },
+    {
+      "adName": "Beauty Products",
+      "lookYes": 89,
+      "lookNo": 109
+    },
+    {
+      "adName": "Books & Media",
+      "lookYes": 84,
+      "lookNo": 103
+    },
+    {
+      "adName": "Pet Supplies",
+      "lookYes": 62,
+      "lookNo": 94
+    },
+    {
+      "adName": "Health Supplements",
+      "lookYes": 57,
+      "lookNo": 86
+    }
+  ]
+}

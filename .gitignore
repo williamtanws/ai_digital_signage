@@ -209,5 +209,5 @@ __marimo__/
 # Ignore logs folder and Python virtual environment
 logs/
 *.log
-ai_digital_signage_env/
+audience-analysis_env/
 data/

@@ -13030,3 +13030,684 @@
 02/08 12:01:16.109209 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
 02/08 12:01:26.109044 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
 02/08 12:01:36.109420 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:01:46.075452 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:01:56.075744 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:02:06.075737 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:02:16.042621 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:02:26.041927 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:02:36.042453 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:02:46.005146 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:02:56.006056 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:03:06.005410 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:03:08.679136 00000159 C SYN INFO  vgId:1, timer routines, sync:leader, term:1, commit-index:100, assigned-index:0, applied-index:100, first-ver:0, last-ver:100, min:-1, snap:24, snap-term:1, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:-1, snaping:-1, replicas:1, last-cfg:-1, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 100 100, 101), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:23:06.642:0}, recv hb-reply:{0:2026-02-08 11:23:06.642:0}, arb-token:d1#g1#1770549786630#467, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:03:14.395710 00000443 C SYN INFO  vgId:2, timer routines, sync:leader, term:1, commit-index:987, assigned-index:0, applied-index:987, first-ver:0, last-ver:987, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[731 987 987, 988), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:23:12.338:0}, recv hb-reply:{0:2026-02-08 11:23:12.338:0}, arb-token:d1#g2#1770549792331#989, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:03:15.972250 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:03:25.971917 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:03:35.972543 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:03:45.936554 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:03:55.936859 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:04:05.936804 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:04:15.905389 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:04:25.905165 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:04:31.578533 00000916 C SYN INFO  vgId:4, timer routines, sync:leader, term:1, commit-index:29, assigned-index:0, applied-index:29, first-ver:0, last-ver:29, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 29 29, 30), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:24:29.480:0}, recv hb-reply:{0:2026-02-08 11:24:29.480:0}, arb-token:d1#g4#1770549869472#162, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:04:31.578544 00000915 C SYN INFO  vgId:3, timer routines, sync:leader, term:1, commit-index:33, assigned-index:0, applied-index:33, first-ver:0, last-ver:33, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 33 33, 34), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:24:29.479:0}, recv hb-reply:{0:2026-02-08 11:24:29.479:0}, arb-token:d1#g3#1770549869471#71, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:04:35.905176 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:04:45.869642 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:04:55.869739 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:05:00.005822 00000158 C MND INFO  update cluster uptime to 2700
+02/08 12:05:00.005876 00000158 C MND INFO  trans:50, create transaction:update-uptime, origin:update-uptime
+02/08 12:05:00.005880 00000158 C MND INFO  trans:50, action list:
+02/08 12:05:00.005883 00000158 C MND INFO  trans:50, action:0, commitAction:0 sdbType:cluster, sdbStatus:ready
+02/08 12:05:00.005885 00000158 C MND INFO  trans:50, prepare transaction
+02/08 12:05:00.005890 00000158 C MND INFO  trans:50, sync to other mnodes, stage:prepare createTime:1770552300005
+02/08 12:05:00.005893 00000158 C MND INFO  trans:50, will be proposed
+02/08 12:05:00.005908 00000158 C MND INFO  trans:50, is proposing and wait sem, seq:101
+02/08 12:05:00.007883 00000159 C MND INFO  trans:50, process sync proposal, saved:50 code:0x0, apply index:101 term:1 config:-1 role:leader raw:0x7f632c09453e sec:1770552299 seq:101
+02/08 12:05:00.007945 00000159 C MND INFO  trans:50, perform insert action, row:0x7f632c09513c stage:prepare, callfunc:1, startFunc:0
+02/08 12:05:00.007950 00000159 C MND INFO  trans:50, stage from prepare to redoAction
+02/08 12:05:00.007952 00000159 C MND INFO  trans:50, refresh transaction in process write msg
+02/08 12:05:00.007954 00000159 C MND INFO  trans:50, continue to execute stage:redoAction in syncContext, createTime:1770552300005
+02/08 12:05:00.007958 00000159 C MND INFO  trans:50, cannot continue to execute redo action stage in syncContext, continueExec:1, code:success
+02/08 12:05:00.007960 00000159 C MND INFO  trans:50, refresh transaction in process write msg finished
+02/08 12:05:00.007962 00000159 C MND INFO  vgId:1, mnode apply info changed from index:100 term:1 config:-1 to index:101 term:1 config:-1
+02/08 12:05:00.007965 00000159 C MND INFO  vgId:1, trans:50, release transaction
+02/08 12:05:00.007980 00000159 C MND INFO  trans:50, is proposed and post sem, seq:0
+02/08 12:05:00.008029 00000158 C MND INFO  trans:50, sync to other mnodes finished, createTime:1770552300005
+02/08 12:05:00.008073 00000158 C MND INFO  trans:50, prepare finished
+02/08 12:05:00.008078 00000158 C MND INFO  trans:50, execute transaction in prepare
+02/08 12:05:00.008080 00000158 C MND INFO  trans:50, continue to execute stage:redoAction in transContext, createTime:1770552300005
+02/08 12:05:00.008084 00000158 C MND INFO  trans:50, stage from redoAction to commit
+02/08 12:05:00.008086 00000158 C MND INFO  trans:50, continue to execute stage:commit in transContext, createTime:1770552300005
+02/08 12:05:00.008088 00000158 C MND INFO  trans:50, commit transaction
+02/08 12:05:00.008094 00000158 C MND INFO  trans:50, sync to other mnodes, stage:commit createTime:1770552300005
+02/08 12:05:00.008097 00000158 C MND INFO  trans:50, will be proposed
+02/08 12:05:00.008119 00000158 C MND INFO  trans:50, is proposing and wait sem, seq:102
+02/08 12:05:00.009355 00000159 C MND INFO  trans:50, process sync proposal, saved:50 code:0x0, apply index:102 term:1 config:-1 role:leader raw:0x7f632c09453e sec:1770552299 seq:102
+02/08 12:05:00.009390 00000159 C MND INFO  trans:50, perform update action, old row:0x7f632c09513c stage:commit create:1770552300005, new row:0x7f632c09768c stage:commit create:1770552300005
+02/08 12:05:00.009394 00000159 C MND INFO  trans:50, stage from commit to commitAction since perform update action
+02/08 12:05:00.009396 00000159 C MND INFO  vgId:1, deleteFp:0x56a3c0, type:trans, row:0x7f632c097680
+02/08 12:05:00.009398 00000159 C MND INFO  trans:50, perform delete action, row:0x7f632c09768c stage:commit callfunc:0, stopFunc:0
+02/08 12:05:00.009401 00000159 C MND INFO  trans:50, refresh transaction in process write msg
+02/08 12:05:00.009402 00000159 C MND INFO  trans:50, continue to execute stage:commitAction in syncContext, createTime:1770552300005
+02/08 12:05:00.009406 00000159 C MND INFO  vgId:1, deleteFp:0x5b2fa0, type:cluster, row:0x7f632c078f50
+02/08 12:05:00.009408 00000159 C MND INFO  trans:50, commitAction:0 write to sdb, type:cluster status:ready
+02/08 12:05:00.009410 00000159 C MND INFO  trans:50, all 1 actions execute successfully
+02/08 12:05:00.009412 00000159 C MND INFO  trans:50, stage from commitAction to finished
+02/08 12:05:00.009413 00000159 C MND INFO  trans:50, continue to execute stage:finished in syncContext, createTime:1770552300005
+02/08 12:05:00.009417 00000159 C MND INFO  vgId:1, deleteFp:0x56a3c0, type:trans, row:0x7f632c097fe0
+02/08 12:05:00.009418 00000159 C MND INFO  trans:50, perform delete action, row:0x7f632c097fec stage:finished callfunc:0, stopFunc:0
+02/08 12:05:00.009420 00000159 C MND INFO  trans:50, execute finished, code:0x0, failedTimes:0 createTime:1770552300005
+02/08 12:05:00.009422 00000159 C MND INFO  vgId:1, trans:50, start to send rsp, stage:finished failedTimes:0 code:0x0
+02/08 12:05:00.009423 00000159 C MND INFO  vgId:1, trans:50, start to lock rpc array
+02/08 12:05:00.009425 00000159 C MND INFO  trans:50, refresh transaction in process write msg finished
+02/08 12:05:00.009426 00000159 C MND INFO  vgId:1, mnode apply info changed from index:101 term:1 config:-1 to index:102 term:1 config:-1
+02/08 12:05:00.009428 00000159 C MND INFO  vgId:1, trans:50, release transaction
+02/08 12:05:00.009441 00000159 C MND INFO  trans:50, is proposed and post sem, seq:0
+02/08 12:05:00.009455 00000158 C MND INFO  trans:50, sync to other mnodes finished, createTime:1770552300005
+02/08 12:05:00.009462 00000158 C MND INFO  trans:50, commit finished
+02/08 12:05:00.009465 00000158 C MND INFO  trans:50, stage from commit to commitAction
+02/08 12:05:00.009468 00000158 C MND INFO  trans:50, continue to execute stage:commitAction in transContext, createTime:1770552300005
+02/08 12:05:00.009471 00000158 C MND INFO  trans:50, all 1 actions execute successfully
+02/08 12:05:00.009473 00000158 C MND INFO  trans:50, stage from commitAction to finished
+02/08 12:05:00.009475 00000158 C MND INFO  trans:50, continue to execute stage:finished in transContext, createTime:1770552300005
+02/08 12:05:00.009478 00000158 C MND INFO  vgId:1, trans:50, start to send rsp, stage:finished failedTimes:0 code:0x0
+02/08 12:05:00.009479 00000158 C MND INFO  vgId:1, trans:50, start to lock rpc array
+02/08 12:05:00.009481 00000158 C MND INFO  vgId:1, trans:50, release transaction
+02/08 12:05:00.009483 00000158 C MND INFO  vgId:1, deleteFp:0x56a3c0, type:trans, row:0x7f632c095130
+02/08 12:05:00.009484 00000158 C MND INFO  trans:50, perform delete action, row:0x7f632c09513c stage:finished callfunc:1, stopFunc:0
+02/08 12:05:05.869182 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:05:15.835272 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:05:25.835401 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:05:35.835735 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:05:45.803883 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:05:55.804213 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:06:05.803757 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:06:15.768972 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:06:25.768706 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:06:35.769028 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:06:45.732604 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:06:55.732389 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:07:05.733310 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:07:15.699516 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:07:25.699370 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:07:35.699203 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:07:45.663220 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:07:55.663298 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:08:05.663391 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:08:08.922613 00000159 C SYN INFO  vgId:1, timer routines, sync:leader, term:1, commit-index:102, assigned-index:0, applied-index:102, first-ver:0, last-ver:102, min:-1, snap:24, snap-term:1, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:-1, snaping:-1, replicas:1, last-cfg:-1, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 102 102, 103), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:23:06.642:0}, recv hb-reply:{0:2026-02-08 11:23:06.642:0}, arb-token:d1#g1#1770549786630#467, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:08:14.627705 00000443 C SYN INFO  vgId:2, timer routines, sync:leader, term:1, commit-index:1107, assigned-index:0, applied-index:1107, first-ver:0, last-ver:1107, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[851 1107 1107, 1108), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:23:12.338:0}, recv hb-reply:{0:2026-02-08 11:23:12.338:0}, arb-token:d1#g2#1770549792331#989, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:08:15.628466 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:08:25.629349 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:08:35.628557 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:08:45.593375 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:08:55.593170 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:09:05.592976 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:09:15.557748 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:09:25.557783 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:09:31.791146 00000916 C SYN INFO  vgId:4, timer routines, sync:leader, term:1, commit-index:29, assigned-index:0, applied-index:29, first-ver:0, last-ver:29, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 29 29, 30), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:24:29.480:0}, recv hb-reply:{0:2026-02-08 11:24:29.480:0}, arb-token:d1#g4#1770549869472#162, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:09:31.791155 00000915 C SYN INFO  vgId:3, timer routines, sync:leader, term:1, commit-index:33, assigned-index:0, applied-index:33, first-ver:0, last-ver:33, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 33 33, 34), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:24:29.479:0}, recv hb-reply:{0:2026-02-08 11:24:29.479:0}, arb-token:d1#g3#1770549869471#71, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:09:35.557275 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:09:45.521298 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:09:55.521427 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:10:00.044333 00000158 C MND INFO  update cluster uptime to 3000
+02/08 12:10:00.044375 00000158 C MND INFO  trans:51, create transaction:update-uptime, origin:update-uptime
+02/08 12:10:00.044379 00000158 C MND INFO  trans:51, action list:
+02/08 12:10:00.044381 00000158 C MND INFO  trans:51, action:0, commitAction:0 sdbType:cluster, sdbStatus:ready
+02/08 12:10:00.044384 00000158 C MND INFO  trans:51, prepare transaction
+02/08 12:10:00.044387 00000158 C MND INFO  trans:51, sync to other mnodes, stage:prepare createTime:1770552600044
+02/08 12:10:00.044389 00000158 C MND INFO  trans:51, will be proposed
+02/08 12:10:00.044411 00000158 C MND INFO  trans:51, is proposing and wait sem, seq:103
+02/08 12:10:00.046193 00000159 C MND INFO  trans:51, process sync proposal, saved:51 code:0x0, apply index:103 term:1 config:-1 role:leader raw:0x7f632c09516e sec:1770552600 seq:103
+02/08 12:10:00.046228 00000159 C MND INFO  trans:51, perform insert action, row:0x7f632c0954cc stage:prepare, callfunc:1, startFunc:0
+02/08 12:10:00.046231 00000159 C MND INFO  trans:51, stage from prepare to redoAction
+02/08 12:10:00.046233 00000159 C MND INFO  trans:51, refresh transaction in process write msg
+02/08 12:10:00.046235 00000159 C MND INFO  trans:51, continue to execute stage:redoAction in syncContext, createTime:1770552600044
+02/08 12:10:00.046239 00000159 C MND INFO  trans:51, cannot continue to execute redo action stage in syncContext, continueExec:1, code:success
+02/08 12:10:00.046241 00000159 C MND INFO  trans:51, refresh transaction in process write msg finished
+02/08 12:10:00.046242 00000159 C MND INFO  vgId:1, mnode apply info changed from index:102 term:1 config:-1 to index:103 term:1 config:-1
+02/08 12:10:00.046245 00000159 C MND INFO  vgId:1, trans:51, release transaction
+02/08 12:10:00.046258 00000159 C MND INFO  trans:51, is proposed and post sem, seq:0
+02/08 12:10:00.046295 00000158 C MND INFO  trans:51, sync to other mnodes finished, createTime:1770552600044
+02/08 12:10:00.046320 00000158 C MND INFO  trans:51, prepare finished
+02/08 12:10:00.046323 00000158 C MND INFO  trans:51, execute transaction in prepare
+02/08 12:10:00.046325 00000158 C MND INFO  trans:51, continue to execute stage:redoAction in transContext, createTime:1770552600044
+02/08 12:10:00.046328 00000158 C MND INFO  trans:51, stage from redoAction to commit
+02/08 12:10:00.046329 00000158 C MND INFO  trans:51, continue to execute stage:commit in transContext, createTime:1770552600044
+02/08 12:10:00.046331 00000158 C MND INFO  trans:51, commit transaction
+02/08 12:10:00.046335 00000158 C MND INFO  trans:51, sync to other mnodes, stage:commit createTime:1770552600044
+02/08 12:10:00.046337 00000158 C MND INFO  trans:51, will be proposed
+02/08 12:10:00.046352 00000158 C MND INFO  trans:51, is proposing and wait sem, seq:104
+02/08 12:10:00.047576 00000159 C MND INFO  trans:51, process sync proposal, saved:51 code:0x0, apply index:104 term:1 config:-1 role:leader raw:0x7f632c09516e sec:1770552600 seq:104
+02/08 12:10:00.047617 00000159 C MND INFO  trans:51, perform update action, old row:0x7f632c0954cc stage:commit create:1770552600044, new row:0x7f632c09821c stage:commit create:1770552600044
+02/08 12:10:00.047622 00000159 C MND INFO  trans:51, stage from commit to commitAction since perform update action
+02/08 12:10:00.047625 00000159 C MND INFO  vgId:1, deleteFp:0x56a3c0, type:trans, row:0x7f632c098210
+02/08 12:10:00.047628 00000159 C MND INFO  trans:51, perform delete action, row:0x7f632c09821c stage:commit callfunc:0, stopFunc:0
+02/08 12:10:00.047631 00000159 C MND INFO  trans:51, refresh transaction in process write msg
+02/08 12:10:00.047633 00000159 C MND INFO  trans:51, continue to execute stage:commitAction in syncContext, createTime:1770552600044
+02/08 12:10:00.047639 00000159 C MND INFO  vgId:1, deleteFp:0x5b2fa0, type:cluster, row:0x7f632c04ca20
+02/08 12:10:00.047642 00000159 C MND INFO  trans:51, commitAction:0 write to sdb, type:cluster status:ready
+02/08 12:10:00.047644 00000159 C MND INFO  trans:51, all 1 actions execute successfully
+02/08 12:10:00.047646 00000159 C MND INFO  trans:51, stage from commitAction to finished
+02/08 12:10:00.047648 00000159 C MND INFO  trans:51, continue to execute stage:finished in syncContext, createTime:1770552600044
+02/08 12:10:00.047654 00000159 C MND INFO  vgId:1, deleteFp:0x56a3c0, type:trans, row:0x7f632c098b70
+02/08 12:10:00.047656 00000159 C MND INFO  trans:51, perform delete action, row:0x7f632c098b7c stage:finished callfunc:0, stopFunc:0
+02/08 12:10:00.047658 00000159 C MND INFO  trans:51, execute finished, code:0x0, failedTimes:0 createTime:1770552600044
+02/08 12:10:00.047660 00000159 C MND INFO  vgId:1, trans:51, start to send rsp, stage:finished failedTimes:0 code:0x0
+02/08 12:10:00.047663 00000159 C MND INFO  vgId:1, trans:51, start to lock rpc array
+02/08 12:10:00.047666 00000159 C MND INFO  trans:51, refresh transaction in process write msg finished
+02/08 12:10:00.047668 00000159 C MND INFO  vgId:1, mnode apply info changed from index:103 term:1 config:-1 to index:104 term:1 config:-1
+02/08 12:10:00.047670 00000159 C MND INFO  vgId:1, trans:51, release transaction
+02/08 12:10:00.047688 00000159 C MND INFO  trans:51, is proposed and post sem, seq:0
+02/08 12:10:00.047711 00000158 C MND INFO  trans:51, sync to other mnodes finished, createTime:1770552600044
+02/08 12:10:00.047740 00000158 C MND INFO  trans:51, commit finished
+02/08 12:10:00.047744 00000158 C MND INFO  trans:51, stage from commit to commitAction
+02/08 12:10:00.047746 00000158 C MND INFO  trans:51, continue to execute stage:commitAction in transContext, createTime:1770552600044
+02/08 12:10:00.047749 00000158 C MND INFO  trans:51, all 1 actions execute successfully
+02/08 12:10:00.047751 00000158 C MND INFO  trans:51, stage from commitAction to finished
+02/08 12:10:00.047753 00000158 C MND INFO  trans:51, continue to execute stage:finished in transContext, createTime:1770552600044
+02/08 12:10:00.047756 00000158 C MND INFO  vgId:1, trans:51, start to send rsp, stage:finished failedTimes:0 code:0x0
+02/08 12:10:00.047758 00000158 C MND INFO  vgId:1, trans:51, start to lock rpc array
+02/08 12:10:00.047760 00000158 C MND INFO  vgId:1, trans:51, release transaction
+02/08 12:10:00.047763 00000158 C MND INFO  vgId:1, deleteFp:0x56a3c0, type:trans, row:0x7f632c0954c0
+02/08 12:10:00.047765 00000158 C MND INFO  trans:51, perform delete action, row:0x7f632c0954cc stage:finished callfunc:1, stopFunc:0
+02/08 12:10:05.538696 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:10:15.484690 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:10:25.484640 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:10:35.484168 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:10:45.448550 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:10:55.447918 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:11:05.448417 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:11:15.413939 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:11:25.413827 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:11:35.413589 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:11:45.376856 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:11:55.376994 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:12:05.377225 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:12:15.340624 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:12:25.339813 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:12:35.340018 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:12:45.305081 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:12:55.305610 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:13:05.305378 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:13:09.164091 00000159 C SYN INFO  vgId:1, timer routines, sync:leader, term:1, commit-index:104, assigned-index:0, applied-index:104, first-ver:0, last-ver:104, min:-1, snap:24, snap-term:1, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:-1, snaping:-1, replicas:1, last-cfg:-1, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 104 104, 105), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:23:06.642:0}, recv hb-reply:{0:2026-02-08 11:23:06.642:0}, arb-token:d1#g1#1770549786630#467, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:13:14.874069 00000443 C SYN INFO  vgId:2, timer routines, sync:leader, term:1, commit-index:1227, assigned-index:0, applied-index:1227, first-ver:0, last-ver:1227, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[971 1227 1227, 1228), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:23:12.338:0}, recv hb-reply:{0:2026-02-08 11:23:12.338:0}, arb-token:d1#g2#1770549792331#989, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:13:15.270558 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:13:25.270754 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:13:35.270562 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:13:45.233723 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:13:55.234049 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:14:05.234298 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:14:15.196269 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:14:25.197715 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:14:32.030346 00000916 C SYN INFO  vgId:4, timer routines, sync:leader, term:1, commit-index:29, assigned-index:0, applied-index:29, first-ver:0, last-ver:29, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 29 29, 30), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:24:29.480:0}, recv hb-reply:{0:2026-02-08 11:24:29.480:0}, arb-token:d1#g4#1770549869472#162, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:14:32.030354 00000915 C SYN INFO  vgId:3, timer routines, sync:leader, term:1, commit-index:33, assigned-index:0, applied-index:33, first-ver:0, last-ver:33, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 33 33, 34), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:24:29.479:0}, recv hb-reply:{0:2026-02-08 11:24:29.479:0}, arb-token:d1#g3#1770549869471#71, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:14:35.196274 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:14:45.166367 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:14:55.166206 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:15:00.017456 00000158 C MND INFO  update cluster uptime to 3300
+02/08 12:15:00.017507 00000158 C MND INFO  trans:52, create transaction:update-uptime, origin:update-uptime
+02/08 12:15:00.017511 00000158 C MND INFO  trans:52, action list:
+02/08 12:15:00.017513 00000158 C MND INFO  trans:52, action:0, commitAction:0 sdbType:cluster, sdbStatus:ready
+02/08 12:15:00.017517 00000158 C MND INFO  trans:52, prepare transaction
+02/08 12:15:00.017530 00000158 C MND INFO  trans:52, sync to other mnodes, stage:prepare createTime:1770552900017
+02/08 12:15:00.017533 00000158 C MND INFO  trans:52, will be proposed
+02/08 12:15:00.017559 00000158 C MND INFO  trans:52, is proposing and wait sem, seq:105
+02/08 12:15:00.019537 00000159 C MND INFO  trans:52, process sync proposal, saved:52 code:0x0, apply index:105 term:1 config:-1 role:leader raw:0x7f632c09516e sec:1770552900 seq:105
+02/08 12:15:00.019584 00000159 C MND INFO  trans:52, perform insert action, row:0x7f632c0954cc stage:prepare, callfunc:1, startFunc:0
+02/08 12:15:00.019588 00000159 C MND INFO  trans:52, stage from prepare to redoAction
+02/08 12:15:00.019590 00000159 C MND INFO  trans:52, refresh transaction in process write msg
+02/08 12:15:00.019591 00000159 C MND INFO  trans:52, continue to execute stage:redoAction in syncContext, createTime:1770552900017
+02/08 12:15:00.019595 00000159 C MND INFO  trans:52, cannot continue to execute redo action stage in syncContext, continueExec:1, code:success
+02/08 12:15:00.019598 00000159 C MND INFO  trans:52, refresh transaction in process write msg finished
+02/08 12:15:00.019599 00000159 C MND INFO  vgId:1, mnode apply info changed from index:104 term:1 config:-1 to index:105 term:1 config:-1
+02/08 12:15:00.019601 00000159 C MND INFO  vgId:1, trans:52, release transaction
+02/08 12:15:00.019614 00000159 C MND INFO  trans:52, is proposed and post sem, seq:0
+02/08 12:15:00.019628 00000158 C MND INFO  trans:52, sync to other mnodes finished, createTime:1770552900017
+02/08 12:15:00.019647 00000158 C MND INFO  trans:52, prepare finished
+02/08 12:15:00.019650 00000158 C MND INFO  trans:52, execute transaction in prepare
+02/08 12:15:00.019652 00000158 C MND INFO  trans:52, continue to execute stage:redoAction in transContext, createTime:1770552900017
+02/08 12:15:00.019654 00000158 C MND INFO  trans:52, stage from redoAction to commit
+02/08 12:15:00.019656 00000158 C MND INFO  trans:52, continue to execute stage:commit in transContext, createTime:1770552900017
+02/08 12:15:00.019658 00000158 C MND INFO  trans:52, commit transaction
+02/08 12:15:00.019662 00000158 C MND INFO  trans:52, sync to other mnodes, stage:commit createTime:1770552900017
+02/08 12:15:00.019663 00000158 C MND INFO  trans:52, will be proposed
+02/08 12:15:00.019677 00000158 C MND INFO  trans:52, is proposing and wait sem, seq:106
+02/08 12:15:00.020884 00000159 C MND INFO  trans:52, process sync proposal, saved:52 code:0x0, apply index:106 term:1 config:-1 role:leader raw:0x7f632c09516e sec:1770552900 seq:106
+02/08 12:15:00.020907 00000159 C MND INFO  trans:52, perform update action, old row:0x7f632c0954cc stage:commit create:1770552900017, new row:0x7f632c0985bc stage:commit create:1770552900017
+02/08 12:15:00.020910 00000159 C MND INFO  trans:52, stage from commit to commitAction since perform update action
+02/08 12:15:00.020912 00000159 C MND INFO  vgId:1, deleteFp:0x56a3c0, type:trans, row:0x7f632c0985b0
+02/08 12:15:00.020914 00000159 C MND INFO  trans:52, perform delete action, row:0x7f632c0985bc stage:commit callfunc:0, stopFunc:0
+02/08 12:15:00.020916 00000159 C MND INFO  trans:52, refresh transaction in process write msg
+02/08 12:15:00.020918 00000159 C MND INFO  trans:52, continue to execute stage:commitAction in syncContext, createTime:1770552900017
+02/08 12:15:00.020922 00000159 C MND INFO  vgId:1, deleteFp:0x5b2fa0, type:cluster, row:0x7f632c04ca20
+02/08 12:15:00.020924 00000159 C MND INFO  trans:52, commitAction:0 write to sdb, type:cluster status:ready
+02/08 12:15:00.020926 00000159 C MND INFO  trans:52, all 1 actions execute successfully
+02/08 12:15:00.020927 00000159 C MND INFO  trans:52, stage from commitAction to finished
+02/08 12:15:00.020928 00000159 C MND INFO  trans:52, continue to execute stage:finished in syncContext, createTime:1770552900017
+02/08 12:15:00.020932 00000159 C MND INFO  vgId:1, deleteFp:0x56a3c0, type:trans, row:0x7f632c098f10
+02/08 12:15:00.020933 00000159 C MND INFO  trans:52, perform delete action, row:0x7f632c098f1c stage:finished callfunc:0, stopFunc:0
+02/08 12:15:00.020935 00000159 C MND INFO  trans:52, execute finished, code:0x0, failedTimes:0 createTime:1770552900017
+02/08 12:15:00.020936 00000159 C MND INFO  vgId:1, trans:52, start to send rsp, stage:finished failedTimes:0 code:0x0
+02/08 12:15:00.020938 00000159 C MND INFO  vgId:1, trans:52, start to lock rpc array
+02/08 12:15:00.020940 00000159 C MND INFO  trans:52, refresh transaction in process write msg finished
+02/08 12:15:00.020941 00000159 C MND INFO  vgId:1, mnode apply info changed from index:105 term:1 config:-1 to index:106 term:1 config:-1
+02/08 12:15:00.020943 00000159 C MND INFO  vgId:1, trans:52, release transaction
+02/08 12:15:00.020954 00000159 C MND INFO  trans:52, is proposed and post sem, seq:0
+02/08 12:15:00.020968 00000158 C MND INFO  trans:52, sync to other mnodes finished, createTime:1770552900017
+02/08 12:15:00.020973 00000158 C MND INFO  trans:52, commit finished
+02/08 12:15:00.020975 00000158 C MND INFO  trans:52, stage from commit to commitAction
+02/08 12:15:00.020977 00000158 C MND INFO  trans:52, continue to execute stage:commitAction in transContext, createTime:1770552900017
+02/08 12:15:00.020979 00000158 C MND INFO  trans:52, all 1 actions execute successfully
+02/08 12:15:00.020980 00000158 C MND INFO  trans:52, stage from commitAction to finished
+02/08 12:15:00.020982 00000158 C MND INFO  trans:52, continue to execute stage:finished in transContext, createTime:1770552900017
+02/08 12:15:00.020983 00000158 C MND INFO  vgId:1, trans:52, start to send rsp, stage:finished failedTimes:0 code:0x0
+02/08 12:15:00.020985 00000158 C MND INFO  vgId:1, trans:52, start to lock rpc array
+02/08 12:15:00.020986 00000158 C MND INFO  vgId:1, trans:52, release transaction
+02/08 12:15:00.020988 00000158 C MND INFO  vgId:1, deleteFp:0x56a3c0, type:trans, row:0x7f632c0954c0
+02/08 12:15:00.020989 00000158 C MND INFO  trans:52, perform delete action, row:0x7f632c0954cc stage:finished callfunc:1, stopFunc:0
+02/08 12:15:05.165890 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:15:15.132928 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:15:25.132962 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:15:35.132372 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:15:45.096186 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:15:55.095619 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:16:05.095674 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:16:15.060173 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:16:25.059611 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:16:35.059655 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:16:45.024946 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:16:55.024742 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:17:05.025230 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:17:14.989449 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:17:24.990369 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:17:34.990065 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:17:44.953241 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:17:54.953627 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:18:04.953214 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:18:09.437255 00000159 C SYN INFO  vgId:1, timer routines, sync:leader, term:1, commit-index:106, assigned-index:0, applied-index:106, first-ver:0, last-ver:106, min:-1, snap:24, snap-term:1, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:-1, snaping:-1, replicas:1, last-cfg:-1, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 106 106, 107), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:23:06.642:0}, recv hb-reply:{0:2026-02-08 11:23:06.642:0}, arb-token:d1#g1#1770549786630#467, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:18:14.919109 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:18:15.137273 00000443 C SYN INFO  vgId:2, timer routines, sync:leader, term:1, commit-index:1347, assigned-index:0, applied-index:1347, first-ver:0, last-ver:1347, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[1091 1347 1347, 1348), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:23:12.338:0}, recv hb-reply:{0:2026-02-08 11:23:12.338:0}, arb-token:d1#g2#1770549792331#989, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:18:24.918451 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:18:34.919007 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:18:44.883731 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:18:54.883632 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:19:04.883909 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:19:14.848710 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:19:24.848930 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:19:32.277344 00000916 C SYN INFO  vgId:4, timer routines, sync:leader, term:1, commit-index:29, assigned-index:0, applied-index:29, first-ver:0, last-ver:29, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 29 29, 30), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:24:29.480:0}, recv hb-reply:{0:2026-02-08 11:24:29.480:0}, arb-token:d1#g4#1770549869472#162, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:19:32.277385 00000915 C SYN INFO  vgId:3, timer routines, sync:leader, term:1, commit-index:33, assigned-index:0, applied-index:33, first-ver:0, last-ver:33, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 33 33, 34), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:24:29.479:0}, recv hb-reply:{0:2026-02-08 11:24:29.479:0}, arb-token:d1#g3#1770549869471#71, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:19:34.848503 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:19:44.814271 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:19:54.813813 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:20:00.089273 00000158 C MND INFO  update cluster uptime to 3600
+02/08 12:20:00.089316 00000158 C MND INFO  trans:53, create transaction:update-uptime, origin:update-uptime
+02/08 12:20:00.089322 00000158 C MND INFO  trans:53, action list:
+02/08 12:20:00.089325 00000158 C MND INFO  trans:53, action:0, commitAction:0 sdbType:cluster, sdbStatus:ready
+02/08 12:20:00.089328 00000158 C MND INFO  trans:53, prepare transaction
+02/08 12:20:00.089332 00000158 C MND INFO  trans:53, sync to other mnodes, stage:prepare createTime:1770553200089
+02/08 12:20:00.089335 00000158 C MND INFO  trans:53, will be proposed
+02/08 12:20:00.089355 00000158 C MND INFO  trans:53, is proposing and wait sem, seq:107
+02/08 12:20:00.091289 00000159 C MND INFO  trans:53, process sync proposal, saved:53 code:0x0, apply index:107 term:1 config:-1 role:leader raw:0x7f632c09550e sec:1770553200 seq:107
+02/08 12:20:00.091320 00000159 C MND INFO  trans:53, perform insert action, row:0x7f632c09768c stage:prepare, callfunc:1, startFunc:0
+02/08 12:20:00.091324 00000159 C MND INFO  trans:53, stage from prepare to redoAction
+02/08 12:20:00.091325 00000159 C MND INFO  trans:53, refresh transaction in process write msg
+02/08 12:20:00.091327 00000159 C MND INFO  trans:53, continue to execute stage:redoAction in syncContext, createTime:1770553200089
+02/08 12:20:00.091330 00000159 C MND INFO  trans:53, cannot continue to execute redo action stage in syncContext, continueExec:1, code:success
+02/08 12:20:00.091333 00000159 C MND INFO  trans:53, refresh transaction in process write msg finished
+02/08 12:20:00.091334 00000159 C MND INFO  vgId:1, mnode apply info changed from index:106 term:1 config:-1 to index:107 term:1 config:-1
+02/08 12:20:00.091336 00000159 C MND INFO  vgId:1, trans:53, release transaction
+02/08 12:20:00.091348 00000159 C MND INFO  trans:53, is proposed and post sem, seq:0
+02/08 12:20:00.091363 00000158 C MND INFO  trans:53, sync to other mnodes finished, createTime:1770553200089
+02/08 12:20:00.091380 00000158 C MND INFO  trans:53, prepare finished
+02/08 12:20:00.091383 00000158 C MND INFO  trans:53, execute transaction in prepare
+02/08 12:20:00.091385 00000158 C MND INFO  trans:53, continue to execute stage:redoAction in transContext, createTime:1770553200089
+02/08 12:20:00.091388 00000158 C MND INFO  trans:53, stage from redoAction to commit
+02/08 12:20:00.091389 00000158 C MND INFO  trans:53, continue to execute stage:commit in transContext, createTime:1770553200089
+02/08 12:20:00.091391 00000158 C MND INFO  trans:53, commit transaction
+02/08 12:20:00.091395 00000158 C MND INFO  trans:53, sync to other mnodes, stage:commit createTime:1770553200089
+02/08 12:20:00.091397 00000158 C MND INFO  trans:53, will be proposed
+02/08 12:20:00.091410 00000158 C MND INFO  trans:53, is proposing and wait sem, seq:108
+02/08 12:20:00.092380 00000159 C MND INFO  trans:53, process sync proposal, saved:53 code:0x0, apply index:108 term:1 config:-1 role:leader raw:0x7f632c097c8e sec:1770553200 seq:108
+02/08 12:20:00.092407 00000159 C MND INFO  trans:53, perform update action, old row:0x7f632c09768c stage:commit create:1770553200089, new row:0x7f632c09914c stage:commit create:1770553200089
+02/08 12:20:00.092411 00000159 C MND INFO  trans:53, stage from commit to commitAction since perform update action
+02/08 12:20:00.092413 00000159 C MND INFO  vgId:1, deleteFp:0x56a3c0, type:trans, row:0x7f632c099140
+02/08 12:20:00.092416 00000159 C MND INFO  trans:53, perform delete action, row:0x7f632c09914c stage:commit callfunc:0, stopFunc:0
+02/08 12:20:00.092418 00000159 C MND INFO  trans:53, refresh transaction in process write msg
+02/08 12:20:00.092420 00000159 C MND INFO  trans:53, continue to execute stage:commitAction in syncContext, createTime:1770553200089
+02/08 12:20:00.092424 00000159 C MND INFO  vgId:1, deleteFp:0x5b2fa0, type:cluster, row:0x7f632c04ca20
+02/08 12:20:00.092426 00000159 C MND INFO  trans:53, commitAction:0 write to sdb, type:cluster status:ready
+02/08 12:20:00.092428 00000159 C MND INFO  trans:53, all 1 actions execute successfully
+02/08 12:20:00.092430 00000159 C MND INFO  trans:53, stage from commitAction to finished
+02/08 12:20:00.092431 00000159 C MND INFO  trans:53, continue to execute stage:finished in syncContext, createTime:1770553200089
+02/08 12:20:00.092434 00000159 C MND INFO  vgId:1, deleteFp:0x56a3c0, type:trans, row:0x7f632c099aa0
+02/08 12:20:00.092435 00000159 C MND INFO  trans:53, perform delete action, row:0x7f632c099aac stage:finished callfunc:0, stopFunc:0
+02/08 12:20:00.092437 00000159 C MND INFO  trans:53, execute finished, code:0x0, failedTimes:0 createTime:1770553200089
+02/08 12:20:00.092439 00000159 C MND INFO  vgId:1, trans:53, start to send rsp, stage:finished failedTimes:0 code:0x0
+02/08 12:20:00.092440 00000159 C MND INFO  vgId:1, trans:53, start to lock rpc array
+02/08 12:20:00.092442 00000159 C MND INFO  trans:53, refresh transaction in process write msg finished
+02/08 12:20:00.092443 00000159 C MND INFO  vgId:1, mnode apply info changed from index:107 term:1 config:-1 to index:108 term:1 config:-1
+02/08 12:20:00.092445 00000159 C MND INFO  vgId:1, trans:53, release transaction
+02/08 12:20:00.092460 00000159 C MND INFO  trans:53, is proposed and post sem, seq:0
+02/08 12:20:00.092506 00000158 C MND INFO  trans:53, sync to other mnodes finished, createTime:1770553200089
+02/08 12:20:00.092514 00000158 C MND INFO  trans:53, commit finished
+02/08 12:20:00.092516 00000158 C MND INFO  trans:53, stage from commit to commitAction
+02/08 12:20:00.092518 00000158 C MND INFO  trans:53, continue to execute stage:commitAction in transContext, createTime:1770553200089
+02/08 12:20:00.092521 00000158 C MND INFO  trans:53, all 1 actions execute successfully
+02/08 12:20:00.092523 00000158 C MND INFO  trans:53, stage from commitAction to finished
+02/08 12:20:00.092525 00000158 C MND INFO  trans:53, continue to execute stage:finished in transContext, createTime:1770553200089
+02/08 12:20:00.092527 00000158 C MND INFO  vgId:1, trans:53, start to send rsp, stage:finished failedTimes:0 code:0x0
+02/08 12:20:00.092529 00000158 C MND INFO  vgId:1, trans:53, start to lock rpc array
+02/08 12:20:00.092531 00000158 C MND INFO  vgId:1, trans:53, release transaction
+02/08 12:20:00.092533 00000158 C MND INFO  vgId:1, deleteFp:0x56a3c0, type:trans, row:0x7f632c097680
+02/08 12:20:00.092536 00000158 C MND INFO  trans:53, perform delete action, row:0x7f632c09768c stage:finished callfunc:1, stopFunc:0
+02/08 12:20:04.814059 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:20:14.777912 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:20:24.778431 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:20:34.778236 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:20:44.742562 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:20:54.743038 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:21:04.743134 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:21:14.707797 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:21:24.706841 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:21:34.706989 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:21:44.670599 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:21:54.671606 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:22:04.671127 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:22:14.634342 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:22:24.633563 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:22:34.633467 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:22:44.601149 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:22:54.601481 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:23:04.600995 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:23:06.177340 00000190 C DND INFO  no crash info was found
+02/08 12:23:09.618317 00000159 C SYN INFO  vgId:1, timer routines, sync:leader, term:1, commit-index:108, assigned-index:0, applied-index:108, first-ver:0, last-ver:108, min:-1, snap:24, snap-term:1, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:-1, snaping:-1, replicas:1, last-cfg:-1, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 108 108, 109), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:23:06.642:0}, recv hb-reply:{0:2026-02-08 11:23:06.642:0}, arb-token:d1#g1#1770549786630#467, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:23:14.564965 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:23:15.323381 00000443 C SYN INFO  vgId:2, timer routines, sync:leader, term:1, commit-index:1466, assigned-index:0, applied-index:1466, first-ver:0, last-ver:1466, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[1210 1466 1466, 1467), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:23:12.338:0}, recv hb-reply:{0:2026-02-08 11:23:12.338:0}, arb-token:d1#g2#1770549792331#989, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:23:24.565085 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:23:34.564930 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:23:44.527727 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:23:54.527447 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:24:04.527183 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:24:14.492113 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:24:24.492021 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:24:32.510857 00000916 C SYN INFO  vgId:4, timer routines, sync:leader, term:1, commit-index:29, assigned-index:0, applied-index:29, first-ver:0, last-ver:29, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 29 29, 30), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:24:29.480:0}, recv hb-reply:{0:2026-02-08 11:24:29.480:0}, arb-token:d1#g4#1770549869472#162, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:24:32.511548 00000915 C SYN INFO  vgId:3, timer routines, sync:leader, term:1, commit-index:33, assigned-index:0, applied-index:33, first-ver:0, last-ver:33, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 33 33, 34), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:24:29.479:0}, recv hb-reply:{0:2026-02-08 11:24:29.479:0}, arb-token:d1#g3#1770549869471#71, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:24:34.491785 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:24:44.455600 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:24:54.455553 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:25:00.011367 00000158 C MND INFO  update cluster uptime to 3900
+02/08 12:25:00.011424 00000158 C MND INFO  trans:54, create transaction:update-uptime, origin:update-uptime
+02/08 12:25:00.011429 00000158 C MND INFO  trans:54, action list:
+02/08 12:25:00.011432 00000158 C MND INFO  trans:54, action:0, commitAction:0 sdbType:cluster, sdbStatus:ready
+02/08 12:25:00.011435 00000158 C MND INFO  trans:54, prepare transaction
+02/08 12:25:00.011441 00000158 C MND INFO  trans:54, sync to other mnodes, stage:prepare createTime:1770553500011
+02/08 12:25:00.011444 00000158 C MND INFO  trans:54, will be proposed
+02/08 12:25:00.011465 00000158 C MND INFO  trans:54, is proposing and wait sem, seq:109
+02/08 12:25:00.013708 00000159 C MND INFO  trans:54, process sync proposal, saved:54 code:0x0, apply index:109 term:1 config:-1 role:leader raw:0x7f632c097a5e sec:1770553500 seq:109
+02/08 12:25:00.013767 00000159 C MND INFO  trans:54, perform insert action, row:0x7f632c08c56c stage:prepare, callfunc:1, startFunc:0
+02/08 12:25:00.013772 00000159 C MND INFO  trans:54, stage from prepare to redoAction
+02/08 12:25:00.013774 00000159 C MND INFO  trans:54, refresh transaction in process write msg
+02/08 12:25:00.013776 00000159 C MND INFO  trans:54, continue to execute stage:redoAction in syncContext, createTime:1770553500011
+02/08 12:25:00.013780 00000159 C MND INFO  trans:54, cannot continue to execute redo action stage in syncContext, continueExec:1, code:success
+02/08 12:25:00.013782 00000159 C MND INFO  trans:54, refresh transaction in process write msg finished
+02/08 12:25:00.013784 00000159 C MND INFO  vgId:1, mnode apply info changed from index:108 term:1 config:-1 to index:109 term:1 config:-1
+02/08 12:25:00.013786 00000159 C MND INFO  vgId:1, trans:54, release transaction
+02/08 12:25:00.013803 00000159 C MND INFO  trans:54, is proposed and post sem, seq:0
+02/08 12:25:00.013826 00000158 C MND INFO  trans:54, sync to other mnodes finished, createTime:1770553500011
+02/08 12:25:00.013854 00000158 C MND INFO  trans:54, prepare finished
+02/08 12:25:00.013857 00000158 C MND INFO  trans:54, execute transaction in prepare
+02/08 12:25:00.013859 00000158 C MND INFO  trans:54, continue to execute stage:redoAction in transContext, createTime:1770553500011
+02/08 12:25:00.013862 00000158 C MND INFO  trans:54, stage from redoAction to commit
+02/08 12:25:00.013863 00000158 C MND INFO  trans:54, continue to execute stage:commit in transContext, createTime:1770553500011
+02/08 12:25:00.013865 00000158 C MND INFO  trans:54, commit transaction
+02/08 12:25:00.013871 00000158 C MND INFO  trans:54, sync to other mnodes, stage:commit createTime:1770553500011
+02/08 12:25:00.013873 00000158 C MND INFO  trans:54, will be proposed
+02/08 12:25:00.013893 00000158 C MND INFO  trans:54, is proposing and wait sem, seq:110
+02/08 12:25:00.015112 00000159 C MND INFO  trans:54, process sync proposal, saved:54 code:0x0, apply index:110 term:1 config:-1 role:leader raw:0x7f632c097a5e sec:1770553500 seq:110
+02/08 12:25:00.015147 00000159 C MND INFO  trans:54, perform update action, old row:0x7f632c08c56c stage:commit create:1770553500011, new row:0x7f632c099cdc stage:commit create:1770553500011
+02/08 12:25:00.015151 00000159 C MND INFO  trans:54, stage from commit to commitAction since perform update action
+02/08 12:25:00.015153 00000159 C MND INFO  vgId:1, deleteFp:0x56a3c0, type:trans, row:0x7f632c099cd0
+02/08 12:25:00.015155 00000159 C MND INFO  trans:54, perform delete action, row:0x7f632c099cdc stage:commit callfunc:0, stopFunc:0
+02/08 12:25:00.015157 00000159 C MND INFO  trans:54, refresh transaction in process write msg
+02/08 12:25:00.015159 00000159 C MND INFO  trans:54, continue to execute stage:commitAction in syncContext, createTime:1770553500011
+02/08 12:25:00.015163 00000159 C MND INFO  vgId:1, deleteFp:0x5b2fa0, type:cluster, row:0x7f632c04ca20
+02/08 12:25:00.015166 00000159 C MND INFO  trans:54, commitAction:0 write to sdb, type:cluster status:ready
+02/08 12:25:00.015168 00000159 C MND INFO  trans:54, all 1 actions execute successfully
+02/08 12:25:00.015169 00000159 C MND INFO  trans:54, stage from commitAction to finished
+02/08 12:25:00.015170 00000159 C MND INFO  trans:54, continue to execute stage:finished in syncContext, createTime:1770553500011
+02/08 12:25:00.015174 00000159 C MND INFO  vgId:1, deleteFp:0x56a3c0, type:trans, row:0x7f632c09a630
+02/08 12:25:00.015176 00000159 C MND INFO  trans:54, perform delete action, row:0x7f632c09a63c stage:finished callfunc:0, stopFunc:0
+02/08 12:25:00.015177 00000159 C MND INFO  trans:54, execute finished, code:0x0, failedTimes:0 createTime:1770553500011
+02/08 12:25:00.015179 00000159 C MND INFO  vgId:1, trans:54, start to send rsp, stage:finished failedTimes:0 code:0x0
+02/08 12:25:00.015181 00000159 C MND INFO  vgId:1, trans:54, start to lock rpc array
+02/08 12:25:00.015182 00000159 C MND INFO  trans:54, refresh transaction in process write msg finished
+02/08 12:25:00.015184 00000159 C MND INFO  vgId:1, mnode apply info changed from index:109 term:1 config:-1 to index:110 term:1 config:-1
+02/08 12:25:00.015185 00000159 C MND INFO  vgId:1, trans:54, release transaction
+02/08 12:25:00.015199 00000159 C MND INFO  trans:54, is proposed and post sem, seq:0
+02/08 12:25:00.015214 00000158 C MND INFO  trans:54, sync to other mnodes finished, createTime:1770553500011
+02/08 12:25:00.015221 00000158 C MND INFO  trans:54, commit finished
+02/08 12:25:00.015223 00000158 C MND INFO  trans:54, stage from commit to commitAction
+02/08 12:25:00.015224 00000158 C MND INFO  trans:54, continue to execute stage:commitAction in transContext, createTime:1770553500011
+02/08 12:25:00.015227 00000158 C MND INFO  trans:54, all 1 actions execute successfully
+02/08 12:25:00.015228 00000158 C MND INFO  trans:54, stage from commitAction to finished
+02/08 12:25:00.015229 00000158 C MND INFO  trans:54, continue to execute stage:finished in transContext, createTime:1770553500011
+02/08 12:25:00.015231 00000158 C MND INFO  vgId:1, trans:54, start to send rsp, stage:finished failedTimes:0 code:0x0
+02/08 12:25:00.015233 00000158 C MND INFO  vgId:1, trans:54, start to lock rpc array
+02/08 12:25:00.015235 00000158 C MND INFO  vgId:1, trans:54, release transaction
+02/08 12:25:00.015238 00000158 C MND INFO  vgId:1, deleteFp:0x56a3c0, type:trans, row:0x7f632c08c560
+02/08 12:25:00.015240 00000158 C MND INFO  trans:54, perform delete action, row:0x7f632c08c56c stage:finished callfunc:1, stopFunc:0
+02/08 12:25:04.455934 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:25:14.418603 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:25:24.419120 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:25:34.418681 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:25:44.381793 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:25:54.381940 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:26:04.382116 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:26:14.348459 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:26:24.348856 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:26:34.348451 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:26:44.315660 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:26:54.315799 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:27:04.315822 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:27:14.279128 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:27:24.279220 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:27:34.278974 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:27:44.243835 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:27:54.243837 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:28:04.243165 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:28:09.858653 00000159 C SYN INFO  vgId:1, timer routines, sync:leader, term:1, commit-index:110, assigned-index:0, applied-index:110, first-ver:0, last-ver:110, min:-1, snap:24, snap-term:1, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:-1, snaping:-1, replicas:1, last-cfg:-1, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 110 110, 111), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:23:06.642:0}, recv hb-reply:{0:2026-02-08 11:23:06.642:0}, arb-token:d1#g1#1770549786630#467, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:28:14.205564 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:28:15.563781 00000443 C SYN INFO  vgId:2, timer routines, sync:leader, term:1, commit-index:1586, assigned-index:0, applied-index:1586, first-ver:0, last-ver:1586, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[1330 1586 1586, 1587), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:23:12.338:0}, recv hb-reply:{0:2026-02-08 11:23:12.338:0}, arb-token:d1#g2#1770549792331#989, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:28:24.204897 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:28:34.204573 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:28:44.168740 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:28:54.168134 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:29:04.168034 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:29:14.130170 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:29:24.130053 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:29:32.748622 00000916 C SYN INFO  vgId:4, timer routines, sync:leader, term:1, commit-index:29, assigned-index:0, applied-index:29, first-ver:0, last-ver:29, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 29 29, 30), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:24:29.480:0}, recv hb-reply:{0:2026-02-08 11:24:29.480:0}, arb-token:d1#g4#1770549869472#162, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:29:32.753567 00000915 C SYN INFO  vgId:3, timer routines, sync:leader, term:1, commit-index:33, assigned-index:0, applied-index:33, first-ver:0, last-ver:33, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 33 33, 34), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:24:29.479:0}, recv hb-reply:{0:2026-02-08 11:24:29.479:0}, arb-token:d1#g3#1770549869471#71, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:29:34.130407 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:29:44.092785 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:29:54.092171 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:30:00.096640 00000158 C MND INFO  update cluster uptime to 4200
+02/08 12:30:00.096699 00000158 C MND INFO  trans:55, create transaction:update-uptime, origin:update-uptime
+02/08 12:30:00.096734 00000158 C MND INFO  trans:55, action list:
+02/08 12:30:00.096748 00000158 C MND INFO  trans:55, action:0, commitAction:0 sdbType:cluster, sdbStatus:ready
+02/08 12:30:00.096755 00000158 C MND INFO  trans:55, prepare transaction
+02/08 12:30:00.096801 00000158 C MND INFO  trans:55, sync to other mnodes, stage:prepare createTime:1770553800096
+02/08 12:30:00.096847 00000158 C MND INFO  trans:55, will be proposed
+02/08 12:30:00.096916 00000158 C MND INFO  trans:55, is proposing and wait sem, seq:111
+02/08 12:30:00.098947 00000159 C MND INFO  trans:55, process sync proposal, saved:55 code:0x0, apply index:111 term:1 config:-1 role:leader raw:0x7f632c097dfe sec:1770553800 seq:111
+02/08 12:30:00.099026 00000159 C MND INFO  trans:55, perform insert action, row:0x7f632c08c56c stage:prepare, callfunc:1, startFunc:0
+02/08 12:30:00.099034 00000159 C MND INFO  trans:55, stage from prepare to redoAction
+02/08 12:30:00.099037 00000159 C MND INFO  trans:55, refresh transaction in process write msg
+02/08 12:30:00.099040 00000159 C MND INFO  trans:55, continue to execute stage:redoAction in syncContext, createTime:1770553800096
+02/08 12:30:00.099080 00000159 C MND INFO  trans:55, cannot continue to execute redo action stage in syncContext, continueExec:1, code:success
+02/08 12:30:00.099117 00000159 C MND INFO  trans:55, refresh transaction in process write msg finished
+02/08 12:30:00.099122 00000159 C MND INFO  vgId:1, mnode apply info changed from index:110 term:1 config:-1 to index:111 term:1 config:-1
+02/08 12:30:00.099127 00000159 C MND INFO  vgId:1, trans:55, release transaction
+02/08 12:30:00.099151 00000159 C MND INFO  trans:55, is proposed and post sem, seq:0
+02/08 12:30:00.099169 00000158 C MND INFO  trans:55, sync to other mnodes finished, createTime:1770553800096
+02/08 12:30:00.099181 00000158 C MND INFO  trans:55, prepare finished
+02/08 12:30:00.099186 00000158 C MND INFO  trans:55, execute transaction in prepare
+02/08 12:30:00.099188 00000158 C MND INFO  trans:55, continue to execute stage:redoAction in transContext, createTime:1770553800096
+02/08 12:30:00.099190 00000158 C MND INFO  trans:55, stage from redoAction to commit
+02/08 12:30:00.099192 00000158 C MND INFO  trans:55, continue to execute stage:commit in transContext, createTime:1770553800096
+02/08 12:30:00.099230 00000158 C MND INFO  trans:55, commit transaction
+02/08 12:30:00.099235 00000158 C MND INFO  trans:55, sync to other mnodes, stage:commit createTime:1770553800096
+02/08 12:30:00.099237 00000158 C MND INFO  trans:55, will be proposed
+02/08 12:30:00.099251 00000158 C MND INFO  trans:55, is proposing and wait sem, seq:112
+02/08 12:30:00.100575 00000159 C MND INFO  trans:55, process sync proposal, saved:55 code:0x0, apply index:112 term:1 config:-1 role:leader raw:0x7f632c099d0e sec:1770553800 seq:112
+02/08 12:30:00.100664 00000159 C MND INFO  trans:55, perform update action, old row:0x7f632c08c56c stage:commit create:1770553800096, new row:0x7f632c09a06c stage:commit create:1770553800096
+02/08 12:30:00.100672 00000159 C MND INFO  trans:55, stage from commit to commitAction since perform update action
+02/08 12:30:00.100676 00000159 C MND INFO  vgId:1, deleteFp:0x56a3c0, type:trans, row:0x7f632c09a060
+02/08 12:30:00.100679 00000159 C MND INFO  trans:55, perform delete action, row:0x7f632c09a06c stage:commit callfunc:0, stopFunc:0
+02/08 12:30:00.100684 00000159 C MND INFO  trans:55, refresh transaction in process write msg
+02/08 12:30:00.100686 00000159 C MND INFO  trans:55, continue to execute stage:commitAction in syncContext, createTime:1770553800096
+02/08 12:30:00.100692 00000159 C MND INFO  vgId:1, deleteFp:0x5b2fa0, type:cluster, row:0x7f632c04ca20
+02/08 12:30:00.100713 00000159 C MND INFO  trans:55, commitAction:0 write to sdb, type:cluster status:ready
+02/08 12:30:00.100733 00000159 C MND INFO  trans:55, all 1 actions execute successfully
+02/08 12:30:00.100736 00000159 C MND INFO  trans:55, stage from commitAction to finished
+02/08 12:30:00.100739 00000159 C MND INFO  trans:55, continue to execute stage:finished in syncContext, createTime:1770553800096
+02/08 12:30:00.100746 00000159 C MND INFO  vgId:1, deleteFp:0x56a3c0, type:trans, row:0x7f632c09a9c0
+02/08 12:30:00.100751 00000159 C MND INFO  trans:55, perform delete action, row:0x7f632c09a9cc stage:finished callfunc:0, stopFunc:0
+02/08 12:30:00.100754 00000159 C MND INFO  trans:55, execute finished, code:0x0, failedTimes:0 createTime:1770553800096
+02/08 12:30:00.100756 00000159 C MND INFO  vgId:1, trans:55, start to send rsp, stage:finished failedTimes:0 code:0x0
+02/08 12:30:00.100759 00000159 C MND INFO  vgId:1, trans:55, start to lock rpc array
+02/08 12:30:00.100761 00000159 C MND INFO  trans:55, refresh transaction in process write msg finished
+02/08 12:30:00.100763 00000159 C MND INFO  vgId:1, mnode apply info changed from index:111 term:1 config:-1 to index:112 term:1 config:-1
+02/08 12:30:00.100766 00000159 C MND INFO  vgId:1, trans:55, release transaction
+02/08 12:30:00.100787 00000159 C MND INFO  trans:55, is proposed and post sem, seq:0
+02/08 12:30:00.100824 00000158 C MND INFO  trans:55, sync to other mnodes finished, createTime:1770553800096
+02/08 12:30:00.100833 00000158 C MND INFO  trans:55, commit finished
+02/08 12:30:00.100835 00000158 C MND INFO  trans:55, stage from commit to commitAction
+02/08 12:30:00.100838 00000158 C MND INFO  trans:55, continue to execute stage:commitAction in transContext, createTime:1770553800096
+02/08 12:30:00.100841 00000158 C MND INFO  trans:55, all 1 actions execute successfully
+02/08 12:30:00.100843 00000158 C MND INFO  trans:55, stage from commitAction to finished
+02/08 12:30:00.100845 00000158 C MND INFO  trans:55, continue to execute stage:finished in transContext, createTime:1770553800096
+02/08 12:30:00.100848 00000158 C MND INFO  vgId:1, trans:55, start to send rsp, stage:finished failedTimes:0 code:0x0
+02/08 12:30:00.100850 00000158 C MND INFO  vgId:1, trans:55, start to lock rpc array
+02/08 12:30:00.100853 00000158 C MND INFO  vgId:1, trans:55, release transaction
+02/08 12:30:00.100855 00000158 C MND INFO  vgId:1, deleteFp:0x56a3c0, type:trans, row:0x7f632c08c560
+02/08 12:30:00.100858 00000158 C MND INFO  trans:55, perform delete action, row:0x7f632c08c56c stage:finished callfunc:1, stopFunc:0
+02/08 12:30:04.092808 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:30:14.035952 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:30:24.035671 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:30:34.035367 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:30:44.004769 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:30:54.003372 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:31:04.003964 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:31:13.967309 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:31:23.967253 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:31:33.967550 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:31:43.933169 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:31:53.933417 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:32:03.933292 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:32:13.896783 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:32:23.897230 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:32:33.896850 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:32:43.860834 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:32:53.860877 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:33:03.860666 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:33:10.131958 00000159 C SYN INFO  vgId:1, timer routines, sync:leader, term:1, commit-index:112, assigned-index:0, applied-index:112, first-ver:0, last-ver:112, min:-1, snap:24, snap-term:1, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:-1, snaping:-1, replicas:1, last-cfg:-1, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 112 112, 113), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:23:06.642:0}, recv hb-reply:{0:2026-02-08 11:23:06.642:0}, arb-token:d1#g1#1770549786630#467, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:33:13.823384 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:33:15.836960 00000443 C SYN INFO  vgId:2, timer routines, sync:leader, term:1, commit-index:1706, assigned-index:0, applied-index:1706, first-ver:0, last-ver:1706, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[1450 1706 1706, 1707), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:23:12.338:0}, recv hb-reply:{0:2026-02-08 11:23:12.338:0}, arb-token:d1#g2#1770549792331#989, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:33:23.823107 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:33:33.823106 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:33:43.790496 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:33:53.790170 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:34:03.791022 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:34:13.756750 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:34:23.757459 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:34:33.020543 00000916 C SYN INFO  vgId:4, timer routines, sync:leader, term:1, commit-index:29, assigned-index:0, applied-index:29, first-ver:0, last-ver:29, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 29 29, 30), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:24:29.480:0}, recv hb-reply:{0:2026-02-08 11:24:29.480:0}, arb-token:d1#g4#1770549869472#162, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:34:33.025518 00000915 C SYN INFO  vgId:3, timer routines, sync:leader, term:1, commit-index:33, assigned-index:0, applied-index:33, first-ver:0, last-ver:33, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 33 33, 34), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:24:29.479:0}, recv hb-reply:{0:2026-02-08 11:24:29.479:0}, arb-token:d1#g3#1770549869471#71, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:34:33.757334 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:34:43.720002 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:34:53.719652 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:35:00.076510 00000158 C MND INFO  update cluster uptime to 4500
+02/08 12:35:00.076568 00000158 C MND INFO  trans:56, create transaction:update-uptime, origin:update-uptime
+02/08 12:35:00.076575 00000158 C MND INFO  trans:56, action list:
+02/08 12:35:00.076577 00000158 C MND INFO  trans:56, action:0, commitAction:0 sdbType:cluster, sdbStatus:ready
+02/08 12:35:00.076581 00000158 C MND INFO  trans:56, prepare transaction
+02/08 12:35:00.076587 00000158 C MND INFO  trans:56, sync to other mnodes, stage:prepare createTime:1770554100076
+02/08 12:35:00.076590 00000158 C MND INFO  trans:56, will be proposed
+02/08 12:35:00.076615 00000158 C MND INFO  trans:56, is proposing and wait sem, seq:113
+02/08 12:35:00.078449 00000159 C MND INFO  trans:56, process sync proposal, saved:56 code:0x0, apply index:113 term:1 config:-1 role:leader raw:0x7f632c08c93e sec:1770554100 seq:113
+02/08 12:35:00.078486 00000159 C MND INFO  trans:56, perform insert action, row:0x7f632c08cc9c stage:prepare, callfunc:1, startFunc:0
+02/08 12:35:00.078490 00000159 C MND INFO  trans:56, stage from prepare to redoAction
+02/08 12:35:00.078492 00000159 C MND INFO  trans:56, refresh transaction in process write msg
+02/08 12:35:00.078494 00000159 C MND INFO  trans:56, continue to execute stage:redoAction in syncContext, createTime:1770554100076
+02/08 12:35:00.078497 00000159 C MND INFO  trans:56, cannot continue to execute redo action stage in syncContext, continueExec:1, code:success
+02/08 12:35:00.078499 00000159 C MND INFO  trans:56, refresh transaction in process write msg finished
+02/08 12:35:00.078501 00000159 C MND INFO  vgId:1, mnode apply info changed from index:112 term:1 config:-1 to index:113 term:1 config:-1
+02/08 12:35:00.078503 00000159 C MND INFO  vgId:1, trans:56, release transaction
+02/08 12:35:00.078515 00000159 C MND INFO  trans:56, is proposed and post sem, seq:0
+02/08 12:35:00.078550 00000158 C MND INFO  trans:56, sync to other mnodes finished, createTime:1770554100076
+02/08 12:35:00.078571 00000158 C MND INFO  trans:56, prepare finished
+02/08 12:35:00.078575 00000158 C MND INFO  trans:56, execute transaction in prepare
+02/08 12:35:00.078576 00000158 C MND INFO  trans:56, continue to execute stage:redoAction in transContext, createTime:1770554100076
+02/08 12:35:00.078579 00000158 C MND INFO  trans:56, stage from redoAction to commit
+02/08 12:35:00.078580 00000158 C MND INFO  trans:56, continue to execute stage:commit in transContext, createTime:1770554100076
+02/08 12:35:00.078582 00000158 C MND INFO  trans:56, commit transaction
+02/08 12:35:00.078586 00000158 C MND INFO  trans:56, sync to other mnodes, stage:commit createTime:1770554100076
+02/08 12:35:00.078587 00000158 C MND INFO  trans:56, will be proposed
+02/08 12:35:00.078602 00000158 C MND INFO  trans:56, is proposing and wait sem, seq:114
+02/08 12:35:00.079702 00000159 C MND INFO  trans:56, process sync proposal, saved:56 code:0x0, apply index:114 term:1 config:-1 role:leader raw:0x7f632c08c93e sec:1770554100 seq:114
+02/08 12:35:00.079727 00000159 C MND INFO  trans:56, perform update action, old row:0x7f632c08cc9c stage:commit create:1770554100076, new row:0x7f632c09a86c stage:commit create:1770554100076
+02/08 12:35:00.079730 00000159 C MND INFO  trans:56, stage from commit to commitAction since perform update action
+02/08 12:35:00.079732 00000159 C MND INFO  vgId:1, deleteFp:0x56a3c0, type:trans, row:0x7f632c09a860
+02/08 12:35:00.079734 00000159 C MND INFO  trans:56, perform delete action, row:0x7f632c09a86c stage:commit callfunc:0, stopFunc:0
+02/08 12:35:00.079736 00000159 C MND INFO  trans:56, refresh transaction in process write msg
+02/08 12:35:00.079737 00000159 C MND INFO  trans:56, continue to execute stage:commitAction in syncContext, createTime:1770554100076
+02/08 12:35:00.079741 00000159 C MND INFO  vgId:1, deleteFp:0x5b2fa0, type:cluster, row:0x7f632c04ca20
+02/08 12:35:00.079743 00000159 C MND INFO  trans:56, commitAction:0 write to sdb, type:cluster status:ready
+02/08 12:35:00.079746 00000159 C MND INFO  trans:56, all 1 actions execute successfully
+02/08 12:35:00.079748 00000159 C MND INFO  trans:56, stage from commitAction to finished
+02/08 12:35:00.079750 00000159 C MND INFO  trans:56, continue to execute stage:finished in syncContext, createTime:1770554100076
+02/08 12:35:00.079765 00000159 C MND INFO  vgId:1, deleteFp:0x56a3c0, type:trans, row:0x7f632c09b1c0
+02/08 12:35:00.079781 00000159 C MND INFO  trans:56, perform delete action, row:0x7f632c09b1cc stage:finished callfunc:0, stopFunc:0
+02/08 12:35:00.079785 00000159 C MND INFO  trans:56, execute finished, code:0x0, failedTimes:0 createTime:1770554100076
+02/08 12:35:00.079787 00000159 C MND INFO  vgId:1, trans:56, start to send rsp, stage:finished failedTimes:0 code:0x0
+02/08 12:35:00.079789 00000159 C MND INFO  vgId:1, trans:56, start to lock rpc array
+02/08 12:35:00.079792 00000159 C MND INFO  trans:56, refresh transaction in process write msg finished
+02/08 12:35:00.079793 00000159 C MND INFO  vgId:1, mnode apply info changed from index:113 term:1 config:-1 to index:114 term:1 config:-1
+02/08 12:35:00.079796 00000159 C MND INFO  vgId:1, trans:56, release transaction
+02/08 12:35:00.079810 00000159 C MND INFO  trans:56, is proposed and post sem, seq:0
+02/08 12:35:00.079820 00000158 C MND INFO  trans:56, sync to other mnodes finished, createTime:1770554100076
+02/08 12:35:00.079824 00000158 C MND INFO  trans:56, commit finished
+02/08 12:35:00.079826 00000158 C MND INFO  trans:56, stage from commit to commitAction
+02/08 12:35:00.079828 00000158 C MND INFO  trans:56, continue to execute stage:commitAction in transContext, createTime:1770554100076
+02/08 12:35:00.079829 00000158 C MND INFO  trans:56, all 1 actions execute successfully
+02/08 12:35:00.079831 00000158 C MND INFO  trans:56, stage from commitAction to finished
+02/08 12:35:00.079832 00000158 C MND INFO  trans:56, continue to execute stage:finished in transContext, createTime:1770554100076
+02/08 12:35:00.079833 00000158 C MND INFO  vgId:1, trans:56, start to send rsp, stage:finished failedTimes:0 code:0x0
+02/08 12:35:00.079835 00000158 C MND INFO  vgId:1, trans:56, start to lock rpc array
+02/08 12:35:00.079836 00000158 C MND INFO  vgId:1, trans:56, release transaction
+02/08 12:35:00.079838 00000158 C MND INFO  vgId:1, deleteFp:0x56a3c0, type:trans, row:0x7f632c08cc90
+02/08 12:35:00.079839 00000158 C MND INFO  trans:56, perform delete action, row:0x7f632c08cc9c stage:finished callfunc:1, stopFunc:0
+02/08 12:35:03.719314 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:35:13.683895 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:35:23.683067 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:35:33.682928 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:35:43.646708 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:35:53.646666 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:36:03.647139 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:36:13.610874 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:36:23.610531 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:36:33.610074 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:36:43.572606 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:36:53.572833 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:37:03.572528 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:37:13.535314 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:37:23.535545 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:37:33.535396 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:37:43.497660 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:37:53.496837 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:38:03.497798 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:38:10.420007 00000159 C SYN INFO  vgId:1, timer routines, sync:leader, term:1, commit-index:114, assigned-index:0, applied-index:114, first-ver:0, last-ver:114, min:-1, snap:24, snap-term:1, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:-1, snaping:-1, replicas:1, last-cfg:-1, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[-1 114 114, 115), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:23:06.642:0}, recv hb-reply:{0:2026-02-08 11:23:06.642:0}, arb-token:d1#g1#1770549786630#467, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:38:13.321524 00000063 C UTL INFO  process log rotation
+02/08 12:38:13.461125 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:38:16.129883 00000443 C SYN INFO  vgId:2, timer routines, sync:leader, term:1, commit-index:1826, assigned-index:0, applied-index:1826, first-ver:0, last-ver:1826, min:-1, snap:-1, snap-term:0, elect-times:0, as-leader-times:1, as-assigned-leader-times:0, cfg-ch-times:0, hb-slow:0, hbr-slow:0, aq-items:0, snaping:-1, replicas:1, last-cfg:0, chging:0, restore:1, quorum:1, elect-lc-timer:1, hb:0, buffer:[1570 1826 1826, 1827), repl-mgrs:{0:0 [0, 0, 0] 0}, members:{num:1, as:0, [localhost:6030]}, send hb:{0::0}, recv hb:{0:2026-02-08 11:23:12.338:0}, recv hb-reply:{0:2026-02-08 11:23:12.338:0}, arb-token:d1#g2#1770549792331#989, msg[sent:0, recv:0, slow-recv:0]
+02/08 12:38:23.461155 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0
+02/08 12:38:33.461558 00000158 C MND INFO  vgId:1, deleteFp:0x5e3fb0, type:instance, row:0x7f631401c2a0

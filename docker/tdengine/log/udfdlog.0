@@ -593,3 +593,4 @@
 02/08 11:23:06.624616 00000089 C UDF INFO  udfd resident functions are inited
 02/08 11:23:06.624618 00000089 C UDF INFO  start udfd event loop
 02/08 11:38:08.856589 00000131 C UTL INFO  process log rotation
+02/08 12:38:14.782434 00000131 C UTL INFO  process log rotation

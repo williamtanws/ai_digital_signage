@@ -211,3 +211,4 @@ logs/
 *.log
 audience-analysis_env/
 data/
+log/

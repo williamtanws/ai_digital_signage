@@ -50,10 +50,10 @@ Install all project-specific Python dependencies:
 pip install -r requirements.txt
 ```
 
-Install additional camera, sensor, and audio libraries:
+Install additional camera:
 
 ```bash
-pip install picamera2 bme680 sounddevice
+pip install picamera2
 ```
 
 ---
@@ -65,7 +65,7 @@ Register the virtual environment as a Jupyter kernel:
 ```bash
 python -m ipykernel install --user \
   --name=audience-analysis_env \
-  --display-name "Python (analysis_env)"
+  --display-name "Python (audience-analysis_env)"
 ```
 
 Launch Jupyter Notebook:

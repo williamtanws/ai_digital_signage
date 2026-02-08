@@ -1,6 +1,7 @@
 notebook
 ipykernel
-degirum
+degirum==0.17.1
 degirum_tools
 degirum_cli
 bme680
+sounddevice

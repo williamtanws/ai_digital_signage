@@ -302,3 +302,294 @@
 02/07 19:29:41.764267 00000079 C RPC INFO  start to close rpc
 02/07 19:29:41.764380 00000079 C RPC INFO  end to close rpc
 02/07 19:29:41.764384 00000079 C UDF INFO  udfd finish closing rpc
+==================================================
+                new log file
+==================================================
+02/08 11:23:06.614149 00000089 C UTL INFO  load from cfg file /etc/taos/taos.cfg success
+02/08 11:23:06.614162 00000089 C UTL INFO  env file:.env not load
+02/08 11:23:06.614176 00000089 C UTL INFO  load from env variables cfg success
+02/08 11:23:06.614197 00000089 C UTL INFO  start to read config file:/var/lib/taos/dnode/config/global.json
+02/08 11:23:06.615675 00000089 C UTL INFO  config file:/var/lib/taos/dnode/config/global.json does not exist
+02/08 11:23:06.615684 00000089 C UTL INFO  load config from tsDataDir:/var/lib/taos
+02/08 11:23:06.615688 00000089 C UTL INFO  start to read config file:/var/lib/taos/dnode/config/local.json
+02/08 11:23:06.616845 00000089 C UTL INFO  config file:/var/lib/taos/dnode/config/local.json does not exist
+02/08 11:23:06.616859 00000089 C UTL INFO  start to read stype config file:/var/lib/taos/dnode/config/stype.json
+02/08 11:23:06.617876 00000089 C UTL INFO  stype config file:/var/lib/taos/dnode/config/stype.json does not exist
+02/08 11:23:06.618292 00000089 C UTL INFO                       global config
+02/08 11:23:06.618300 00000089 C UTL INFO  =================================================================
+02/08 11:23:06.618303 00000089 C UTL INFO  default      firstEp                          localhost:6030
+02/08 11:23:06.618305 00000089 C UTL INFO  default      secondEp                         localhost:6030
+02/08 11:23:06.618306 00000089 C UTL INFO  cfg_file     fqdn                             localhost
+02/08 11:23:06.618308 00000089 C UTL INFO  default      serverPort                       6030
+02/08 11:23:06.618309 00000089 C UTL INFO  default      mqttPort                         6083
+02/08 11:23:06.618311 00000089 C UTL INFO  default      tempDir                          /tmp/
+02/08 11:23:06.618312 00000089 C UTL INFO  default      minimalTmpDirGB                  1.00
+02/08 11:23:06.618317 00000089 C UTL INFO  default      queryPolicy                      1
+02/08 11:23:06.618318 00000089 C UTL INFO  default      queryTableNotExistAsEmpty        0
+02/08 11:23:06.618320 00000089 C UTL INFO  default      enableQueryHb                    1
+02/08 11:23:06.618322 00000089 C UTL INFO  default      enableScience                    0
+02/08 11:23:06.618323 00000089 C UTL INFO  default      querySmaOptimize                 0
+02/08 11:23:06.618325 00000089 C UTL INFO  default      queryPlannerTrace                0
+02/08 11:23:06.618326 00000089 C UTL INFO  default      queryNodeChunkSize               32768
+02/08 11:23:06.618327 00000089 C UTL INFO  default      queryUseNodeAllocator            1
+02/08 11:23:06.618329 00000089 C UTL INFO  default      keepColumnName                   0
+02/08 11:23:06.618330 00000089 C UTL INFO  default      smlChildTableName                
+02/08 11:23:06.618332 00000089 C UTL INFO  default      smlAutoChildTableNameDelimiter   
+02/08 11:23:06.618333 00000089 C UTL INFO  default      smlTagName                       _tag_null
+02/08 11:23:06.618335 00000089 C UTL INFO  default      smlTsDefaultName                 _ts
+02/08 11:23:06.618336 00000089 C UTL INFO  default      smlDot2Underline                 1
+02/08 11:23:06.618337 00000089 C UTL INFO  default      minSlidingTime                   1
+02/08 11:23:06.618339 00000089 C UTL INFO  default      minIntervalTime                  1
+02/08 11:23:06.618340 00000089 C UTL INFO  default      maxInsertBatchRows               1000000
+02/08 11:23:06.618342 00000089 C UTL INFO  default      useAdapter                       0
+02/08 11:23:06.618343 00000089 C UTL INFO  default      queryMaxConcurrentTables         200
+02/08 11:23:06.618345 00000089 C UTL INFO  default      metaCacheMaxSize                 -1
+02/08 11:23:06.618346 00000089 C UTL INFO  default      bypassFlag                       0
+02/08 11:23:06.618348 00000089 C UTL INFO  default      numOfRpcThreads                  8
+02/08 11:23:06.618349 00000089 C UTL INFO  default      numOfRpcSessions                 10000
+02/08 11:23:06.618350 00000089 C UTL INFO  default      numOfTaskQueueThreads            32
+02/08 11:23:06.618352 00000089 C UTL INFO  default      multiResultFunctionStarReturnTa  0
+02/08 11:23:06.618359 00000089 C UTL INFO  default      countAlwaysReturnValue           1
+02/08 11:23:06.618360 00000089 C UTL INFO  default      maxTsmaCalcDelay                 600
+02/08 11:23:06.618362 00000089 C UTL INFO  default      tsmaDataDeleteMark               86400000
+02/08 11:23:06.618363 00000089 C UTL INFO  default      compareAsStrInGreatest           1
+02/08 11:23:06.618364 00000089 C UTL INFO  default      showFullCreateTableColumn        0
+02/08 11:23:06.618366 00000089 C UTL INFO  default      sessionPerUser                   -1
+02/08 11:23:06.618367 00000089 C UTL INFO  default      sessionConnTime                  -1
+02/08 11:23:06.618369 00000089 C UTL INFO  default      sessionConnIdleTime              -1
+02/08 11:23:06.618370 00000089 C UTL INFO  default      sessionMaxConcurrency            -1
+02/08 11:23:06.618371 00000089 C UTL INFO  default      sessionMaxCallVnodeNum           -1
+02/08 11:23:06.618372 00000089 C UTL INFO  default      maxSQLLength                     4194304
+02/08 11:23:06.618374 00000089 C UTL INFO  default      sessionControl                   1
+02/08 11:23:06.618375 00000089 C UTL INFO  cfg_file     dataDir                          /var/lib/taos
+02/08 11:23:06.618377 00000089 C UTL INFO  default      minimalDataDirGB                 2.00
+02/08 11:23:06.618379 00000089 C UTL INFO  default      supportVnodes                    37
+02/08 11:23:06.618381 00000089 C UTL INFO  default      encryptExtDir                    
+02/08 11:23:06.618382 00000089 C UTL INFO  default      metricsInterval                  30
+02/08 11:23:06.618384 00000089 C UTL INFO  default      enableMetrics                    0
+02/08 11:23:06.618385 00000089 C UTL INFO  default      metricsLevel                     0
+02/08 11:23:06.618386 00000089 C UTL INFO  default      maxShellConns                    50000
+02/08 11:23:06.618387 00000089 C UTL INFO  default      queryBufferSize                  -1
+02/08 11:23:06.618388 00000089 C UTL INFO  default      numOfCommitThreads               4
+02/08 11:23:06.618389 00000089 C UTL INFO  default      numOfCompactThreads              2
+02/08 11:23:06.618390 00000089 C UTL INFO  env_var      queryUseMemoryPool               0
+02/08 11:23:06.618391 00000089 C UTL INFO  default      memPoolFullFunc                  0
+02/08 11:23:06.618391 00000089 C UTL INFO  default      singleQueryMaxMemorySize         0
+02/08 11:23:06.618392 00000089 C UTL INFO  default      minReservedMemorySize            0
+02/08 11:23:06.618393 00000089 C UTL INFO  default      queryNoFetchTimeoutSec           18000
+02/08 11:23:06.618394 00000089 C UTL INFO  default      numOfMnodeReadThreads            2
+02/08 11:23:06.618395 00000089 C UTL INFO  default      numOfVnodeQueryThreads           32
+02/08 11:23:06.618396 00000089 C UTL INFO  default      numOfVnodeFetchThreads           4
+02/08 11:23:06.618397 00000089 C UTL INFO  default      numOfVnodeRsmaThreads            16
+02/08 11:23:06.618397 00000089 C UTL INFO  default      numOfQnodeQueryThreads           32
+02/08 11:23:06.618398 00000089 C UTL INFO  default      numOfMnodeStreamMgmtThreads      4
+02/08 11:23:06.618399 00000089 C UTL INFO  default      numOfStreamMgmtThreads           2
+02/08 11:23:06.618400 00000089 C UTL INFO  default      numOfVnodeStreamReaderThreads    8
+02/08 11:23:06.618401 00000089 C UTL INFO  default      numOfStreamTriggerThreads        16
+02/08 11:23:06.618402 00000089 C UTL INFO  default      numOfStreamRunnerThreads         16
+02/08 11:23:06.618403 00000089 C UTL INFO  default      rpcQueueMemoryAllowed            3326745804
+02/08 11:23:06.618404 00000089 C UTL INFO  default      syncLogBufferMemoryAllowed       3326745804
+02/08 11:23:06.618405 00000089 C UTL INFO  default      syncRoutineReportInterval        300
+02/08 11:23:06.618405 00000089 C UTL INFO  default      syncLogHeartbeat                 0
+02/08 11:23:06.618406 00000089 C UTL INFO  default      walDeleteOnCorruption            0
+02/08 11:23:06.618407 00000089 C UTL INFO  cfg_file     monitorFqdn                      localhost
+02/08 11:23:06.618411 00000089 C UTL INFO  default      monitorPort                      6043
+02/08 11:23:06.618412 00000089 C UTL INFO  default      telemetryPort                    80
+02/08 11:23:06.618414 00000089 C UTL INFO  default      rsyncPort                        873
+02/08 11:23:06.618415 00000089 C UTL INFO  default      snodeAddress                     
+02/08 11:23:06.618416 00000089 C UTL INFO  default      checkpointBackupDir              /var/lib/taos/backup/checkpoint/
+02/08 11:23:06.618418 00000089 C UTL INFO  default      diskIDCheckEnabled               0
+02/08 11:23:06.618419 00000089 C UTL INFO  default      walForceRepair                   0
+02/08 11:23:06.618420 00000089 C UTL INFO  default      disableStream                    0
+02/08 11:23:06.618422 00000089 C UTL INFO  default      streamBufferSize                 9517
+02/08 11:23:06.618423 00000089 C UTL INFO  default      filterScalarMode                 0
+02/08 11:23:06.618425 00000089 C UTL INFO  default      pqSortMemThreshold               16
+02/08 11:23:06.618426 00000089 C UTL INFO  default      rpcRecvLogThreshold              3
+02/08 11:23:06.618427 00000089 C UTL INFO  default      minDiskFreeSize                  52428800
+02/08 11:23:06.618429 00000089 C UTL INFO  default      streamNotifyMessageSize          8192
+02/08 11:23:06.618430 00000089 C UTL INFO  default      streamNotifyFrameSize            256
+02/08 11:23:06.618431 00000089 C UTL INFO  default      streamBatchRequestWaitMs         5000
+02/08 11:23:06.618433 00000089 C UTL INFO  default      configDir                        /etc/taos/
+02/08 11:23:06.618434 00000089 C UTL INFO  default      scriptDir                        /etc/taos/
+02/08 11:23:06.618436 00000089 C UTL INFO  cfg_file     logDir                           /var/log/taos
+02/08 11:23:06.618437 00000089 C UTL INFO  default      minimalLogDirGB                  1.00
+02/08 11:23:06.618439 00000089 C UTL INFO  default      numOfLogLines                    10000000
+02/08 11:23:06.618440 00000089 C UTL INFO  default      asyncLog                         1
+02/08 11:23:06.618441 00000089 C UTL INFO  default      logKeepDays                      0
+02/08 11:23:06.618443 00000089 C UTL INFO  default      debugFlag                        0
+02/08 11:23:06.618444 00000089 C UTL INFO  default      simDebugFlag                     131
+02/08 11:23:06.618445 00000089 C UTL INFO  default      tmrDebugFlag                     131
+02/08 11:23:06.618447 00000089 C UTL INFO  default      uDebugFlag                       131
+02/08 11:23:06.618448 00000089 C UTL INFO  default      rpcDebugFlag                     131
+02/08 11:23:06.618449 00000089 C UTL INFO  default      jniDebugFlag                     131
+02/08 11:23:06.618451 00000089 C UTL INFO  default      qDebugFlag                       131
+02/08 11:23:06.618452 00000089 C UTL INFO  default      cDebugFlag                       131
+02/08 11:23:06.618453 00000089 C UTL INFO  default      tqClientDebugFlag                131
+02/08 11:23:06.618455 00000089 C UTL INFO  default      dDebugFlag                       131
+02/08 11:23:06.618456 00000089 C UTL INFO  default      vDebugFlag                       131
+02/08 11:23:06.618458 00000089 C UTL INFO  default      mDebugFlag                       131
+02/08 11:23:06.618459 00000089 C UTL INFO  default      wDebugFlag                       131
+02/08 11:23:06.618460 00000089 C UTL INFO  default      azDebugFlag                      131
+02/08 11:23:06.618461 00000089 C UTL INFO  default      tssDebugFlag                     131
+02/08 11:23:06.618462 00000089 C UTL INFO  default      sDebugFlag                       131
+02/08 11:23:06.618463 00000089 C UTL INFO  default      tsdbDebugFlag                    131
+02/08 11:23:06.618463 00000089 C UTL INFO  default      tqDebugFlag                      131
+02/08 11:23:06.618464 00000089 C UTL INFO  default      tqClientDebug                    131
+02/08 11:23:06.618465 00000089 C UTL INFO  default      fsDebugFlag                      131
+02/08 11:23:06.618468 00000089 C UTL INFO  default      udfDebugFlag                     131
+02/08 11:23:06.618469 00000089 C UTL INFO  default      smaDebugFlag                     131
+02/08 11:23:06.618470 00000089 C UTL INFO  default      idxDebugFlag                     131
+02/08 11:23:06.618471 00000089 C UTL INFO  default      tdbDebugFlag                     131
+02/08 11:23:06.618472 00000089 C UTL INFO  default      metaDebugFlag                    131
+02/08 11:23:06.618472 00000089 C UTL INFO  default      stDebugFlag                      131
+02/08 11:23:06.618473 00000089 C UTL INFO  default      sndDebugFlag                     131
+02/08 11:23:06.618474 00000089 C UTL INFO  default      bseDebugFlag                     131
+02/08 11:23:06.618476 00000089 C UTL INFO  default      bndDebugFlag                     131
+02/08 11:23:06.618477 00000089 C UTL INFO  default      xndDebugFlag                     131
+02/08 11:23:06.618479 00000089 C UTL INFO  default      numOfCores                       16.00
+02/08 11:23:06.618482 00000089 C UTL INFO  default      simdEnable                       1
+02/08 11:23:06.618484 00000089 C UTL INFO  default      AVX512Enable                     0
+02/08 11:23:06.618486 00000089 C UTL INFO  default      tagFilterCache                   0
+02/08 11:23:06.618487 00000089 C UTL INFO  default      stableTagFilterCache             0
+02/08 11:23:06.618489 00000089 C UTL INFO  default      metaEntryCache                   0
+02/08 11:23:06.618490 00000089 C UTL INFO  default      metaEntryCacheSize               131072
+02/08 11:23:06.618492 00000089 C UTL INFO  default      openMax                          1048576
+02/08 11:23:06.618493 00000089 C UTL INFO  default      streamMax                        16
+02/08 11:23:06.618495 00000089 C UTL INFO  default      pageSizeKB                       4
+02/08 11:23:06.618497 00000089 C UTL INFO  default      totalMemoryKB                    32487752
+02/08 11:23:06.618499 00000089 C UTL INFO  default      os sysname                       Linux
+02/08 11:23:06.618500 00000089 C UTL INFO  default      os nodename                      7f358c506738
+02/08 11:23:06.618502 00000089 C UTL INFO  default      os release                       5.15.167.4-microsoft-standard-WSL2
+02/08 11:23:06.618504 00000089 C UTL INFO  default      os version                       #1 SMP Tue Nov 5 00:21:55 UTC 2024
+02/08 11:23:06.618505 00000089 C UTL INFO  default      os machine                       x86_64
+02/08 11:23:06.618507 00000089 C UTL INFO  default      version                          3.4.0.2.community
+02/08 11:23:06.618509 00000089 C UTL INFO  default      compatible_version               3.0.0.0
+02/08 11:23:06.618510 00000089 C UTL INFO  default      gitinfo                          8e2e7ea4e3f7d3ecb16826d79bd74196ccdc4e2d
+02/08 11:23:06.618512 00000089 C UTL INFO  default      buildinfo                        Linux-x64 2026-01-30 20:21:45 +0800
+02/08 11:23:06.618514 00000089 C UTL INFO  default      enableIpv6                       0
+02/08 11:23:06.618516 00000089 C UTL INFO  default      shellActivityTimer               3
+02/08 11:23:06.618517 00000089 C UTL INFO  default      compressMsgSize                  -1
+02/08 11:23:06.618519 00000089 C UTL INFO  default      maxRetryWaitTime                 20000
+02/08 11:23:06.618520 00000089 C UTL INFO  default      crashReporting                   1
+02/08 11:23:06.618522 00000089 C UTL INFO  default      randErrorChance                  1
+02/08 11:23:06.618523 00000089 C UTL INFO  default      randErrorDivisor                 10001
+02/08 11:23:06.618524 00000089 C UTL INFO  default      randErrorScope                   7
+02/08 11:23:06.618526 00000089 C UTL INFO  default      safetyCheckLevel                 1
+02/08 11:23:06.618527 00000089 C UTL INFO  default      shareConnLimit                   10
+02/08 11:23:06.618528 00000089 C UTL INFO  default      readTimeout                      900
+02/08 11:23:06.618529 00000089 C UTL INFO  default      timeToGetAvailableConn           500000
+02/08 11:23:06.618531 00000089 C UTL INFO  default      experimental                     1
+02/08 11:23:06.618535 00000089 C UTL INFO  default      encryptAlgorithm                 
+02/08 11:23:06.618536 00000089 C UTL INFO  default      encryptScope                     
+02/08 11:23:06.618538 00000089 C UTL INFO  default      enableStrongPassword             1
+02/08 11:23:06.618539 00000089 C UTL INFO  default      allowDefaultPassword             1
+02/08 11:23:06.618540 00000089 C UTL INFO  default      encryptPassAlgorithm             
+02/08 11:23:06.618542 00000089 C UTL INFO  default      statusInterval                   1
+02/08 11:23:06.618543 00000089 C UTL INFO  default      statusIntervalMs                 1000
+02/08 11:23:06.618544 00000089 C UTL INFO  default      statusSRTimeoutMs                5000
+02/08 11:23:06.618545 00000089 C UTL INFO  default      statusTimeoutMs                  5000
+02/08 11:23:06.618546 00000089 C UTL INFO  default      queryRspPolicy                   0
+02/08 11:23:06.618548 00000089 C UTL INFO  default      retentionSpeedLimitMB            0
+02/08 11:23:06.618549 00000089 C UTL INFO  default      syncElectInterval                4000
+02/08 11:23:06.618550 00000089 C UTL INFO  default      syncHeartbeatInterval            1000
+02/08 11:23:06.618551 00000089 C UTL INFO  default      syncVnodeElectIntervalMs         4000
+02/08 11:23:06.618553 00000089 C UTL INFO  default      syncVnodeHeartbeatIntervalMs     1000
+02/08 11:23:06.618554 00000089 C UTL INFO  default      syncMnodeElectIntervalMs         3000
+02/08 11:23:06.618555 00000089 C UTL INFO  default      syncMnodeHeartbeatIntervalMs     500
+02/08 11:23:06.618556 00000089 C UTL INFO  default      syncHeartbeatTimeout             20000
+02/08 11:23:06.618558 00000089 C UTL INFO  default      syncSnapReplMaxWaitN             128
+02/08 11:23:06.618559 00000089 C UTL INFO  default      syncApplyQueueSize               512
+02/08 11:23:06.618561 00000089 C UTL INFO  default      syncTimeout                      0
+02/08 11:23:06.618562 00000089 C UTL INFO  default      arbHeartBeatIntervalSec          2
+02/08 11:23:06.618563 00000089 C UTL INFO  default      arbCheckSyncIntervalSec          3
+02/08 11:23:06.618565 00000089 C UTL INFO  default      arbSetAssignedTimeoutSec         14
+02/08 11:23:06.618566 00000089 C UTL INFO  default      arbHeartBeatIntervalMs           2000
+02/08 11:23:06.618567 00000089 C UTL INFO  default      arbCheckSyncIntervalMs           3000
+02/08 11:23:06.618568 00000089 C UTL INFO  default      arbSetAssignedTimeoutMs          14000
+02/08 11:23:06.618569 00000089 C UTL INFO  default      mndSdbWriteDelta                 200
+02/08 11:23:06.618571 00000089 C UTL INFO  default      mndLogRetention                  2000
+02/08 11:23:06.618572 00000089 C UTL INFO  default      skipGrant                        0
+02/08 11:23:06.618573 00000089 C UTL INFO  cfg_file     monitor                          1
+02/08 11:23:06.618575 00000089 C UTL INFO  default      monitorInterval                  30
+02/08 11:23:06.618576 00000089 C UTL INFO  default      slowLogThreshold                 10
+02/08 11:23:06.618578 00000089 C UTL INFO  default      slowLogMaxLen                    4096
+02/08 11:23:06.618579 00000089 C UTL INFO  default      slowLogScope                     query
+02/08 11:23:06.618581 00000089 C UTL INFO  default      slowLogExceptDb                  
+02/08 11:23:06.618582 00000089 C UTL INFO  default      monitorMaxLogs                   100
+02/08 11:23:06.618584 00000089 C UTL INFO  default      monitorComp                      0
+02/08 11:23:06.618585 00000089 C UTL INFO  default      monitorLogProtocol               0
+02/08 11:23:06.618586 00000089 C UTL INFO  default      monitorForceV2                   1
+02/08 11:23:06.618587 00000089 C UTL INFO  default      audit                            1
+02/08 11:23:06.618589 00000089 C UTL INFO  default      enableAuditDelete                1
+02/08 11:23:06.618590 00000089 C UTL INFO  default      enableAuditSelect                1
+02/08 11:23:06.618591 00000089 C UTL INFO  default      enableAuditInsert                1
+02/08 11:23:06.618595 00000089 C UTL INFO  default      auditLevel                       3
+02/08 11:23:06.618597 00000089 C UTL INFO  default      auditCreateTable                 1
+02/08 11:23:06.618598 00000089 C UTL INFO  default      auditInterval                    5000
+02/08 11:23:06.618599 00000089 C UTL INFO  default      auditHttps                       0
+02/08 11:23:06.618601 00000089 C UTL INFO  default      auditUseToken                    1
+02/08 11:23:06.618602 00000089 C UTL INFO  default      telemetryReporting               1
+02/08 11:23:06.618603 00000089 C UTL INFO  default      telemetryInterval                86400
+02/08 11:23:06.618605 00000089 C UTL INFO  default      telemetryServer                  telemetry.tdengine.com
+02/08 11:23:06.618606 00000089 C UTL INFO  default      tmqMaxTopicNum                   20
+02/08 11:23:06.618608 00000089 C UTL INFO  default      tmqRowSize                       1000
+02/08 11:23:06.618609 00000089 C UTL INFO  default      maxTsmaNum                       10
+02/08 11:23:06.618610 00000089 C UTL INFO  default      transPullupInterval              2
+02/08 11:23:06.618611 00000089 C UTL INFO  default      compactPullupInterval            10
+02/08 11:23:06.618613 00000089 C UTL INFO  default      mqRebalanceInterval              2
+02/08 11:23:06.618614 00000089 C UTL INFO  default      ttlUnit                          86400
+02/08 11:23:06.618615 00000089 C UTL INFO  default      ttlPushInterval                  10
+02/08 11:23:06.618616 00000089 C UTL INFO  default      ttlBatchDropNum                  10000
+02/08 11:23:06.618618 00000089 C UTL INFO  default      ttlChangeOnWrite                 0
+02/08 11:23:06.618619 00000089 C UTL INFO  default      ttlFlushThreshold                100
+02/08 11:23:06.618620 00000089 C UTL INFO  default      trimVDbIntervalSec               3600
+02/08 11:23:06.618621 00000089 C UTL INFO  default      queryTrimIntervalSec             10
+02/08 11:23:06.618622 00000089 C UTL INFO  default      uptimeInterval                   300
+02/08 11:23:06.618624 00000089 C UTL INFO  default      queryRsmaTolerance               1000
+02/08 11:23:06.618625 00000089 C UTL INFO  default      timeseriesThreshold              50
+02/08 11:23:06.618626 00000089 C UTL INFO  default      walFsyncDataSizeLimit            104857600
+02/08 11:23:06.618627 00000089 C UTL INFO  default      udf                              1
+02/08 11:23:06.618629 00000089 C UTL INFO  default      udfdResFuncs                     
+02/08 11:23:06.618630 00000089 C UTL INFO  default      udfdLdLibPath                    
+02/08 11:23:06.618631 00000089 C UTL INFO  default      cacheLazyLoadThreshold           500
+02/08 11:23:06.618633 00000089 C UTL INFO  default      fPrecision                       0.00
+02/08 11:23:06.618636 00000089 C UTL INFO  default      dPrecision                       0.00
+02/08 11:23:06.618637 00000089 C UTL INFO  default      maxRange                         500
+02/08 11:23:06.618638 00000089 C UTL INFO  default      curRange                         100
+02/08 11:23:06.618640 00000089 C UTL INFO  default      ifAdtFse                         0
+02/08 11:23:06.618641 00000089 C UTL INFO  default      compressor                       ZSTD_COMPRESSOR
+02/08 11:23:06.618642 00000089 C UTL INFO  default      ssEnabled                        0
+02/08 11:23:06.618644 00000089 C UTL INFO  default      ssAutoMigrateIntervalSec         3600
+02/08 11:23:06.618645 00000089 C UTL INFO  default      ssPageCacheSize                  4096
+02/08 11:23:06.618646 00000089 C UTL INFO  default      ssUploadDelaySec                 60
+02/08 11:23:06.618648 00000089 C UTL INFO  default      enableWhiteList                  0
+02/08 11:23:06.618649 00000089 C UTL INFO  default      forceKillTrans                   0
+02/08 11:23:06.618651 00000089 C UTL INFO  default      timezone                         Etc/UTC (UTC, +0000)
+02/08 11:23:06.618652 00000089 C UTL INFO  default      locale                           en_US.UTF-8
+02/08 11:23:06.618653 00000089 C UTL INFO  default      charset                          UTF-8
+02/08 11:23:06.618657 00000089 C UTL INFO  default      enableCoreFile                   1
+02/08 11:23:06.618658 00000089 C UTL INFO  default      tlsCaPath                        
+02/08 11:23:06.618660 00000089 C UTL INFO  default      tlsSvrCertPath                   
+02/08 11:23:06.618661 00000089 C UTL INFO  default      tlsSvrKeyPath                    
+02/08 11:23:06.618662 00000089 C UTL INFO  default      tlsCliCertPath                   
+02/08 11:23:06.618664 00000089 C UTL INFO  default      tlsCliKeyPath                    
+02/08 11:23:06.618665 00000089 C UTL INFO  default      enableTLS                        0
+02/08 11:23:06.618666 00000089 C UTL INFO  default      enableSasl                       0
+02/08 11:23:06.618668 00000089 C UTL INFO  =================================================================
+02/08 11:23:06.618670 00000089 C UTL INFO  check global fqdn:localhost and port:6030
+02/08 11:23:06.619057 00000089 C UTL INFO  [tz]timezone initTimezoneInfo.
+02/08 11:23:06.619062 00000089 C UDF INFO  udfd start with config file /etc/taos/
+02/08 11:23:06.619091 00000089 C UDF INFO  udfd start with mnode ep localhost
+02/08 11:23:06.619173 00000089 C RPC INFO  TLS is not enabled for UDFD
+02/08 11:23:06.619175 00000089 C RPC INFO  SASL is not enabled for UDFD
+02/08 11:23:06.619504 00000089 C UDF INFO  udfd rpc client is opened
+02/08 11:23:06.621859 00000089 C UDF INFO  udfd create udf source directory /var/lib/taos/.udf. result: success
+02/08 11:23:06.621868 00000089 C UDF INFO  udfd udf source directory is created
+02/08 11:23:06.621874 00000089 C UDF INFO  udfd global data is inited
+02/08 11:23:06.621971 00000089 C UDF INFO  get dnodeId:0 from env, pipe path:/var/lib/taos/.taosudf.sock.0
+02/08 11:23:06.622793 00000089 C UDF INFO  remove listening pipe /var/lib/taos/.taosudf.sock.0 : no such file or directory, lino:1627
+02/08 11:23:06.622820 00000089 C UDF INFO  bind to pipe /var/lib/taos/.taosudf.sock.0
+02/08 11:23:06.624605 00000089 C UDF INFO  udfd uv is inited
+02/08 11:23:06.624616 00000089 C UDF INFO  udfd resident functions are inited
+02/08 11:23:06.624618 00000089 C UDF INFO  start udfd event loop
+02/08 11:38:08.856589 00000131 C UTL INFO  process log rotation

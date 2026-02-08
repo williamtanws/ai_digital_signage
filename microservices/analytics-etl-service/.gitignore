@@ -1,0 +1,9 @@
+# Analytics ETL Service
+
+.idea/
+.vscode/
+target/
+*.iml
+*.log
+*.db
+*.db-journal

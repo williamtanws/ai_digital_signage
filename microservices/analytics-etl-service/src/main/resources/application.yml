@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: analytics-etl-service
+
+# TDengine Configuration (Source Database)
+tdengine:
+  url: jdbc:TAOS-RS://localhost:6041
+  username: root
+  password: taosdata
+  database: digital_signage
+
+# SQLite Configuration (Target Database)
+# IMPORTANT: This should point to the SAME database used by digital-signage-service
+sqlite:
+  url: jdbc:sqlite:../digital-signage-service/data/digital-signage.db
+
+# Logging Configuration
+logging:
+  level:
+    root: INFO
+    io.jeecloud.aidigitalsignage.analyticsetl: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"

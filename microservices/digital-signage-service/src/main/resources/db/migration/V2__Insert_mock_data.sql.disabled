@@ -1,0 +1,46 @@
+-- Flyway Migration V2: Insert mock data for dashboard
+-- Realistic sample data for Edge AI Digital Signage prototype
+
+-- Insert KPI metrics
+INSERT INTO metrics_kpi (total_audience, total_views, total_ads, avg_view_seconds)
+VALUES (1247, 3856, 12, 24.5);
+
+-- Insert age distribution
+-- Distribution: Children 12%, Teenagers 18%, Young Adults 35%, Mid-Aged 25%, Seniors 10%
+INSERT INTO age_distribution (children, teenagers, young_adults, mid_aged, seniors)
+VALUES (150, 225, 437, 312, 123);
+
+-- Insert gender distribution
+-- Distribution: Male 52%, Female 48%
+INSERT INTO gender_distribution (male, female)
+VALUES (648, 599);
+
+-- Insert emotion distribution
+-- Distribution: Neutral 45%, Serious 25%, Happy 22%, Surprised 8%
+INSERT INTO emotion_distribution (neutral, serious, happy, surprised)
+VALUES (561, 312, 274, 100);
+
+-- Insert advertisement data (performance + attention metrics)
+-- High-performing ads (attractive content/placement)
+INSERT INTO advertisement (ad_name, total_viewers, look_yes, look_no)
+VALUES 
+    ('Summer Sale 2026', 485, 388, 97),           -- 80% attention rate
+    ('New Product Launch', 432, 346, 86);         -- 80% attention rate
+
+-- Medium-performing ads
+INSERT INTO advertisement (ad_name, total_viewers, look_yes, look_no)
+VALUES 
+    ('Tech Gadgets', 356, 227, 129),              -- 64% attention rate
+    ('Fashion Collection', 328, 197, 131),        -- 60% attention rate
+    ('Food & Dining', 295, 177, 118),             -- 60% attention rate
+    ('Travel Packages', 267, 160, 107);           -- 60% attention rate
+
+-- Lower-performing ads (less prominent or niche content)
+INSERT INTO advertisement (ad_name, total_viewers, look_yes, look_no)
+VALUES 
+    ('Home Appliances', 234, 117, 117),           -- 50% attention rate
+    ('Sports Equipment', 212, 106, 106),          -- 50% attention rate
+    ('Beauty Products', 198, 89, 109),            -- 45% attention rate
+    ('Books & Media', 187, 84, 103),              -- 45% attention rate
+    ('Pet Supplies', 156, 62, 94),                -- 40% attention rate
+    ('Health Supplements', 143, 57, 86);          -- 40% attention rate

@@ -2,6 +2,34 @@
 
 Edge AI–powered digital signage backend service for audience analytics and reporting dashboard.
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Technology Stack](#technology-stack)
+- [API Endpoint](#api-endpoint)
+  - [Get Dashboard Overview](#get-dashboard-overview)
+- [Project Structure](#project-structure)
+- [Running the Service](#running-the-service)
+  - [Prerequisites](#prerequisites)
+  - [Quick Start with SQLite (Recommended)](#quick-start-with-sqlite-recommended)
+  - [Manual Build and Run](#manual-build-and-run)
+  - [Access Points](#access-points)
+  - [Test the API](#test-the-api)
+- [Configuration](#configuration)
+  - [Server Port](#server-port)
+  - [Database Configuration](#database-configuration)
+  - [CORS Configuration](#cors-configuration)
+- [Mock Data (Database Implementation)](#mock-data-database-implementation)
+- [Development Notes](#development-notes)
+  - [Database Integration](#database-integration)
+  - [No Authentication](#no-authentication)
+  - [CORS Enabled](#cors-enabled)
+  - [Logging](#logging)
+- [Frontend Integration](#frontend-integration)
+- [Future Enhancements](#future-enhancements)
+- [License](#license)
+- [Contact](#contact)
+
 ## Overview
 
 This Spring Boot service provides a single REST API endpoint that returns comprehensive dashboard data for visualizing audience analytics from edge AI devices.
@@ -94,8 +122,36 @@ src/main/java/io/jeecloud/aidigitalsignage/digitalsignage/
 ### Prerequisites
 - Java 21 or higher
 - Maven 3.6+
+- Docker Desktop (for SQLite browser container)
 
-### Build and Run
+### Quick Start with SQLite (Recommended)
+
+Use the provided startup script that automatically starts the SQLite browser and the service:
+
+**PowerShell:**
+```powershell
+cd microservices/digital-signage-service
+.\start-with-sqlite.ps1
+```
+
+**Command Prompt:**
+```cmd
+cd microservices\digital-signage-service
+start-with-sqlite.bat
+```
+
+This will:
+1. Set Java 21 environment
+2. Start SQLite browser container on port 3000
+3. Create the data directory
+4. Start the Spring Boot service on port 8080
+
+**To stop all services:**
+```powershell
+.\stop-services.ps1
+```
+
+### Manual Build and Run
 
 ```bash
 # Navigate to the project directory
@@ -109,6 +165,13 @@ mvn spring-boot:run
 ```
 
 The service will start on **http://localhost:8080**
+
+### Access Points
+
+- **Backend API**: http://localhost:8080/api/dashboard/overview
+- **Frontend Dashboard**: http://localhost:5175 (Vue.js + Vite)
+- **SQLite Browser**: http://localhost:3000 (Docker container)
+- **Database File**: `./data/digital-signage.db`
 
 ### Test the API
 
@@ -131,15 +194,36 @@ server:
   port: 8080
 ```
 
+### Database Configuration
+The service uses **SQLite** for persistent storage:
+
+```yaml
+spring:
+  datasource:
+    url: jdbc:sqlite:${SQLITE_DB_PATH:./data/digital-signage.db}
+    driver-class-name: org.sqlite.JDBC
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+```
+
+To use a different database location:
+```bash
+export SQLITE_DB_PATH=/custom/path/database.db
+mvn spring-boot:run
+```
+
 ### CORS Configuration
 Configured to allow requests from common frontend development servers:
 - http://localhost:3000
 - http://localhost:5173 (Vite default)
+- http://localhost:5175 (Current frontend)
 - http://localhost:8081
 
-## Mock Data
+## Mock Data (Database Implementation)
 
-The service generates realistic mock data representing:
+The service uses **Flyway migrations** to populate the SQLite database with realistic mock data:
 
 ### KPIs
 - **Total Audience**: 1,247 unique visitors
@@ -160,8 +244,21 @@ The service generates realistic mock data representing:
 
 ## Development Notes
 
-### No Database Required
-This is a stateless service with hardcoded mock data. No database configuration or JPA entities are needed.
+### Database Integration
+The service includes **Spring Data JPA** with **SQLite** support:
+- **Database**: SQLite 3.47.2.0
+- **ORM**: Hibernate with SQLite dialect
+- **Schema Management**: Flyway migrations (version-controlled SQL scripts)
+- **Location**: `./data/digital-signage.db` (created on first run)
+- **Browser Tool**: SQLite browser available at http://localhost:3000 (Docker)
+- **Mock Data**: Populated via Flyway migration scripts (`V1__Create_tables.sql`, `V2__Insert_mock_data.sql`)
+
+**Database Schema:**
+- `metrics_kpi` - Dashboard KPI metrics
+- `age_distribution` - Audience age demographics
+- `gender_distribution` - Audience gender demographics  
+- `emotion_distribution` - Emotion analysis data
+- `advertisement` - Ad performance and attention metrics
 
 ### No Authentication
 For prototype purposes, the API is open without authentication.
@@ -195,7 +292,8 @@ async function fetchDashboardData() {
 ## Future Enhancements
 
 For production deployment, consider adding:
-- Real database persistence (PostgreSQL, MongoDB)
+- ✅ **Database persistence** (SQLite integrated, ready for PostgreSQL migration)
+- Implement JPA entities and repositories to replace mock data
 - Spring Security for authentication
 - Redis caching for performance
 - Real-time data from edge AI devices via Kafka/MQTT

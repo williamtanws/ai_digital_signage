@@ -111,12 +111,12 @@ The system consists of three primary components that interact to collect, proces
 ```
 ai_digital_signage/
 │
-├── audience-analysis-service/          (Not yet in repository)
-│   └── Python-based edge AI service
-│       - Real-time face detection and analysis
-│       - Demographic estimation (age, gender)
-│       - Attention and emotion tracking
-│       - Privacy-preserving data logging
+├── microservices/
+│   ├── audience-analysis-service/      # Python-based edge AI service
+│   │   - Real-time face detection and analysis
+│   │   - Demographic estimation (age, gender)
+│   │   - Attention and emotion tracking
+│   │   - Privacy-preserving data logging
 │
 ├── microservices/
 │   │
@@ -273,7 +273,7 @@ All models are quantized and optimized for efficient inference on edge hardware.
 
 ```bash
 # Navigate to edge service directory
-cd audience-analysis-service
+cd microservices/audience-analysis-service
 
 # Install Python dependencies
 pip install -r requirements.txt

@@ -19,10 +19,11 @@ Converted `analytics-etl-service` from **one-time batch process** to **continuou
 - ✅ Dramatically reduces database load
 - ✅ Improves performance (no duplicate processing)
 
-### 3. **Metadata Tracking** (SQLite)
-- ✅ New table: `etl_metadata`
+### 3. **Metadata Tracking** (File-based)
+- ✅ Storage: Local file `etl-metadata.txt`
 - ✅ Stores: `last_processed_timestamp`, `records_processed`, `updated_at`
 - ✅ Persistent across restarts
+- ✅ No database coupling for metadata
 
 ---
 
@@ -78,8 +79,8 @@ domain/
 
 ### New Infrastructure Layer
 ```
-infrastructure/sqlite/
-└── SqliteEtlMetadataRepository.java  # 🆕 Metadata persistence
+infrastructure/file/
+└── FileEtlMetadataRepository.java  # 🆕 File-based metadata persistence
 ```
 
 ### Updated Files
@@ -254,13 +255,16 @@ etl:
 
 **Check last processed timestamp:**
 ```powershell
-cd microservices/digital-signage-service/data
-sqlite3 digital-signage.db "SELECT * FROM etl_metadata"
+cd microservices/analytics-etl-service/data
+cat etl-metadata.txt
+# Output format: timestamp_millis,records_processed,updated_at
+# Example: 1739017138214,57,1739017140000
 ```
 
 **Reset timestamp (force full refresh):**
 ```powershell
-sqlite3 digital-signage.db "DELETE FROM etl_metadata WHERE metadata_key = 'last_processed_timestamp'"
+Remove-Item etl-metadata.txt
+# Or manually edit the file to change the timestamp
 ```
 
 ### Issue: Service not scheduling
@@ -343,7 +347,7 @@ WantedBy=multi-user.target
 ### ✅ New Files (5)
 1. `domain/EtlMetadata.java`
 2. `domain/EtlMetadataRepository.java`
-3. `infrastructure/sqlite/SqliteEtlMetadataRepository.java`
+3. `infrastructure/file/FileEtlMetadataRepository.java`
 4. `ETL_INCREMENTAL_UPGRADE.md` (this file)
 
 ### ✏️ Modified Files (4)

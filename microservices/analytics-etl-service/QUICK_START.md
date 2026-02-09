@@ -11,59 +11,86 @@ docker-compose up -d
 
 Verify: `docker ps | grep tdengine`
 
-### Step 2: Load Mock Data
+### Step 2: Load Mock Data (Choose One)
 
 ```bash
 cd ../../microservices/analytics-etl-service
 
-# Load mock gaze events into TDengine
+# Option A: Primary dataset (105 diverse records) - RECOMMENDED
+docker cp tdengine_init.sql tdengine-tsdb:/tmp/init.sql
+docker exec tdengine-tsdb taos -f /tmp/init.sql
+
+# Option B: Extended dataset (300 records)
 docker exec -i tdengine-tsdb taos < src/main/resources/db/tdengine/tdengine_mock_data.sql
 ```
 
-### Step 3: Verify SQLite Database
+**Data includes:** Children (ages 5-12), teenagers (13-19), adults, seniors, diverse emotions, "did not look" records
+
+### Step 3: Start Backend Service
 
 ```bash
-# Ensure digital-signage-service database exists
-ls -lh ../digital-signage-service/data/digital-signage.db
+cd ../digital-signage-service
+$env:JAVA_HOME = "C:\Program Files\SapMachine\JDK\21"
+mvn spring-boot:run -Dspring-boot.run.arguments="--spring.profiles.active=sqlite"
 ```
 
-### Step 4: Run ETL
+Wait for: `Started DigitalSignageServiceApplication`
+
+### Step 4: Run ETL Service
 
 ```bash
+cd ../analytics-etl-service
+$env:JAVA_HOME = "C:\Program Files\SapMachine\JDK\21"
 mvn spring-boot:run
 ```
 
-Expected output:
+**Expected output:**
 ```
 ╔════════════════════════════════════════════════════════╗
 ║     Analytics ETL Service - Starting Pipeline         ║
+║     Mode: Continuous (Scheduled every 5 minutes)      ║
 ╚════════════════════════════════════════════════════════╝
 
-[EXTRACT] Reading gaze events from TDengine...
-[EXTRACT] Found 60 session end events
-[TRANSFORM] Aggregating gaze events into analytics...
-[TRANSFORM] Created dashboard analytics and 12 ad analytics
-[LOAD] Clearing old analytics...
-[LOAD] Saving dashboard analytics...
-[LOAD] Saving 12 advertisement analytics...
+[EXTRACT] Found 100 NEW session_end events
+[TRANSFORM] Created dashboard analytics and 5 ad analytics
+[LOAD] Sending analytics update to digital-signage-service...
+Successfully sent analytics to digital-signage-service
 
 ╔════════════════════════════════════════════════════════╗
-║     Analytics ETL Pipeline - Completed Successfully   ║
+║     Initial ETL Pipeline - Completed Successfully     ║
+║     Next run: In 5 minutes                            ║
 ╚════════════════════════════════════════════════════════╝
 ```
 
-### Step 5: Verify Results
+### Step 5: Verify Data Populated Successfully
 
-```bash
-# Check SQLite data
-sqlite3 ../digital-signage-service/data/digital-signage.db "SELECT * FROM metrics_kpi;"
-
-# Or use SQLite browser
-open http://localhost:3000
-
-# Or query via dashboard API (if digital-signage-service is running)
-curl http://localhost:8080/api/dashboard/overview
+```powershell
+# Check dashboard API response
+$result = Invoke-RestMethod -Uri "http://localhost:8080/api/dashboard/overview"
+$result | ConvertTo-Json -Depth 10
 ```
+
+**Expected response includes:**
+```json
+{
+  "totalAudience": 100,
+  "ageDistribution": {
+    "children": 5,
+    "teenagers": 8,
+    "youngAdults": 38,
+    "midAged": 42,
+    "seniors": 7
+  },
+  "emotionDistribution": {
+    "neutral": 57,
+    "serious": 9,
+    "happy": 28,
+    "surprised": 6
+  }
+}
+```
+
+✅ **Verify diversity:** Children present, teenagers present, serious emotion present
 
 ## 📊 What Gets Transformed
 

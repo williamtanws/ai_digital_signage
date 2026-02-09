@@ -290,7 +290,7 @@ Proprietary - Allianz Technology SE
 ## 🆘 Support
 
 For questions or issues:
-- Check existing documentation in [../template/docs](../template/docs)
+- Check existing documentation in this repository
 - Contact the Platform Architecture team
 - Create an issue in the repository
 

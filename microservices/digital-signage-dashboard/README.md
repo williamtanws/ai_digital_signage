@@ -34,21 +34,35 @@ This is a modern, responsive dashboard built with Vue 3 that displays real-time 
 5. **Advertisement Attention** - Horizontal bar chart of engagement metrics
 6. **Overall Attention Rate** - Pie chart of look vs. no-look ratios
 
+### Digital Signage Slideshow
+- **Full-screen image rotation** every 5 seconds
+- **Automatic playback** with smooth fade transitions
+- **Manual controls** (previous/next/pause) on hover
+- **Accessible via** http://localhost:5173/slideshow.html
+- Perfect for displaying on digital signage screens
+
 ## Project Structure
 
 ```
 digital-signage-dashboard/
 ├── index.html                  # Entry HTML file
+├── slideshow.html              # Digital signage slideshow page
 ├── package.json                # Dependencies and scripts
 ├── vite.config.js              # Vite configuration
 ├── src/
 │   ├── main.js                 # Application entry point
+│   ├── slideshow.js            # Slideshow entry point
 │   ├── App.vue                 # Main dashboard component
 │   ├── style.css               # Global styles
+│   ├── assets/                 # Static assets (images, banners)
+│   │   ├── images/             # General images (logos, icons)
+│   │   │   └── signage/        # Digital signage images
+│   │   └── banners/            # Banner images for ads
 │   ├── components/
 │   │   ├── KpiCard.vue         # KPI card component
 │   │   ├── BarChart.vue        # Bar chart component
-│   │   └── PieChart.vue        # Pie chart component
+│   │   ├── PieChart.vue        # Pie chart component
+│   │   └── Slideshow.vue       # Slideshow component
 │   └── services/
 │       └── api.js              # API service layer
 ```
@@ -74,7 +88,8 @@ digital-signage-dashboard/
 
 ### Running the Development Server
 
-```bash
+**Dashboard**: http://localhost:5173  
+**Slideshow**: http://localhost:5173/slideshow.html
 npm run dev
 ```
 
@@ -93,6 +108,49 @@ This creates optimized production files in the `dist/` directory.
 ```bash
 npm run preview
 ```
+
+## Using Assets (Images & Banners)
+
+The dashboard includes an assets directory structure for images and banners:
+
+### Path Aliases
+
+Vite is configured with convenient path aliases:
+- `@` → `./src`
+- `@assets` → `./src/assets`
+- `@images` → `./src/assets/images`
+- `@banners` → `./src/assets/banners`
+
+### Import Examples
+
+```vue
+<script setup>
+// Import static images
+import logo from '@images/logo.png'
+import banner from '@banners/summer-sale.jpg'
+
+// Or using dynamic imports
+const getBannerPath = (filename) => {
+  return new URL(`@banners/${filename}`, import.meta.url).href
+}
+</script>
+
+<template>
+  <img :src="logo" alt="Company Logo" />
+  <img :src="banner" alt="Summer Sale" />
+</template>
+```
+
+### Best Practices
+
+- **Image Formats**: Use PNG for logos/icons, JPG/WebP for banners
+- **Optimization**: Compress images before adding (keep under 500KB)
+- **Naming**: Use kebab-case (e.g., `summer-sale-2026.jpg`)
+- **Location**: 
+  - `src/assets/images/` - Logos, icons, UI graphics
+  - `src/assets/banners/` - Advertisement banners
+
+See `src/assets/README.md` for detailed usage instructions.
 
 ## API Integration
 
@@ -284,6 +342,108 @@ The dashboard is fully responsive and adapts to different screen sizes:
 server: {
   port: 3000  // Use different port
 }
+```
+
+## Digital Signage Slideshow
+
+### Overview
+
+The slideshow feature provides a full-screen, auto-rotating display perfect for digital signage screens. Images rotate every 5 seconds with smooth fade transitions.
+
+### Accessing the Slideshow
+
+**Development:**
+```
+http://localhost:5173/slideshow.html
+```
+
+**Production:**
+```
+https://your-domain.com/slideshow.html
+```
+
+### Features
+
+- **Auto-rotation**: Images change every 5 seconds automatically
+- **Full-screen display**: Optimized for digital signage screens
+- **Smooth transitions**: Fade effect between slides
+- **Manual controls**: Hover to reveal previous/next/pause buttons
+- **Progress indicator**: Shows current slide number (e.g., "2 / 4")
+- **Responsive**: Adapts to any screen size
+
+### Adding Your Own Images
+
+1. **Place images** in `src/assets/images/signage/` directory:
+   ```bash
+   src/assets/images/signage/
+   ├── burger.png
+   ├── coffee.png
+   ├── pizza.png
+   ├── salad.png
+   └── your-new-image.jpg  # Add your image here
+   ```
+
+2. **Update the Slideshow component** (`src/components/Slideshow.vue`):
+   ```javascript
+   // Import your new image
+   import yourImage from '@/assets/images/signage/your-new-image.jpg'
+   
+   // Add to the images array
+   const images = [
+     { src: burger, name: 'Delicious Burger' },
+     { src: coffee, name: 'Fresh Coffee' },
+     { src: pizza, name: 'Hot Pizza' },
+     { src: salad, name: 'Healthy Salad' },
+     { src: yourImage, name: 'Your Image Title' }  // Add this line
+   ]
+   ```
+
+### Customization
+
+**Change rotation speed** (default: 5 seconds):
+```javascript
+// In src/components/Slideshow.vue, line ~52
+intervalId = setInterval(() => {
+  nextSlide()
+}, 5000) // Change this value (milliseconds)
+```
+
+**Change transition effect**:
+```css
+/* In src/components/Slideshow.vue, styles section */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.8s ease; /* Adjust duration/easing */
+}
+```
+
+**Adjust image display**:
+```css
+/* In src/components/Slideshow.vue */
+.slide {
+  background-size: contain;  /* Options: contain, cover, 100% */
+  background-position: center;
+}
+```
+
+### Keyboard Controls
+
+- **Space**: Pause/Play
+- **Arrow Left**: Previous slide
+- **Arrow Right**: Next slide
+- **Esc**: Exit fullscreen (browser dependent)
+
+### Deployment Tips
+
+For dedicated signage screens:
+1. Open the slideshow URL in fullscreen mode (F11)
+2. Disable screen sleep/screensaver
+3. Set browser to open slideshow URL on startup
+4. Consider kiosk mode for security
+
+**Chrome Kiosk Mode:**
+```bash
+chrome --kiosk --app=http://localhost:5173/slideshow.html
 ```
 
 ## Development Notes

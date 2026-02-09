@@ -2,6 +2,9 @@ spring:
   application:
     name: analytics-etl-service
 
+server:
+  port: 8081
+
 # TDengine Configuration (Source Database)
 tdengine:
   url: jdbc:TAOS-RS://localhost:6041
@@ -9,10 +12,16 @@ tdengine:
   password: taosdata
   database: digital_signage
 
-# SQLite Configuration (Target Database)
-# IMPORTANT: This should point to the SAME database used by digital-signage-service
-sqlite:
-  url: jdbc:sqlite:../digital-signage-service/data/digital-signage.db
+# Digital Signage Service Configuration (Target Service)
+# Analytics data will be sent to this service via REST API
+# Each service manages its own database (microservice best practice)
+digital-signage-service:
+  url: http://localhost:8080
+
+# ETL Configuration
+etl:
+  metadata:
+    directory: ./data
 
 # Logging Configuration
 logging:

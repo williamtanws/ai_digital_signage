@@ -15,4 +15,14 @@ public interface DashboardMetricsRepository {
      * Retrieve current dashboard metrics
      */
     Optional<DashboardMetrics> findCurrent();
+    
+    /**
+     * Save dashboard metrics
+     */
+    DashboardMetrics save(DashboardMetrics metrics);
+    
+    /**
+     * Delete all dashboard metrics
+     */
+    void deleteAll();
 }

@@ -28,6 +28,24 @@ public class AdvertisementRepositoryAdapter implements AdvertisementRepository {
                 .map(this::toDomain)
                 .collect(Collectors.toList());
     }
+    
+    @Override
+    public List<Advertisement> saveAll(List<Advertisement> advertisements) {
+        List<AdvertisementEntity> entities = advertisements.stream()
+                .map(this::toEntity)
+                .collect(Collectors.toList());
+        
+        List<AdvertisementEntity> savedEntities = jpaRepository.saveAll(entities);
+        
+        return savedEntities.stream()
+                .map(this::toDomain)
+                .collect(Collectors.toList());
+    }
+    
+    @Override
+    public void deleteAll() {
+        jpaRepository.deleteAll();
+    }
 
     private Advertisement toDomain(AdvertisementEntity entity) {
         return Advertisement.builder()
@@ -37,5 +55,17 @@ public class AdvertisementRepositoryAdapter implements AdvertisementRepository {
                 .lookYes(entity.getLookYes())
                 .lookNo(entity.getLookNo())
                 .build();
+    }
+    
+    private AdvertisementEntity toEntity(Advertisement domain) {
+        AdvertisementEntity entity = new AdvertisementEntity();
+        if (domain.getId() != null) {
+            entity.setId(domain.getId());
+        }
+        entity.setAdName(domain.getAdName());
+        entity.setTotalViewers(domain.getTotalViewers());
+        entity.setLookYes(domain.getLookYes());
+        entity.setLookNo(domain.getLookNo());
+        return entity;
     }
 }

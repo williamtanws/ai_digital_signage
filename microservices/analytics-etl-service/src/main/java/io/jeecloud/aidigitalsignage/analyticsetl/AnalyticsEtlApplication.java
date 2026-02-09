@@ -72,7 +72,7 @@ public class AnalyticsEtlApplication implements CommandLineRunner {
      * Runs every 5 minutes to fetch and process NEW data.
      * Only extracts events after the last processed timestamp.
      */
-    @Scheduled(fixedRate = 300000) // 5 minutes = 300,000 ms
+    @Scheduled(initialDelay = 60000, fixedRate = 300000) // Wait 1 minute after startup, then run every 5 minutes
     public void scheduleEtl() {
         log.info(">>> Scheduled ETL - Starting (every 5 minutes)");
         

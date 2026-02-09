@@ -10,13 +10,15 @@ This project consists of microservices for real-time audience analytics and digi
 TDengine (Time-Series DB)
     ↓ Extract
 analytics-etl-service (ETL)
-    ↓ Transform & Load
-SQLite (Analytics DB)
-    ↓ Read
+    ↓ Transform
+    ↓ REST API (HTTP POST)
 digital-signage-service (Backend API)
+    ↓ Update SQLite
     ↓ REST API
 digital-signage-dashboard (Frontend)
 ```
+
+**Key Principle:** Each service owns its database (microservice best practice)
 
 ## 🚀 Services & Access Points
 
@@ -45,6 +47,7 @@ digital-signage-dashboard (Frontend)
 - `GET /api/dashboard/gender-distribution` - Get gender distribution data
 - `GET /api/dashboard/emotion-distribution` - Get emotion distribution data
 - `GET /api/dashboard/advertisements` - Get advertisement performance
+- `POST /api/analytics/update` - Update analytics (called by ETL service)
 
 **Example:**
 ```bash
@@ -151,14 +154,15 @@ mvn spring-boot:run
 - **Subsequent Runs**: Only fetches NEW events (timestamp-based)
 - **Scheduling**: Auto-runs every 5 minutes
 - **Stays Running**: Service runs continuously, no longer exits
-- **Metadata Tracking**: Stores last processed timestamp in SQLite
+- **Metadata Tracking**: Stores last processed timestamp in local file
+- **Microservice Architecture**: Calls digital-signage-service API (no direct database access)
 
 **ETL Process will:**
 1. ✅ Check last processed timestamp (incremental mode)
 2. ✅ Extract NEW gaze events from TDengine (only after last timestamp)
 3. ✅ Transform into analytics (dashboard + advertisement data)
-4. ✅ Clear old SQLite analytics tables
-5. ✅ Load new analytics into SQLite
+4. ✅ Send analytics to digital-signage-service via REST API
+5. ✅ digital-signage-service updates its SQLite database
 6. ✅ Update last processed timestamp
 7. ✅ Wait 5 minutes, then repeat
 
@@ -269,8 +273,8 @@ SELECT COUNT(*) FROM gaze_events WHERE evt_type = 'session_end';
 
 ```
 microservices/
-├── sat-common/              # Shared library for DDD/Hexagonal architecture
-├── sat-template/            # Microservices template
+├── common/                  # Shared library for DDD/Hexagonal architecture
+├── audience-analysis-service/ # Edge AI service (Python)
 ├── digital-signage-service/ # Backend API (Spring Boot)
 │   ├── src/
 │   ├── data/

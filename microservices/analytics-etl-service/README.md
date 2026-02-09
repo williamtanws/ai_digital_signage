@@ -1,6 +1,6 @@
 # Analytics ETL Service
 
-Extract-Transform-Load (ETL) pipeline that processes gaze events from TDengine and populates analytics in SQLite for the digital signage dashboard.
+Extract-Transform-Load (ETL) pipeline that processes gaze events from TDengine and sends analytics to digital-signage-service via REST API.
 
 ## Overview
 
@@ -8,11 +8,12 @@ This service bridges the audience analysis pipeline and the dashboard by:
 
 1. **EXTRACT**: Reading GAZE_EVENT records from TDengine time-series database
 2. **TRANSFORM**: Aggregating raw events into higher-level analytics
-3. **LOAD**: Inserting transformed data into SQLite (used by digital-signage-service)
+3. **LOAD**: Sending transformed data to digital-signage-service REST API
 
 **Purpose**: Academic demonstration of end-to-end analytics pipeline  
-**Architecture**: Hexagonal (Domain → Application → Infrastructure)  
-**Execution Model**: Batch ETL (run manually or scheduled)
+**Architecture**: Hexagonal (Domain → Application → Infrastructure) + Microservice  
+**Execution Model**: Batch ETL (run manually or scheduled)  
+**Database Ownership**: Each service owns its database (microservice best practice)
 
 ## Architecture
 
@@ -25,10 +26,12 @@ This service bridges the audience analysis pipeline and the dashboard by:
 │  │   EXTRACT   │  →   │  TRANSFORM  │  →   │    LOAD    │ │
 │  └─────────────┘      └─────────────┘      └────────────┘ │
 │        ↓                     ↓                     ↓       │
-│   TDengine            Aggregation              SQLite      │
-│  (Gaze Events)        (Analytics)           (Dashboard DB) │
+│   TDengine            Aggregation            REST API      │
+│  (Gaze Events)        (Analytics)        (POST to Service) │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
+                              ↓
+            digital-signage-service updates SQLite
 ```
 
 ### Hexagonal Architecture Layers
@@ -45,9 +48,11 @@ Application Layer (Use Cases)
   └── AnalyticsEtlService.java    - ETL orchestration
 
 Infrastructure Layer (Adapters)
-  ├── TDengineGazeEventRepository.java  - Extract adapter
-  ├── SqliteAnalyticsRepository.java    - Load adapter
-  └── DatabaseConfig.java               - Data source configuration
+  ├── TDengineGazeEventRepository.java    - Extract adapter (TDengine)
+  ├── RestClientAnalyticsRepository.java  - Load adapter (REST API)
+  ├── FileEtlMetadataRepository.java      - Metadata storage (file-based)
+  ├── RestClientConfig.java               - REST client configuration
+  └── DatabaseConfig.java                 - TDengine data source config
 ```
 
 ## Prerequisites
@@ -56,43 +61,46 @@ Infrastructure Layer (Adapters)
 - **Maven 3.6+**
 - **Docker Desktop** (for TDengine)
 - **TDengine** running on localhost:6041
-- **SQLite database** from digital-signage-service
+- **digital-signage-service** running on localhost:8080
 
-## Setup
+## Quick Start
 
-### 1. Start TDengine
+### Step 1: Start TDengine
 
 ```bash
-# Navigate to TDengine docker folder
 cd ../../docker/tdengine
-
-# Start TDengine container
 docker-compose up -d
 
 # Verify TDengine is running
-docker ps | grep tdengine
+docker ps --filter "name=tdengine-tsdb" --format "{{.Status}}"
 ```
 
-TDengine will be available at:
-- REST API: `http://localhost:6041`
-- Native Protocol: `localhost:6030`
+TDengine endpoints:
+- **REST API**: `http://localhost:6041` (used by ETL)
+- **Native Protocol**: `localhost:6030`
+- **Default credentials**: root/taosdata
 
 ### 2. Load Mock Data into TDengine
 
+**Option 1: Primary Dataset (105 records with diverse demographics)**
 ```bash
-# Connect to TDengine container
-docker exec -it tdengine-tsdb taos
+# Load primary dataset with children, teenagers, various emotions
+docker cp tdengine_init.sql tdengine-tsdb:/tmp/init.sql
+docker exec tdengine-tsdb taos -f /tmp/init.sql
+```
 
-# Inside TDengine CLI, run:
-source /path/to/tdengine_mock_data.sql
-
-# Or load from host:
+**Option 2: Extended Dataset (300 records for comprehensive testing)**
+```bash
+# Load extended mock data
 docker exec -i tdengine-tsdb taos < src/main/resources/db/tdengine/tdengine_mock_data.sql
 ```
 
-The mock data script creates:
+Both scripts include:
 - `digital_signage` database
-- `gaze_events` super table
+- `gaze_events` super table (with evt_type TAG)
+- Diverse demographics (children, teenagers, adults, seniors)
+- Multiple emotions (happy, neutral, serious, surprised)
+- "Did not look" records (attention_rate = 0)
 - Sample session_end events with demographics and engagement data
 
 ### 3. Verify SQLite Database
@@ -190,9 +198,33 @@ Each event contains:
 
 ### Load
 
-**Target**: SQLite tables (same schema as digital-signage-service)
+**Target**: digital-signage-service REST API endpoint: `POST /api/analytics/update`
 
-Tables populated:
+**Request Payload**:
+```json
+{
+  "dashboardMetrics": {
+    "totalAudience": 1247,
+    "totalViews": 3856,
+    "avgViewSeconds": 24.5,
+    "children": 150,
+    "teenagers": 225,
+    "youngAdults": 437,
+    ...
+  },
+  "adMetrics": [
+    {
+      "adName": "Summer Sale 2026",
+      "totalViewers": 485,
+      "lookYes": 388,
+      "lookNo": 97
+    },
+    ...
+  ]
+}
+```
+
+**Result**: digital-signage-service receives the data and updates its SQLite database tables:
 - `metrics_kpi` - Overall dashboard metrics
 - `age_distribution` - Age demographics
 - `gender_distribution` - Gender demographics

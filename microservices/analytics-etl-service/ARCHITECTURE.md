@@ -38,14 +38,17 @@
 │                                                                  │
 │  Table: gaze_events                                              │
 │  ├─ ts (timestamp)                                               │
-│  ├─ event_type (gaze_start/session_end/heartbeat)               │
+│  ├─ evt_type TAG (session_end) - for efficient querying         │
 │  ├─ viewer_id (unique identifier)                                │
-│  ├─ session_duration, total_gaze_time, engagement_rate          │
+│  ├─ session_duration, gaze_time, attention_rate                 │
+│  ├─ interested (0 = did not look, 1 = looked)                   │
 │  ├─ age, gender, emotion (demographics)                          │
 │  └─ ad_name (advertisement being displayed)                      │
 │                                                                  │
 │  Volume: High-frequency time-series data                         │
 │  Retention: 365 days                                             │
+│  Sample Data: tdengine_init.sql (105 records)                    │
+│               tdengine_mock_data.sql (300 records)               │
 └──────────────────────────────────────────────────────────────────┘
          │
          │ ETL Process (Batch or Scheduled)
@@ -59,8 +62,8 @@
 │  └────────────┘     └─────────────┘     └───────────┘          │
 │        │                   │                    │               │
 │        │                   │                    │               │
-│   Read from          Aggregate into      Write to              │
-│   TDengine           Analytics           SQLite                │
+│   Read from          Aggregate into    Send via REST API        │
+│   TDengine           Analytics         (POST request)           │
 │                                                                  │
 │  Domain Layer:                                                   │
 │  ├─ GazeEvent                                                    │
@@ -76,10 +79,27 @@
 │                                                                  │
 │  Infrastructure Layer:                                           │
 │  ├─ TDengineGazeEventRepository (Extract)                        │
-│  └─ SqliteAnalyticsRepository (Load)                             │
+│  ├─ RestClientAnalyticsRepository (Load via REST)                │
+│  └─ FileEtlMetadataRepository (Metadata tracking)                │
 └──────────────────────────────────────────────────────────────────┘
          │
-         │ Populates analytics tables
+         │ HTTP POST /api/analytics/update
+         │ (Microservice communication)
+         ▼
+┌──────────────────────────────────────────────────────────────────┐
+│               digital-signage-service                            │
+│              (Spring Boot + Hexagonal)                           │
+│                                                                  │
+│  REST Endpoints:                                                 │
+│  • POST /api/analytics/update    (receives ETL data)             │
+│  • GET /api/dashboard/overview   (serves dashboard data)         │
+│                                                                  │
+│  ├─ AnalyticsController (receives analytics from ETL)            │
+│  ├─ AnalyticsCommandService (updates database)                   │
+│  └─ DashboardQueryService (reads for dashboard)                  │
+└──────────────────────────────────────────────────────────────────┘
+         │
+         │ Updates database
          ▼
 ┌──────────────────────────────────────────────────────────────────┐
 │                          SQLite                                  │
@@ -94,15 +114,16 @@
 │                                                                  │
 │  Volume: Aggregated metrics, low volume                          │
 │  Purpose: Fast query for dashboard                               │
+│  Owner: digital-signage-service (microservice pattern)           │
 └──────────────────────────────────────────────────────────────────┘
          │
          │ Serves via REST API
          ▼
 ┌──────────────────────────────────────────────────────────────────┐
-│               digital-signage-service                            │
-│              (Spring Boot + Hexagonal)                           │
+│              digital-signage-dashboard                           │
+│                (Vue.js + Vite + Chart.js)                        │
 │                                                                  │
-│  REST Endpoint:                                                  │
+│  Fetches data from:                                              │
 │  GET /api/dashboard/overview                                     │
 │                                                                  │
 │  Returns JSON with:                                              │
@@ -128,17 +149,22 @@
 │  Accessible at: http://localhost:5175                            │
 └──────────────────────────────────────────────────────────────────┘
 
-┌─────────────────────────────────────────────────────────────────┐
-│                      DATA FLOW SUMMARY                          │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│  Raw Events → TDengine → ETL Service → SQLite → API → Dashboard │
-│  (Logs)      (Store)     (Transform)   (Cache)  (Serve) (View) │
-│                                                                 │
-│  High        Time        Aggregation   Relational REST   Web   │
-│  Volume      Series      Analytics     Database   API    UI    │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────┐
+│                         DATA FLOW SUMMARY                           │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  Raw Events → TDengine → ETL Service → REST API → Service → SQLite │
+│  (Logs)      (Store)     (Transform)   (HTTP)    (Update)  (Cache) │
+│                          ↓                                          │
+│                    digital-signage-service → Dashboard              │
+│                          (REST API)         (View)                  │
+│                                                                     │
+│  High        Time        Aggregation   Microservice  Database      │
+│  Volume      Series      Analytics     Communication Ownership     │
+│                                                                     │
+│  ✅ Proper separation of concerns - each service owns its database  │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
 ```
 
 ## Transformation Example

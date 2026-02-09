@@ -14,4 +14,14 @@ public interface AdvertisementRepository {
      * Find all advertisements ordered by total viewers descending
      */
     List<Advertisement> findAllOrderedByViewers();
+    
+    /**
+     * Save all advertisements
+     */
+    List<Advertisement> saveAll(List<Advertisement> advertisements);
+    
+    /**
+     * Delete all advertisements
+     */
+    void deleteAll();
 }

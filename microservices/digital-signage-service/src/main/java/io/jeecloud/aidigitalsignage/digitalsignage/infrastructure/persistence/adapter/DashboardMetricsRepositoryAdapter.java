@@ -52,6 +52,50 @@ public class DashboardMetricsRepositoryAdapter implements DashboardMetricsReposi
 
         return Optional.of(metrics);
     }
+    
+    @Override
+    public DashboardMetrics save(DashboardMetrics metrics) {
+        // Save KPI metrics
+        MetricsKpiEntity kpiEntity = new MetricsKpiEntity();
+        kpiEntity.setTotalAudience(metrics.getTotalAudience());
+        kpiEntity.setTotalViews(metrics.getTotalViews());
+        kpiEntity.setTotalAds(metrics.getTotalAds());
+        kpiEntity.setAvgViewSeconds(metrics.getAvgViewSeconds());
+        metricsKpiJpaRepository.save(kpiEntity);
+        
+        // Save age distribution
+        AgeDistributionEntity ageEntity = new AgeDistributionEntity();
+        ageEntity.setChildren(metrics.getAgeDistribution().getChildren());
+        ageEntity.setTeenagers(metrics.getAgeDistribution().getTeenagers());
+        ageEntity.setYoungAdults(metrics.getAgeDistribution().getYoungAdults());
+        ageEntity.setMidAged(metrics.getAgeDistribution().getMidAged());
+        ageEntity.setSeniors(metrics.getAgeDistribution().getSeniors());
+        ageDistributionJpaRepository.save(ageEntity);
+        
+        // Save gender distribution
+        GenderDistributionEntity genderEntity = new GenderDistributionEntity();
+        genderEntity.setMale(metrics.getGenderDistribution().getMale());
+        genderEntity.setFemale(metrics.getGenderDistribution().getFemale());
+        genderDistributionJpaRepository.save(genderEntity);
+        
+        // Save emotion distribution
+        EmotionDistributionEntity emotionEntity = new EmotionDistributionEntity();
+        emotionEntity.setNeutral(metrics.getEmotionDistribution().getNeutral());
+        emotionEntity.setSerious(metrics.getEmotionDistribution().getSerious());
+        emotionEntity.setHappy(metrics.getEmotionDistribution().getHappy());
+        emotionEntity.setSurprised(metrics.getEmotionDistribution().getSurprised());
+        emotionDistributionJpaRepository.save(emotionEntity);
+        
+        return metrics;
+    }
+    
+    @Override
+    public void deleteAll() {
+        metricsKpiJpaRepository.deleteAll();
+        ageDistributionJpaRepository.deleteAll();
+        genderDistributionJpaRepository.deleteAll();
+        emotionDistributionJpaRepository.deleteAll();
+    }
 
     private DashboardMetrics.AgeDistribution mapAgeDistribution(AgeDistributionEntity entity) {
         return DashboardMetrics.AgeDistribution.builder()

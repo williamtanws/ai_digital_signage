@@ -64,7 +64,7 @@ public class TDengineGazeEventRepository implements GazeEventRepository {
         String sql = """
                 SELECT ts, event_data
                 FROM gaze_events
-                WHERE event_type = 'session_end'
+                WHERE evt_type = 'session_end'
                 ORDER BY ts DESC
                 """;
         
@@ -88,7 +88,7 @@ public class TDengineGazeEventRepository implements GazeEventRepository {
         String sql = """
                 SELECT ts, event_data
                 FROM gaze_events
-                WHERE event_type = 'session_end'
+                WHERE evt_type = 'session_end'
                 AND ts > ?
                 ORDER BY ts ASC
                 """;
@@ -98,6 +98,54 @@ public class TDengineGazeEventRepository implements GazeEventRepository {
                 afterTimestamp.toEpochMilli());
         
         log.info("Found {} NEW session_end events after {}", events.size(), afterTimestamp);
+        return events;
+    }
+    
+    /**
+     * Extract all heartbeat events
+     * 
+     * heartbeat events contain system performance and environment metrics.
+     */
+    @Override
+    public List<GazeEvent> findAllHeartbeatEvents() {
+        log.debug("Querying TDengine for all heartbeat events");
+        
+        String sql = """
+                SELECT ts, event_data
+                FROM gaze_events
+                WHERE evt_type = 'heartbeat'
+                ORDER BY ts DESC
+                """;
+        
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(tdengineDataSource);
+        List<GazeEvent> events = jdbcTemplate.query(sql, new JsonGazeEventRowMapper());
+        
+        log.debug("Found {} heartbeat events", events.size());
+        return events;
+    }
+    
+    /**
+     * Extract heartbeat events after a specific timestamp (incremental)
+     * 
+     * Only fetches new events for incremental ETL processing.
+     */
+    @Override
+    public List<GazeEvent> findHeartbeatEventsAfter(Instant afterTimestamp) {
+        log.debug("Querying TDengine for heartbeat events after {}", afterTimestamp);
+        
+        String sql = """
+                SELECT ts, event_data
+                FROM gaze_events
+                WHERE evt_type = 'heartbeat'
+                AND ts > ?
+                ORDER BY ts ASC
+                """;
+        
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(tdengineDataSource);
+        List<GazeEvent> events = jdbcTemplate.query(sql, new JsonGazeEventRowMapper(),
+                afterTimestamp.toEpochMilli());
+        
+        log.info("Found {} NEW heartbeat events after {}", events.size(), afterTimestamp);
         return events;
     }
     
@@ -126,7 +174,8 @@ public class TDengineGazeEventRepository implements GazeEventRepository {
     /**
      * RowMapper for JSON-based TDengine events
      * 
-     * Parses JSON from event_data column using TDengineJsonParser
+     * Parses JSON from event_data column using TDengineJsonParser.
+     * Determines event type from evt_type column or JSON content.
      */
     private static class JsonGazeEventRowMapper implements RowMapper<GazeEvent> {
         @Override
@@ -134,7 +183,21 @@ public class TDengineGazeEventRepository implements GazeEventRepository {
             long timestamp = rs.getLong("ts");
             String jsonData = rs.getString("event_data");
             
-            return TDengineJsonParser.parseSessionEndEvent(timestamp, jsonData);
+            // Try to determine event type from JSON
+            String eventType = "session_end"; // default
+            try {
+                if (jsonData.contains("\"event\":") && jsonData.contains("heartbeat")) {
+                    eventType = "heartbeat";
+                }
+            } catch (Exception e) {
+                // Ignore, use default
+            }
+            
+            if ("heartbeat".equals(eventType)) {
+                return TDengineJsonParser.parseHeartbeatEvent(timestamp, jsonData);
+            } else {
+                return TDengineJsonParser.parseSessionEndEvent(timestamp, jsonData);
+            }
         }
     }
 }

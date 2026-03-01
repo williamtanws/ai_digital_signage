@@ -1,5 +1,7 @@
 package io.jeecloud.aidigitalsignage.analyticsetl.infrastructure.restclient;
 
+import io.jeecloud.aidigitalsignage.analyticsetl.application.dto.ResearchMetricsDto;
+import io.jeecloud.aidigitalsignage.analyticsetl.application.dto.SystemHealthDto;
 import io.jeecloud.aidigitalsignage.analyticsetl.domain.AdAnalytics;
 import io.jeecloud.aidigitalsignage.analyticsetl.domain.AnalyticsRepository;
 import io.jeecloud.aidigitalsignage.analyticsetl.domain.DashboardAnalytics;
@@ -14,6 +16,8 @@ import org.springframework.web.client.RestTemplate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 /**
@@ -46,6 +50,130 @@ public class RestClientAnalyticsRepository implements AnalyticsRepository {
     }
     
     /**
+     * Get existing dashboard analytics from the backend for accumulation
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public Optional<DashboardAnalytics> getExistingDashboardAnalytics() {
+        try {
+            String url = digitalSignageServiceUrl + "/api/dashboard/overview";
+            log.debug("Fetching existing analytics from: {}", url);
+            
+            Map<String, Object> response = restTemplate.getForObject(url, Map.class);
+            
+            if (response == null || response.isEmpty()) {
+                return Optional.empty();
+            }
+            
+            // Parse age distribution
+            Map<String, Object> ageDist = (Map<String, Object>) response.get("ageDistribution");
+            Map<String, Object> genderDist = (Map<String, Object>) response.get("genderDistribution");
+            Map<String, Object> emotionDist = (Map<String, Object>) response.get("emotionDistribution");
+            
+            DashboardAnalytics existing = DashboardAnalytics.builder()
+                    .totalAudience(getIntValue(response, "totalAudience"))
+                    .totalViews(getIntValue(response, "totalViews"))
+                    .totalAds(getIntValue(response, "totalAds"))
+                    .avgViewSeconds(getDoubleValue(response, "avgViewSeconds"))
+                    .children(ageDist != null ? getIntValue(ageDist, "children") : 0)
+                    .teenagers(ageDist != null ? getIntValue(ageDist, "teenagers") : 0)
+                    .youngAdults(ageDist != null ? getIntValue(ageDist, "youngAdults") : 0)
+                    .midAged(ageDist != null ? getIntValue(ageDist, "midAged") : 0)
+                    .seniors(ageDist != null ? getIntValue(ageDist, "seniors") : 0)
+                    .male(genderDist != null ? getIntValue(genderDist, "male") : 0)
+                    .female(genderDist != null ? getIntValue(genderDist, "female") : 0)
+                    .anger(emotionDist != null ? getIntValue(emotionDist, "anger") : 0)
+                    .contempt(emotionDist != null ? getIntValue(emotionDist, "contempt") : 0)
+                    .disgust(emotionDist != null ? getIntValue(emotionDist, "disgust") : 0)
+                    .fear(emotionDist != null ? getIntValue(emotionDist, "fear") : 0)
+                    .happiness(emotionDist != null ? getIntValue(emotionDist, "happiness") : 0)
+                    .neutral(emotionDist != null ? getIntValue(emotionDist, "neutral") : 0)
+                    .sadness(emotionDist != null ? getIntValue(emotionDist, "sadness") : 0)
+                    .surprise(emotionDist != null ? getIntValue(emotionDist, "surprise") : 0)
+                    .build();
+            
+            log.debug("Loaded existing analytics: {} viewers, {} views", 
+                    existing.getTotalAudience(), existing.getTotalViews());
+            return Optional.of(existing);
+            
+        } catch (Exception e) {
+            log.warn("Could not fetch existing analytics (may be first run): {}", e.getMessage());
+            return Optional.empty();
+        }
+    }
+    
+    /**
+     * Get existing ad analytics from the backend for accumulation
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<AdAnalytics> getExistingAdAnalytics() {
+        try {
+            String url = digitalSignageServiceUrl + "/api/dashboard/overview";
+            Map<String, Object> response = restTemplate.getForObject(url, Map.class);
+            
+            if (response == null) {
+                return new ArrayList<>();
+            }
+            
+            List<Map<String, Object>> adsPerformance = (List<Map<String, Object>>) response.get("adsPerformance");
+            List<Map<String, Object>> adsAttention = (List<Map<String, Object>>) response.get("adsAttention");
+            
+            if (adsPerformance == null || adsPerformance.isEmpty()) {
+                return new ArrayList<>();
+            }
+            
+            // Build map of attention data for lookup
+            Map<String, int[]> attentionMap = new HashMap<>();
+            if (adsAttention != null) {
+                for (Map<String, Object> att : adsAttention) {
+                    String adName = (String) att.get("adName");
+                    attentionMap.put(adName, new int[]{
+                            getIntValue(att, "lookYes"),
+                            getIntValue(att, "lookNo")
+                    });
+                }
+            }
+            
+            List<AdAnalytics> result = new ArrayList<>();
+            for (Map<String, Object> perf : adsPerformance) {
+                String adName = (String) perf.get("adName");
+                int[] attention = attentionMap.getOrDefault(adName, new int[]{0, 0});
+                
+                result.add(AdAnalytics.builder()
+                        .adName(adName)
+                        .totalViewers(getIntValue(perf, "totalViewers"))
+                        .lookYes(attention[0])
+                        .lookNo(attention[1])
+                        .build());
+            }
+            
+            log.debug("Loaded {} existing ad analytics", result.size());
+            return result;
+            
+        } catch (Exception e) {
+            log.warn("Could not fetch existing ad analytics: {}", e.getMessage());
+            return new ArrayList<>();
+        }
+    }
+    
+    private int getIntValue(Map<String, Object> map, String key) {
+        Object val = map.get(key);
+        if (val instanceof Number) {
+            return ((Number) val).intValue();
+        }
+        return 0;
+    }
+    
+    private double getDoubleValue(Map<String, Object> map, String key) {
+        Object val = map.get(key);
+        if (val instanceof Number) {
+            return ((Number) val).doubleValue();
+        }
+        return 0.0;
+    }
+    
+    /**
      * Store dashboard analytics temporarily for batch update
      * 
      * The analytics will be sent together with ad analytics in saveAdAnalytics()
@@ -59,18 +187,18 @@ public class RestClientAnalyticsRepository implements AnalyticsRepository {
     /**
      * Save advertisement analytics via REST API
      * 
-     * This method sends both dashboard and ad analytics together.
+     * This method sends dashboard, ad analytics, system health, and research metrics together.
      */
     @Override
-    public void saveAdAnalytics(List<AdAnalytics> adAnalyticsList) {
+    public void saveAdAnalytics(List<AdAnalytics> adAnalyticsList, SystemHealthDto systemHealth, ResearchMetricsDto researchMetrics) {
         try {
             String url = digitalSignageServiceUrl + "/api/analytics/update";
             
-            // Build request payload with both dashboard and ad analytics
-            Map<String, Object> request = buildUpdateRequest(currentDashboardAnalytics, adAnalyticsList);
+            // Build request payload with dashboard, ads, system health, and research metrics
+            Map<String, Object> request = buildUpdateRequest(currentDashboardAnalytics, adAnalyticsList, systemHealth, researchMetrics);
             
             log.info("Sending analytics update to digital-signage-service: {}", url);
-            log.debug("Payload: dashboard metrics + {} ad analytics", adAnalyticsList.size());
+            log.debug("Payload: dashboard metrics + {} ad analytics + system health + research metrics", adAnalyticsList.size());
             
             ResponseEntity<Void> response = restTemplate.postForEntity(url, request, Void.class);
             
@@ -92,17 +220,38 @@ public class RestClientAnalyticsRepository implements AnalyticsRepository {
     /**
      * Build the request payload for the REST API call
      */
-    private Map<String, Object> buildUpdateRequest(DashboardAnalytics dashboard, List<AdAnalytics> adAnalyticsList) {
+    private Map<String, Object> buildUpdateRequest(DashboardAnalytics dashboard, List<AdAnalytics> adAnalyticsList, 
+                                                   SystemHealthDto systemHealth, ResearchMetricsDto researchMetrics) {
         Map<String, Object> request = new HashMap<>();
         
-        // Map dashboard metrics
-        request.put("dashboardMetrics", mapDashboardAnalytics(dashboard));
+        // Map dashboard metrics (only if available)
+        if (dashboard != null) {
+            request.put("dashboardMetrics", mapDashboardAnalytics(dashboard));
+        }
         
         // Map ad analytics
         List<Map<String, Object>> adMetrics = adAnalyticsList.stream()
                 .map(this::mapAdAnalytics)
                 .collect(Collectors.toList());
-        request.put("adMetrics", adMetrics);
+        if (!adMetrics.isEmpty()) {
+            request.put("adMetrics", adMetrics);
+        }
+        
+        // Add system health if available
+        if (systemHealth != null) {
+            request.put("systemHealth", systemHealth);
+            log.debug("Including system health metrics (FPS: {}, CPU: {}°C)", 
+                    systemHealth.getPerformance() != null ? systemHealth.getPerformance().getCurrentFps() : "N/A",
+                    systemHealth.getPerformance() != null ? systemHealth.getPerformance().getCurrentCpuTemp() : "N/A");
+        }
+        
+        // Add research metrics if available
+        if (researchMetrics != null) {
+            request.put("researchMetrics", researchMetrics);
+            log.debug("Including research metrics (Face detection: {}%, Gaze quality: {}% valid kpts)",
+                    researchMetrics.getFaceDetection() != null ? researchMetrics.getFaceDetection().getAccuracy() : "N/A",
+                    researchMetrics.getGazeQuality() != null ? researchMetrics.getGazeQuality().getKptsValidPercent() : "N/A");
+        }
         
         return request;
     }
@@ -131,10 +280,14 @@ public class RestClientAnalyticsRepository implements AnalyticsRepository {
         map.put("female", analytics.getFemale());
         
         // Emotion Distribution
+        map.put("anger", analytics.getAnger());
+        map.put("contempt", analytics.getContempt());
+        map.put("disgust", analytics.getDisgust());
+        map.put("fear", analytics.getFear());
+        map.put("happiness", analytics.getHappiness());
         map.put("neutral", analytics.getNeutral());
-        map.put("serious", analytics.getSerious());
-        map.put("happy", analytics.getHappy());
-        map.put("surprised", analytics.getSurprised());
+        map.put("sadness", analytics.getSadness());
+        map.put("surprise", analytics.getSurprise());
         
         return map;
     }

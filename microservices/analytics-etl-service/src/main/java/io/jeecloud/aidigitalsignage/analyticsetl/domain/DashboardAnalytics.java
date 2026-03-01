@@ -30,9 +30,13 @@ public class DashboardAnalytics {
     private Integer male;
     private Integer female;
     
-    // Emotion Distribution
+    // Emotion Distribution (FER2013 - 8 emotions)
+    private Integer anger;
+    private Integer contempt;
+    private Integer disgust;
+    private Integer fear;
+    private Integer happiness;
     private Integer neutral;
-    private Integer serious;
-    private Integer happy;
-    private Integer surprised;
+    private Integer sadness;
+    private Integer surprise;
 }

@@ -35,17 +35,40 @@
           format="number"
         />
         <KpiCard
-          title="Total Ads"
-          :value="dashboardData.totalAds"
-          label="Advertisements"
-          format="number"
-        />
-        <KpiCard
           title="Average View Time"
           :value="dashboardData.avgViewSeconds"
           label="Seconds"
           format="decimal"
         />
+        <KpiCard
+          title="System FPS"
+          :value="dashboardData.systemHealth?.performance?.currentFps || 'N/A'"
+          label="Frames Per Second"
+          format="decimal"
+        />
+        <KpiCard
+          title="Detection Accuracy"
+          :value="detectionAccuracy"
+          label="Face Detection"
+          format="none"
+        />
+        <KpiCard
+          title="CPU Temperature"
+          :value="cpuTemperature"
+          label="Raspberry Pi"
+          format="none"
+        />
+      </section>
+      
+      <!-- Research Validation Panels -->
+      <section class="research-panels">
+        <SystemHealthPanel :systemHealth="dashboardData.systemHealth" />
+        <ResearchMetricsPanel :researchMetrics="dashboardData.researchMetrics" />
+      </section>
+      
+      <!-- Environment Context -->
+      <section class="environment-section">
+        <EnvironmentContext :environment="dashboardData.systemHealth?.environment" />
       </section>
 
       <!-- Charts Section -->
@@ -113,6 +136,9 @@ import { ref, computed, onMounted } from 'vue';
 import KpiCard from './components/KpiCard.vue';
 import BarChart from './components/BarChart.vue';
 import PieChart from './components/PieChart.vue';
+import SystemHealthPanel from './components/SystemHealthPanel.vue';
+import EnvironmentContext from './components/EnvironmentContext.vue';
+import ResearchMetricsPanel from './components/ResearchMetricsPanel.vue';
 import { dashboardApi } from './services/api.js';
 
 /**
@@ -141,7 +167,9 @@ const dashboardData = ref({
   genderDistribution: {},
   emotionDistribution: {},
   adsPerformance: [],
-  adsAttention: []
+  adsAttention: [],
+  systemHealth: null,
+  researchMetrics: null
 });
 
 // ===================================
@@ -184,22 +212,30 @@ const genderData = computed(() => {
 });
 
 /**
- * Emotion Distribution Chart Data
+ * Emotion Distribution Chart Data (FER2013 - 8 emotions)
  */
 const emotionLabels = computed(() => [
+  'Anger',
+  'Contempt',
+  'Disgust',
+  'Fear',
+  'Happiness',
   'Neutral',
-  'Serious',
-  'Happy',
-  'Surprised'
+  'Sadness',
+  'Surprise'
 ]);
 
 const emotionData = computed(() => {
   const dist = dashboardData.value.emotionDistribution;
   return [
+    dist.anger || 0,
+    dist.contempt || 0,
+    dist.disgust || 0,
+    dist.fear || 0,
+    dist.happiness || 0,
     dist.neutral || 0,
-    dist.serious || 0,
-    dist.happy || 0,
-    dist.surprised || 0
+    dist.sadness || 0,
+    dist.surprise || 0
   ];
 });
 
@@ -239,6 +275,22 @@ const totalLookYes = computed(() => {
 
 const totalLookNo = computed(() => {
   return dashboardData.value.adsAttention.reduce((sum, ad) => sum + ad.lookNo, 0);
+});
+
+/**
+ * Detection Accuracy formatted for KPI card
+ */
+const detectionAccuracy = computed(() => {
+  const accuracy = dashboardData.value.researchMetrics?.faceDetection?.accuracy;
+  return accuracy ? `${Math.round(accuracy)}%` : 'N/A';
+});
+
+/**
+ * CPU Temperature formatted for KPI card
+ */
+const cpuTemperature = computed(() => {
+  const temp = dashboardData.value.systemHealth?.performance?.currentCpuTemp;
+  return temp ? `${temp.toFixed(1)}°C` : 'N/A';
 });
 
 // ===================================
@@ -286,5 +338,24 @@ button {
 
 button:hover {
   background-color: var(--primary-dark);
+}
+
+/* Research Panels Section */
+.research-panels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Environment Section */
+.environment-section {
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .research-panels {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

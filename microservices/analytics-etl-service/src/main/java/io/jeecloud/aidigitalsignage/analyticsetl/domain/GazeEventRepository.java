@@ -41,4 +41,19 @@ public interface GazeEventRepository {
      * @return Total unique viewers
      */
     int countUniqueViewers();
+    
+    /**
+     * Extract all heartbeat events (contains system performance data)
+     * 
+     * @return List of heartbeat events
+     */
+    List<GazeEvent> findAllHeartbeatEvents();
+    
+    /**
+     * Extract heartbeat events after a specific timestamp (incremental)
+     * 
+     * @param afterTimestamp Only return events after this timestamp
+     * @return List of heartbeat events
+     */
+    List<GazeEvent> findHeartbeatEventsAfter(Instant afterTimestamp);
 }

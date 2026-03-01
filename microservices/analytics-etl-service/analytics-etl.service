@@ -1,0 +1,22 @@
+[Unit]
+Description=AI Digital Signage - Analytics ETL Service
+After=network.target taosd.service digital-signage.service
+Wants=taosd.service
+Requires=digital-signage.service
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/ai_digital_signage/microservices/analytics-etl-service
+ExecStart=/home/pi/ai_digital_signage/microservices/analytics-etl-service/start-pi.sh
+Restart=on-failure
+RestartSec=15
+StandardOutput=append:/var/log/analytics-etl.log
+StandardError=append:/var/log/analytics-etl.log
+
+# Resource limits for Raspberry Pi 5
+MemoryMax=1.5G
+MemoryHigh=1.2G
+
+[Install]
+WantedBy=multi-user.target

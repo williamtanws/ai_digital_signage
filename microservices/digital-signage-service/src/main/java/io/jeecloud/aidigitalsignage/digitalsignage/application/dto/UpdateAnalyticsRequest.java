@@ -18,6 +18,8 @@ public class UpdateAnalyticsRequest {
     
     private DashboardMetricsDto dashboardMetrics;
     private List<AdMetricsDto> adMetrics;
+    private SystemHealthDto systemHealth;         // NEW: Performance and environment metrics
+    private ResearchMetricsDto researchMetrics;   // NEW: Research validation metrics
     
     @Data
     @Builder
@@ -41,11 +43,15 @@ public class UpdateAnalyticsRequest {
         private Integer male;
         private Integer female;
         
-        // Emotion Distribution
+        // Emotion Distribution (FER2013 - 8 emotions)
+        private Integer anger;
+        private Integer contempt;
+        private Integer disgust;
+        private Integer fear;
+        private Integer happiness;
         private Integer neutral;
-        private Integer serious;
-        private Integer happy;
-        private Integer surprised;
+        private Integer sadness;
+        private Integer surprise;
     }
     
     @Data
@@ -58,4 +64,7 @@ public class UpdateAnalyticsRequest {
         private Integer lookYes;
         private Integer lookNo;
     }
+    
+    // NOTE: SystemHealthDto and ResearchMetricsDto are imported from their respective files
+    // See SystemHealthDto.java and ResearchMetricsDto.java for nested class definitions
 }

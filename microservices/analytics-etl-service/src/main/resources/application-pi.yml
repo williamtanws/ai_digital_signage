@@ -1,0 +1,29 @@
+# Raspberry Pi 5 Optimized Configuration
+# ARM64, 16GB RAM - Conservative memory settings
+
+server:
+  port: 8081
+  tomcat:
+    threads:
+      max: 30          # Reduced - ETL service needs fewer threads
+      min-spare: 3
+    max-connections: 1000
+    accept-count: 30
+
+# TDengine connection pool optimization
+tdengine:
+  connection:
+    max-pool-size: 3   # Small pool for time-series reads
+    min-idle: 1
+    
+# Digital Signage Service REST client optimization
+digital-signage-service:
+  rest:
+    connect-timeout: 5000
+    read-timeout: 10000
+    max-connections: 5
+
+logging:
+  level:
+    root: WARN
+    io.jeecloud.aidigitalsignage.analyticsetl: INFO

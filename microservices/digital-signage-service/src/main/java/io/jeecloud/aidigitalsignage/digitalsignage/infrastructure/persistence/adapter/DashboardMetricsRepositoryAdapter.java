@@ -80,10 +80,14 @@ public class DashboardMetricsRepositoryAdapter implements DashboardMetricsReposi
         
         // Save emotion distribution
         EmotionDistributionEntity emotionEntity = new EmotionDistributionEntity();
+        emotionEntity.setAnger(metrics.getEmotionDistribution().getAnger());
+        emotionEntity.setContempt(metrics.getEmotionDistribution().getContempt());
+        emotionEntity.setDisgust(metrics.getEmotionDistribution().getDisgust());
+        emotionEntity.setFear(metrics.getEmotionDistribution().getFear());
+        emotionEntity.setHappiness(metrics.getEmotionDistribution().getHappiness());
         emotionEntity.setNeutral(metrics.getEmotionDistribution().getNeutral());
-        emotionEntity.setSerious(metrics.getEmotionDistribution().getSerious());
-        emotionEntity.setHappy(metrics.getEmotionDistribution().getHappy());
-        emotionEntity.setSurprised(metrics.getEmotionDistribution().getSurprised());
+        emotionEntity.setSadness(metrics.getEmotionDistribution().getSadness());
+        emotionEntity.setSurprise(metrics.getEmotionDistribution().getSurprise());
         emotionDistributionJpaRepository.save(emotionEntity);
         
         return metrics;
@@ -91,10 +95,11 @@ public class DashboardMetricsRepositoryAdapter implements DashboardMetricsReposi
     
     @Override
     public void deleteAll() {
-        metricsKpiJpaRepository.deleteAll();
-        ageDistributionJpaRepository.deleteAll();
-        genderDistributionJpaRepository.deleteAll();
-        emotionDistributionJpaRepository.deleteAll();
+        metricsKpiJpaRepository.deleteAllInBatch();
+        ageDistributionJpaRepository.deleteAllInBatch();
+        genderDistributionJpaRepository.deleteAllInBatch();
+        emotionDistributionJpaRepository.deleteAllInBatch();
+        metricsKpiJpaRepository.flush();
     }
 
     private DashboardMetrics.AgeDistribution mapAgeDistribution(AgeDistributionEntity entity) {
@@ -116,10 +121,14 @@ public class DashboardMetricsRepositoryAdapter implements DashboardMetricsReposi
 
     private DashboardMetrics.EmotionDistribution mapEmotionDistribution(EmotionDistributionEntity entity) {
         return DashboardMetrics.EmotionDistribution.builder()
+                .anger(entity.getAnger())
+                .contempt(entity.getContempt())
+                .disgust(entity.getDisgust())
+                .fear(entity.getFear())
+                .happiness(entity.getHappiness())
                 .neutral(entity.getNeutral())
-                .serious(entity.getSerious())
-                .happy(entity.getHappy())
-                .surprised(entity.getSurprised())
+                .sadness(entity.getSadness())
+                .surprise(entity.getSurprise())
                 .build();
     }
 }

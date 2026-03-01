@@ -1,0 +1,36 @@
+# Raspberry Pi 5 Optimized Configuration
+# ARM64, 16GB RAM - Conservative memory settings
+
+server:
+  port:8080
+  tomcat:
+    threads:
+      max: 50          # Reduced from default 200
+      min-spare: 5     # Reduced from default 10
+    max-connections: 2000  # Reduced from default 8192
+    accept-count: 50   # Reduced from default 100
+    connection-timeout: 20000
+
+spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 5     # Reduced from default 10
+      minimum-idle: 2          # Minimum connections
+      connection-timeout: 20000
+      idle-timeout: 300000
+      max-lifetime: 600000
+      
+  jpa:
+    show-sql: false           # Disable SQL logging in production
+    properties:
+      hibernate:
+        format_sql: false
+        jdbc:
+          batch_size: 20      # Batch inserts/updates
+        order_inserts: true
+        order_updates: true
+        
+logging:
+  level:
+    root: WARN               # Reduce log verbosity
+    io.jeecloud.aidigitalsignage: INFO

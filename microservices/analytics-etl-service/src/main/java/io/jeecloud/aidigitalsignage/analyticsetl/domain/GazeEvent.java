@@ -74,4 +74,71 @@ public class GazeEvent {
      * Advertisement being displayed (if available)
      */
     private String adName;
+    
+    // === HEARTBEAT EVENT FIELDS ===
+    
+    /**
+     * Frames per second (from heartbeat events)
+     */
+    private Double fps;
+    
+    /**
+     * CPU temperature in Celsius (from heartbeat events)
+     */
+    private Double cpuTemp;
+    
+    /**
+     * System uptime in seconds (from heartbeat events)
+     */
+    private Long uptime;
+    
+    /**
+     * Ambient temperature in Celsius (from BME688 sensor)
+     */
+    private Double temperature;
+    
+    /**
+     * Humidity percentage (from BME688 sensor)
+     */
+    private Double humidity;
+    
+    /**
+     * Atmospheric pressure in hPa (from BME688 sensor)
+     */
+    private Double pressure;
+    
+    /**
+     * Gas resistance in Ohms (from BME688 sensor)
+     */
+    private Double gasResistance;
+    
+    /**
+     * Noise level in dB (from microphone)
+     */
+    private Double noise;
+    
+    /**
+     * Percentage of valid keypoints (gaze quality)
+     */
+    private Double kptsValidPercent;
+    
+    /**
+     * SolvePnP success percentage (gaze quality)
+     */
+    private Double solvepnpSuccessPercent;
+    
+    /**
+     * Fallback mode percentage (gaze quality)
+     */
+    private Double fallbackPercent;
+    
+    /**
+     * Number of faces detected in frame (from face detection)
+     */
+    private Integer facesInFrame;
+    
+    /**
+     * Face detection confidence (0.0 to 1.0)
+     */
+    private Double faceConfidence;
 }

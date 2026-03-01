@@ -19,15 +19,27 @@ public class EmotionDistributionEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "anger", nullable = false)
+    private Integer anger;
+
+    @Column(name = "contempt", nullable = false)
+    private Integer contempt;
+
+    @Column(name = "disgust", nullable = false)
+    private Integer disgust;
+
+    @Column(name = "fear", nullable = false)
+    private Integer fear;
+
+    @Column(name = "happiness", nullable = false)
+    private Integer happiness;
+
     @Column(name = "neutral", nullable = false)
     private Integer neutral;
 
-    @Column(name = "serious", nullable = false)
-    private Integer serious;
+    @Column(name = "sadness", nullable = false)
+    private Integer sadness;
 
-    @Column(name = "happy", nullable = false)
-    private Integer happy;
-
-    @Column(name = "surprised", nullable = false)
-    private Integer surprised;
+    @Column(name = "surprise", nullable = false)
+    private Integer surprise;
 }

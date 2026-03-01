@@ -79,7 +79,7 @@ Write-Host "`n╔═════════════════════
 Write-Host "║           ✅ ALL TESTS PASSED - SYSTEM OPERATIONAL           ║" -ForegroundColor Green
 Write-Host "╚══════════════════════════════════════════════════════════════╝" -ForegroundColor Green
 
-Write-Host "`n📊 Access Points:" -ForegroundColor Cyan
+Write-Host "`nAccess Points:" -ForegroundColor Cyan
 Write-Host "   Dashboard:      http://localhost:5174" -ForegroundColor White
 Write-Host "   Backend API:    http://localhost:8080/api/dashboard/overview" -ForegroundColor White
 Write-Host "   SQLite Browser: http://localhost:3000" -ForegroundColor White

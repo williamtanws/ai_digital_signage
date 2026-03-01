@@ -1,11 +1,10 @@
 package io.jeecloud.aidigitalsignage.digitalsignage.application.service;
 
+import io.jeecloud.aidigitalsignage.digitalsignage.application.dto.SystemHealthDto;
+import io.jeecloud.aidigitalsignage.digitalsignage.application.dto.ResearchMetricsDto;
 import io.jeecloud.aidigitalsignage.digitalsignage.application.dto.UpdateAnalyticsRequest;
 import io.jeecloud.aidigitalsignage.digitalsignage.application.port.in.UpdateAnalyticsUseCase;
-import io.jeecloud.aidigitalsignage.digitalsignage.domain.Advertisement;
-import io.jeecloud.aidigitalsignage.digitalsignage.domain.AdvertisementRepository;
-import io.jeecloud.aidigitalsignage.digitalsignage.domain.DashboardMetrics;
-import io.jeecloud.aidigitalsignage.digitalsignage.domain.DashboardMetricsRepository;
+import io.jeecloud.aidigitalsignage.digitalsignage.domain.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -27,6 +26,8 @@ public class AnalyticsCommandService implements UpdateAnalyticsUseCase {
     
     private final DashboardMetricsRepository dashboardMetricsRepository;
     private final AdvertisementRepository advertisementRepository;
+    private final SystemHealthRepository systemHealthRepository;
+    private final ResearchMetricsRepository researchMetricsRepository;
     
     /**
      * Update all analytics data (clear and replace)
@@ -58,6 +59,21 @@ public class AnalyticsCommandService implements UpdateAnalyticsUseCase {
                     .collect(Collectors.toList());
             
             advertisementRepository.saveAll(advertisements);
+            
+            // Step 4: Save system health (if provided)
+            if (request.getSystemHealth() != null) {
+                SystemHealth systemHealth = mapToSystemHealth(request.getSystemHealth());
+                systemHealthRepository.save(systemHealth);
+                log.debug("Saved system health metrics");
+            }
+            
+            // Step 5: Save research metrics (if provided)
+            if (request.getResearchMetrics() != null) {
+                ResearchMetrics researchMetrics = mapToResearchMetrics(request.getResearchMetrics());
+                researchMetricsRepository.save(researchMetrics);
+                log.debug("Saved research metrics");
+            }
+            
             log.info("Successfully updated analytics: {} dashboard metrics, {} ads", 
                     1, advertisements.size());
             
@@ -85,10 +101,14 @@ public class AnalyticsCommandService implements UpdateAnalyticsUseCase {
                 .build();
         
         DashboardMetrics.EmotionDistribution emotionDistribution = DashboardMetrics.EmotionDistribution.builder()
+                .anger(dto.getAnger())
+                .contempt(dto.getContempt())
+                .disgust(dto.getDisgust())
+                .fear(dto.getFear())
+                .happiness(dto.getHappiness())
                 .neutral(dto.getNeutral())
-                .serious(dto.getSerious())
-                .happy(dto.getHappy())
-                .surprised(dto.getSurprised())
+                .sadness(dto.getSadness())
+                .surprise(dto.getSurprise())
                 .build();
         
         return DashboardMetrics.builder()
@@ -99,6 +119,109 @@ public class AnalyticsCommandService implements UpdateAnalyticsUseCase {
                 .ageDistribution(ageDistribution)
                 .genderDistribution(genderDistribution)
                 .emotionDistribution(emotionDistribution)
+                .build();
+    }
+    
+    /**
+     * Map SystemHealthDto to domain entity
+     */
+    private SystemHealth mapToSystemHealth(SystemHealthDto dto) {
+        return SystemHealth.builder()
+                .status(dto.getStatus())
+                .performance(mapToPerformanceMetrics(dto.getPerformance()))
+                .environment(mapToEnvironmentMetrics(dto.getEnvironment()))
+                .uptime(dto.getUptime())
+                .build();
+    }
+    
+    private SystemHealth.PerformanceMetrics mapToPerformanceMetrics(SystemHealthDto.PerformanceMetricsDto dto) {
+        if (dto == null) return null;
+        return SystemHealth.PerformanceMetrics.builder()
+                .currentFps(dto.getCurrentFps())
+                .avgFps(dto.getAvgFps())
+                .minFps(dto.getMinFps())
+                .maxFps(dto.getMaxFps())
+                .currentCpuTemp(dto.getCurrentCpuTemp())
+                .maxCpuTemp(dto.getMaxCpuTemp())
+                .cpuThreshold(dto.getCpuThreshold())
+                .build();
+    }
+    
+    private SystemHealth.EnvironmentMetrics mapToEnvironmentMetrics(SystemHealthDto.EnvironmentMetricsDto dto) {
+        if (dto == null) return null;
+        return SystemHealth.EnvironmentMetrics.builder()
+                .temperatureCelsius(dto.getTemperatureCelsius())
+                .humidityPercent(dto.getHumidityPercent())
+                .pressureHpa(dto.getPressureHpa())
+                .gasResistanceOhms(dto.getGasResistanceOhms())
+                .noiseDb(dto.getNoiseDb())
+                .build();
+    }
+    
+    /**
+     * Map ResearchMetricsDto to domain entity
+     */
+    private ResearchMetrics mapToResearchMetrics(ResearchMetricsDto dto) {
+        return ResearchMetrics.builder()
+                .faceDetection(mapToFaceDetection(dto.getFaceDetection()))
+                .gazeQuality(mapToGazeQuality(dto.getGazeQuality()))
+                .comparison(mapToComparison(dto.getComparison()))
+                .build();
+    }
+    
+    private ResearchMetrics.FaceDetectionMetrics mapToFaceDetection(ResearchMetricsDto.FaceDetectionMetricsDto dto) {
+        if (dto == null) return null;
+        return ResearchMetrics.FaceDetectionMetrics.builder()
+                .accuracy(dto.getAccuracy())
+                .confidence(dto.getConfidence())
+                .framesProcessed(dto.getFramesProcessed())
+                .facesDetected(dto.getFacesDetected())
+                .build();
+    }
+    
+    private ResearchMetrics.GazeQualityMetrics mapToGazeQuality(ResearchMetricsDto.GazeQualityMetricsDto dto) {
+        if (dto == null) return null;
+        return ResearchMetrics.GazeQualityMetrics.builder()
+                .primaryMethodRate(dto.getPrimaryMethodRate())
+                .fallbackMethodRate(dto.getFallbackMethodRate())
+                .avgConfidence(dto.getAvgConfidence())
+                .recommendation(dto.getRecommendation())
+                .build();
+    }
+    
+    private ResearchMetrics.ComparisonMetrics mapToComparison(ResearchMetricsDto.ComparisonMetricsDto dto) {
+        if (dto == null) return null;
+        return ResearchMetrics.ComparisonMetrics.builder()
+                .baseline(mapToBaselineData(dto.getBaseline()))
+                .current(mapToCurrentData(dto.getCurrent()))
+                .improvement(mapToImprovementData(dto.getImprovement()))
+                .build();
+    }
+    
+    private ResearchMetrics.ComparisonMetrics.BaselineData mapToBaselineData(ResearchMetricsDto.ComparisonMetricsDto.BaselineDataDto dto) {
+        if (dto == null) return null;
+        return ResearchMetrics.ComparisonMetrics.BaselineData.builder()
+                .condition(dto.getCondition())
+                .avgEngagement(dto.getAvgEngagement())
+                .period(dto.getPeriod())
+                .build();
+    }
+    
+    private ResearchMetrics.ComparisonMetrics.CurrentData mapToCurrentData(ResearchMetricsDto.ComparisonMetricsDto.CurrentDataDto dto) {
+        if (dto == null) return null;
+        return ResearchMetrics.ComparisonMetrics.CurrentData.builder()
+                .condition(dto.getCondition())
+                .avgEngagement(dto.getAvgEngagement())
+                .period(dto.getPeriod())
+                .build();
+    }
+    
+    private ResearchMetrics.ComparisonMetrics.ImprovementData mapToImprovementData(ResearchMetricsDto.ComparisonMetricsDto.ImprovementDataDto dto) {
+        if (dto == null) return null;
+        return ResearchMetrics.ComparisonMetrics.ImprovementData.builder()
+                .absolute(dto.getAbsolute())
+                .percentage(dto.getPercentage())
+                .significant(dto.getSignificant())
                 .build();
     }
     

@@ -43,4 +43,10 @@ public class DashboardOverviewResponse {
     
     @Schema(description = "Advertisement attention metrics per ad")
     private final List<AdsAttentionDto> adsAttention;
+    
+    @Schema(description = "System health and performance metrics for research validation")
+    private final SystemHealthDto systemHealth;
+    
+    @Schema(description = "Research validation metrics (face detection accuracy, gaze quality, baseline comparison)")
+    private final ResearchMetricsDto researchMetrics;
 }

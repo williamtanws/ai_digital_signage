@@ -1,0 +1,108 @@
+{
+  "dashboardMetrics": {
+    "totalAudience": 798,
+    "totalViews": 1045,
+    "totalAds": 5,
+    "avgViewSeconds": 25.41,
+    "children": 21,
+    "teenagers": 68,
+    "youngAdults": 375,
+    "midAged": 405,
+    "seniors": 176,
+    "male": 501,
+    "female": 544,
+    "anger": 117,
+    "contempt": 96,
+    "disgust": 127,
+    "fear": 118,
+    "happiness": 134,
+    "neutral": 144,
+    "sadness": 111,
+    "surprise": 148
+  },
+  "adMetrics": [
+    {
+      "adName": "salad",
+      "totalViewers": 220,
+      "lookYes": 212,
+      "lookNo": 8
+    },
+    {
+      "adName": "pizza",
+      "totalViewers": 217,
+      "lookYes": 204,
+      "lookNo": 13
+    },
+    {
+      "adName": "burger",
+      "totalViewers": 211,
+      "lookYes": 204,
+      "lookNo": 7
+    },
+    {
+      "adName": "coffee",
+      "totalViewers": 200,
+      "lookYes": 187,
+      "lookNo": 13
+    },
+    {
+      "adName": "breakfast",
+      "totalViewers": 197,
+      "lookYes": 183,
+      "lookNo": 14
+    }
+  ],
+  "systemHealth": {
+    "status": "HEALTHY",
+    "performance": {
+      "currentFps": 9.2,
+      "avgFps": 9.1,
+      "minFps": 8.5,
+      "maxFps": 10.0,
+      "currentCpuTemp": 58.4,
+      "maxCpuTemp": 59.5,
+      "cpuThreshold": 78.0
+    },
+    "environment": {
+      "temperatureCelsius": 31.69,
+      "humidityPercent": 53.66,
+      "pressureHpa": 1002.43,
+      "gasResistanceOhms": 42780.75,
+      "noiseDb": 57.8
+    },
+    "uptime": "48h 23m"
+  },
+  "researchMetrics": {
+    "faceDetection": {
+      "accuracy": 95.6,
+      "confidence": 0.92,
+      "framesProcessed": 1247,
+      "facesDetected": 1192,
+      "qualityRating": "EXCELLENT"
+    },
+    "gazeQuality": {
+      "primaryMethodRate": 0.0,
+      "fallbackMethodRate": 100.0,
+      "avgConfidence": 0.68,
+      "qualityScore": "MEDIUM",
+      "recommendation": "Consider recalibration for improved gaze accuracy"
+    },
+    "comparison": {
+      "baseline": {
+        "condition": "static_signage",
+        "avgEngagement": 8.3,
+        "period": "2026-02-01 to 2026-02-07"
+      },
+      "current": {
+        "condition": "dynamic_signage",
+        "avgEngagement": 25.4,
+        "period": "2026-02-08 to 2026-02-14"
+      },
+      "improvement": {
+        "absolute": 17.1,
+        "percentage": 206.0,
+        "significant": true
+      }
+    }
+  }
+}

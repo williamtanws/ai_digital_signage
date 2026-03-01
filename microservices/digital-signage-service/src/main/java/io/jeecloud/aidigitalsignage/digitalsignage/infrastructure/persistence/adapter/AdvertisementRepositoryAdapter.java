@@ -44,7 +44,8 @@ public class AdvertisementRepositoryAdapter implements AdvertisementRepository {
     
     @Override
     public void deleteAll() {
-        jpaRepository.deleteAll();
+        jpaRepository.deleteAllInBatch();
+        jpaRepository.flush();
     }
 
     private Advertisement toDomain(AdvertisementEntity entity) {

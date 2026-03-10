@@ -22,15 +22,8 @@ export default defineConfig({
     // Reduce chunk size warnings threshold for embedded systems
     chunkSizeWarningLimit: 1000,
     
-    // Optimize for production
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,      // Remove console.logs in production
-        drop_debugger: true,
-        passes: 1                // Single pass to reduce build time
-      }
-    },
+    // Optimize for production using esbuild (faster and built-in)
+    minify: 'esbuild',
     
     // Rollup options for multi-page app
     rollupOptions: {
@@ -41,8 +34,8 @@ export default defineConfig({
       output: {
         // Manual chunking for better caching
         manualChunks: {
-          'vendor': ['vue', 'pinia'],
-          'charts': ['echarts', 'vue-echarts']
+          'vendor': ['vue', 'axios'],
+          'charts': ['chart.js']
         },
         // Smaller chunk size for ARM64
         chunkFileNames: 'assets/[name]-[hash].js',
@@ -79,7 +72,7 @@ export default defineConfig({
   
   // Optimization settings
   optimizeDeps: {
-    include: ['vue', 'pinia', 'echarts'],
+    include: ['vue', 'axios', 'chart.js'],
     exclude: []
   },
   

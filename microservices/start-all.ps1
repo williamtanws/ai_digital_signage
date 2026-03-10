@@ -8,7 +8,7 @@ $env:JAVA_HOME = "C:\Program Files\SapMachine\JDK\21"
 $env:PATH = "$env:JAVA_HOME\bin;$env:PATH"
 
 # Step 1: Verify TDengine
-Write-Host "[1/3] Checking TDengine..." -ForegroundColor Yellow
+Write-Host "[1/4] Checking TDengine..." -ForegroundColor Yellow
 $tdengine = docker ps --filter "name=tdengine-tsdb" --format "{{.Names}}"
 if ($tdengine) {
     Write-Host "  TDengine is running" -ForegroundColor Green
@@ -19,7 +19,7 @@ if ($tdengine) {
 }
 
 # Step 2: Start Backend Service
-Write-Host "`n[2/3] Starting Backend Service..." -ForegroundColor Yellow
+Write-Host "`n[2/4] Starting Backend Service..." -ForegroundColor Yellow
 Write-Host "  Port: 8080" -ForegroundColor Gray
 Write-Host "  Opening in new window..." -ForegroundColor Gray
 
@@ -34,9 +34,29 @@ mvn spring-boot:run
 Start-Process powershell -ArgumentList "-NoExit", "-Command", $backendScript
 
 Write-Host "  Backend starting (allow 30-45 seconds)..." -ForegroundColor Green
+Write-Host "  Waiting for backend to initialize..." -ForegroundColor Gray
+Start-Sleep -Seconds 40
 
-# Step 3: Start Dashboard
-Write-Host "`n[3/3] Starting Dashboard..." -ForegroundColor Yellow
+# Step 3: Start Analytics ETL Service
+Write-Host "`n[3/4] Starting Analytics ETL Service..." -ForegroundColor Yellow
+Write-Host "  Port: 8081" -ForegroundColor Gray
+Write-Host "  Opening in new window..." -ForegroundColor Gray
+
+$etlScript = @"
+cd d:\Development\ai_digital_signage\microservices\analytics-etl-service
+`$env:JAVA_HOME = 'C:\Program Files\SapMachine\JDK\21'
+`$env:PATH = "`$env:JAVA_HOME\bin;`$env:PATH"
+Write-Host 'Starting Analytics ETL Service...' -ForegroundColor Cyan
+Write-Host 'Processing data from TDengine to SQLite (runs every 5 minutes)' -ForegroundColor Gray
+mvn spring-boot:run
+"@
+
+Start-Process powershell -ArgumentList "-NoExit", "-Command", $etlScript
+
+Write-Host "  ETL service starting (continuous processing)..." -ForegroundColor Green
+
+# Step 4: Start Dashboard
+Write-Host "`n[4/4] Starting Dashboard..." -ForegroundColor Yellow
 Write-Host "  Port: 5174" -ForegroundColor Gray
 Write-Host "  Opening in new window..." -ForegroundColor Gray
 
@@ -52,8 +72,8 @@ Write-Host "  Dashboard starting (allow 10-15 seconds)..." -ForegroundColor Gree
 
 # Wait and verify
 Write-Host "`n========================================" -ForegroundColor Cyan
-Write-Host "Waiting 45 seconds for services to initialize..." -ForegroundColor Yellow
-Start-Sleep -Seconds 45
+Write-Host "Waiting 15 seconds for dashboard to initialize..." -ForegroundColor Yellow
+Start-Sleep -Seconds 15
 
 Write-Host "`nVerifying services..." -ForegroundColor Cyan
 
@@ -79,11 +99,22 @@ try {
     Write-Host "STILL STARTING (check dashboard window)" -ForegroundColor Yellow
 }
 
+# Check ETL Service
+Write-Host "ETL Service: " -NoNewline
+try {
+    $etl = Invoke-RestMethod -Uri "http://localhost:8081/actuator/health" -TimeoutSec 3 -ErrorAction Stop
+    Write-Host "READY ($($etl.status))" -ForegroundColor Green
+} catch {
+    Write-Host "STILL STARTING (check ETL window)" -ForegroundColor Yellow
+}
+
 Write-Host "`n========================================" -ForegroundColor Green
 Write-Host "Service URLs:" -ForegroundColor Cyan
-Write-Host "  Dashboard:   http://localhost:5174" -ForegroundColor White
-Write-Host "  Backend API: http://localhost:8080/api/dashboard/overview" -ForegroundColor White
-Write-Host "  Swagger UI:  http://localhost:8080/swagger-ui.html" -ForegroundColor White
+Write-Host "  Dashboard:      http://localhost:5174" -ForegroundColor White
+Write-Host "  Backend API:    http://localhost:8080/api/dashboard/overview" -ForegroundColor White
+Write-Host "  Backend Health: http://localhost:8080/actuator/health" -ForegroundColor White
+Write-Host "  ETL Service:    http://localhost:8081/actuator/health" -ForegroundColor White
+Write-Host "  Swagger UI:     http://localhost:8080/swagger-ui.html" -ForegroundColor White
 Write-Host "`nServices are starting in separate windows" -ForegroundColor Yellow
 Write-Host "Run .\test-flow.ps1 to verify complete system" -ForegroundColor Yellow
 Write-Host "========================================" -ForegroundColor Green

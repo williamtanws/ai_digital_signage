@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+
+# Build output
+dist/
+dist-ssr/
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Scripts
+*.sh
+README.md
+SLIDESHOW.md
+build-pi.sh
+
+# Assets (will be built into dist)
+# Uncomment if assets are too large
+# src/assets/images/
+# src/assets/banners/

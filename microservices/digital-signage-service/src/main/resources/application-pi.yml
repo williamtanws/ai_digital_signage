@@ -2,7 +2,7 @@
 # ARM64, 16GB RAM - Conservative memory settings
 
 server:
-  port:8080
+  port: 8080
   tomcat:
     threads:
       max: 50          # Reduced from default 200

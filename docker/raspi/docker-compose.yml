@@ -1,0 +1,230 @@
+# AI Digital Signage - Raspberry Pi Optimized Docker Compose
+# Designed for Raspberry Pi 4/5 with ARM64 architecture
+# Memory optimized for 4GB+ RAM systems
+
+services:
+  # ===============================================
+  # Time-Series Database - TDengine
+  # ===============================================
+  tdengine:
+    image: tdengine/tdengine:latest
+    container_name: ai-signage-tdengine
+    hostname: tdengine
+    restart: unless-stopped
+    
+    ports:
+      - "6030:6030"   # TDengine native protocol
+      - "6041:6041"   # RESTful API
+      - "6043:6043"   # taosAdapter
+      
+    environment:
+      TZ: Asia/Kuala_Lumpur
+      TAOS_FQDN: tdengine
+      
+    volumes:
+      - tdengine-data:/var/lib/taos
+      - tdengine-log:/var/log/taos
+      
+    networks:
+      - signage-network
+      
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+          cpus: '1.5'
+        reservations:
+          memory: 512M
+          cpus: '0.5'
+    
+    healthcheck:
+      test: ["CMD", "taos", "-s", "show databases;"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+
+  # ===============================================
+  # Analytics ETL Service - Spring Boot
+  # ===============================================
+  analytics-etl-service:
+    build:
+      context: ../../microservices/analytics-etl-service
+      dockerfile: Dockerfile
+      args:
+        JAR_FILE: target/analytics-etl-service-1.0.0-SNAPSHOT.jar
+    
+    # Alternative: Use pre-built JAR with base image
+    # image: eclipse-temurin:21-jre-alpine
+    # volumes:
+    #   - ../../microservices/analytics-etl-service/target/analytics-etl-service-1.0.0-SNAPSHOT.jar:/app/app.jar:ro
+    # command: ["java", "-Xmx384m", "-Xms128m", "-Dspring.profiles.active=pi", "-jar", "/app/app.jar"]
+    
+    container_name: ai-signage-analytics-etl
+    hostname: analytics-etl
+    restart: unless-stopped
+    
+    ports:
+      - "8081:8081"
+      
+    environment:
+      SPRING_PROFILES_ACTIVE: pi
+      JAVA_OPTS: >-
+        -Xmx384m 
+        -Xms128m 
+        -XX:MaxMetaspaceSize=128m 
+        -XX:+UseG1GC 
+        -XX:MaxGCPauseMillis=200 
+        -XX:+UseStringDeduplication
+        -Djava.security.egd=file:/dev/./urandom
+      TZ: Asia/Kuala_Lumpur
+      
+    volumes:
+      - ../../microservices/analytics-etl-service/data:/app/data
+      
+    depends_on:
+      tdengine:
+        condition: service_healthy
+      digital-signage-service:
+        condition: service_healthy
+        
+    networks:
+      - signage-network
+      
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '1.0'
+        reservations:
+          memory: 256M
+          cpus: '0.25'
+    
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8081/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  # ===============================================
+  # Digital Signage Service - Spring Boot + SQLite
+  # ===============================================
+  digital-signage-service:
+    build:
+      context: ../../microservices/digital-signage-service
+      dockerfile: Dockerfile
+      args:
+        JAR_FILE: target/digital-signage-service-1.0.0-SNAPSHOT.jar
+    
+    # Alternative: Use pre-built JAR with base image
+    # image: eclipse-temurin:21-jre-alpine
+    # volumes:
+    #   - ../../microservices/digital-signage-service/target/digital-signage-service-1.0.0-SNAPSHOT.jar:/app/app.jar:ro
+    # command: ["java", "-Xmx448m", "-Xms128m", "-Dspring.profiles.active=pi", "-jar", "/app/app.jar"]
+    
+    container_name: ai-signage-service
+    hostname: signage-service
+    restart: unless-stopped
+    
+    ports:
+      - "8080:8080"
+      
+    environment:
+      SPRING_PROFILES_ACTIVE: pi
+      JAVA_OPTS: >-
+        -Xmx448m 
+        -Xms128m 
+        -XX:MaxMetaspaceSize=128m 
+        -XX:+UseG1GC 
+        -XX:MaxGCPauseMillis=200 
+        -XX:+UseStringDeduplication
+        -Djava.security.egd=file:/dev/./urandom
+      TZ: Asia/Kuala_Lumpur
+      
+    volumes:
+      - signage-data:/app/data
+      
+    networks:
+      - signage-network
+      
+    deploy:
+      resources:
+        limits:
+          memory: 576M
+          cpus: '1.5'
+        reservations:
+          memory: 256M
+          cpus: '0.5'
+    
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  # ===============================================
+  # Digital Signage Dashboard - Vue.js Dev Server
+  # ===============================================
+  digital-signage-dashboard:
+    build:
+      context: ../../microservices/digital-signage-dashboard
+      dockerfile: Dockerfile
+    
+    container_name: ai-signage-dashboard
+    hostname: dashboard
+    restart: unless-stopped
+    
+    ports:
+      - "5173:5173"
+      
+    environment:
+      TZ: Asia/Kuala_Lumpur
+      VITE_API_BASE_URL: http://localhost:8080
+      
+    depends_on:
+      digital-signage-service:
+        condition: service_healthy
+      analytics-etl-service:
+        condition: service_healthy
+        
+    networks:
+      - signage-network
+      
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: '0.5'
+        reservations:
+          memory: 128M
+          cpus: '0.25'
+    
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:5173"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+# ===============================================
+# Networks
+# ===============================================
+networks:
+  signage-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+# ===============================================
+# Volumes
+# ===============================================
+volumes:
+  tdengine-data:
+    driver: local
+  tdengine-log:
+    driver: local
+  signage-data:
+    driver: local

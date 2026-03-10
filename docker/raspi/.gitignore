@@ -1,0 +1,20 @@
+# Environment file with secrets
+.env
+
+# Docker volumes (if using bind mounts)
+data/
+logs/
+
+# Temporary files
+*.log
+*.tmp
+
+# Backup files
+*.backup
+*.bak
+*.tar.gz
+*.zip
+
+# OS files
+.DS_Store
+Thumbs.db

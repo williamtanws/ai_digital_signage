@@ -10,14 +10,16 @@ server:
     max-connections: 1000
     accept-count: 30
 
-# TDengine connection pool optimization
+# TDengine Configuration (Docker service name)
 tdengine:
+  url: jdbc:TAOS-RS://tdengine:6041
   connection:
     max-pool-size: 3   # Small pool for time-series reads
     min-idle: 1
     
-# Digital Signage Service REST client optimization
+# Digital Signage Service Configuration (Docker service name)
 digital-signage-service:
+  url: http://digital-signage-service:8080
   rest:
     connect-timeout: 5000
     read-timeout: 10000

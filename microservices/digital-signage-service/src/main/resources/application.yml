@@ -62,3 +62,16 @@ cors:
   allowed-methods: GET,POST,PUT,DELETE,OPTIONS
   allowed-headers: "*"
   allow-credentials: true
+
+# Actuator Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when-authorized
+  health:
+    defaults:
+      enabled: true

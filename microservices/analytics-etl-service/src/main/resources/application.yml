@@ -30,3 +30,16 @@ logging:
     io.jeecloud.aidigitalsignage.analyticsetl: DEBUG
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+# Actuator Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when-authorized
+  health:
+    defaults:
+      enabled: true

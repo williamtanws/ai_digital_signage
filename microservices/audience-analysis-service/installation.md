@@ -194,7 +194,7 @@ git push origin main
 ---
 
 
-## 9. Useful Git Commands
+## 9. Useful Monitoring Commands
 
 ```bash
 watch -n 2 '
@@ -209,6 +209,25 @@ top -bn1 | grep "Cpu(s)" &&
 echo "---" &&
 echo "Hailo hmon files: $(ls /tmp/hmon_files/ 2>/dev/null | wc -l) active" &&
 dmesg | grep -iE "hailo|oom|killed" | tail -3
+'
+```
+
+```bash
+watch -n 5 '
+echo "=== $(date) ===" &&
+printf "%-20s %s\n" "Kernel:" "$(uname -r)" &&
+printf "%-20s %s\n" "Uptime:" "$(uptime -p)" &&
+printf "%-20s %s\n" "Load Avg:" "$(uptime | awk -F"load average:" "{print \$2}")" &&
+printf "%-20s %s\n" "Temp:" "$(vcgencmd measure_temp)" &&
+printf "%-20s %s\n" "Throttled:" "$(vcgencmd get_throttled)" &&
+echo "---" &&
+free -h | grep -E "Mem|Swap" &&
+echo "---" &&
+printf "%-20s %s\n" "Hailo driver:" "$(modinfo hailo_pci 2>/dev/null | grep "^version" | awk "{print \$2}")" &&
+printf "%-20s %s\n" "Hailo service:" "$(systemctl is-active hailort.service)" &&
+printf "%-20s %s\n" "hmon files:" "$(ls /tmp/hmon_files/ 2>/dev/null | wc -l) active" &&
+echo "---" &&
+journalctl -k --since "5 minutes ago" 2>/dev/null | grep -iE "hailo|oom|vdma|find_vma|warn" | tail -5 || echo "No kernel warnings"
 '
 ```
 

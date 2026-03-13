@@ -30,8 +30,8 @@ sudo apt install -y \
 Create and activate the project virtual environment using system site packages to ensure compatibility with Raspberry Pi camera drivers.
 
 ```bash
-python3 -m venv audience-analysis_env --system-site-packages
-source audience-analysis_env/bin/activate
+python3 -m venv ai_digital_signage_env --system-site-packages
+source ai_digital_signage_env/bin/activate
 ```
 
 Upgrade core Python tooling:
@@ -64,14 +64,14 @@ Register the virtual environment as a Jupyter kernel:
 
 ```bash
 python -m ipykernel install --user \
-  --name=audience-analysis_env \
-  --display-name "Python (audience-analysis_env)"
+  --name=ai_digital_signage_env \
+  --display-name "Python (ai_digital_signage_env)"
 ```
 
 Launch Jupyter Notebook:
 
 ```bash
-source audience-analysis_env/bin/activate
+source ai_digital_signage_env/bin/activate
 jupyter notebook
 ```
 
@@ -189,6 +189,27 @@ sudo i2cdetect -y 1
 git add .
 git commit -m "Initial setup and environment configuration"
 git push origin main
+```
+
+---
+
+
+## 9. Useful Git Commands
+
+```bash
+watch -n 2 '
+printf "%-20s %s\n" "Temp:" "$(vcgencmd measure_temp)" &&
+printf "%-20s %s\n" "Throttled:" "$(vcgencmd get_throttled)" &&
+printf "%-20s %s\n" "Uptime:" "$(uptime -p)" &&
+printf "%-20s %s\n" "Load Avg:" "$(uptime | awk -F"load average:" "{print \$2}")" &&
+echo "---" &&
+free -h | grep -E "Mem|Swap" &&
+echo "---" &&
+top -bn1 | grep "Cpu(s)" &&
+echo "---" &&
+echo "Hailo hmon files: $(ls /tmp/hmon_files/ 2>/dev/null | wc -l) active" &&
+dmesg | grep -iE "hailo|oom|killed" | tail -3
+'
 ```
 
 ---

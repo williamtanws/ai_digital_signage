@@ -11,5 +11,11 @@
  "metadata": {
   "debugger": true
  },
- "kernel_protocol_version": "5.5"
+ "kernel_protocol_version": "5.5",
+  "env": {
+    "HAILO_MONITOR": "1",
+    "GRPC_EXPERIMENTAL_ENABLE_FORK_SUPPORT": "false",
+    "GRPC_POLL_STRATEGY": "poll",
+    "GRPC_SERVER_CHANNEL_ARGS": "grpc.max_concurrent_rpcs=1"
+  }
 }

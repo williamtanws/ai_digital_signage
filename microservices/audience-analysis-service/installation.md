@@ -56,6 +56,11 @@ Install additional camera:
 pip install picamera2
 ```
 
+Install degirum token:
+```bash
+degirum token install <TOKEN>
+```
+
 ---
 
 ## 4. Jupyter Notebook Integration
@@ -129,7 +134,18 @@ Apply the changes:
 sudo reboot
 ```
 
+Apply the hardware PCIe fix, this disables PCIe L0s power state entirely — belt-and-suspenders with the software keepalive.
+
 ---
+
+```bash
+sudo nano  /boot/firmware/config.txt:
+```
+
+```ini
+dtparam=pciex1_gen=3
+dtparam=pciex1_no_l0s
+```
 
 ## 7. UPS Auto-Shutdown Setup (X1200 Series)
 
@@ -195,6 +211,10 @@ git push origin main
 
 
 ## 9. Useful Monitoring Commands
+
+```bash
+hailortcli monitor
+```
 
 ```bash
 watch -n 2 '
